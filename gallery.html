@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery — Pickles Friend Group — Pickles Friend Group</title>
+    <meta name="description" content="Browse our collection of photos showcasing the adventures and memories of the Pickles friend group.">
+    <meta name="theme-color" content="#305921">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix for dropdown active link color */
+        .dropdown-content a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            background-color: #f0f0f0;
+        }
+        
+        /* Override the default hover styles for active items */
+        .navbar-links .dropdown:hover .dropdown-content a.active,
+        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+            color: var(--primary-color) !important;
+            background-color: #e0e0e0;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
+                <a href="index.html" class="brand-name">Pickles</a>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="why-choose-us.html" id="nav-about">About Us</a></li>
+                <li><a href="our-services.html" id="nav-activities">Activities</a></li>
+                <li><a href="testimonials.html" id="nav-stories">Stories</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" class="active" id="nav-friends">Friends</a>
+                    <div class="dropdown-content">
+                        <a href="noah-perkins.html">Noah Perkins</a>
+                        <a href="chance-wiese.html">Chance Wiese</a>
+                        <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                        <a href="abbie-barker.html">Abbie Barker</a>
+                        <a href="konner-clawson.html">Konner Clawson</a>
+                        <a href="mckenly-day.html">McKenly Day</a>
+                        <a href="spencer-nay.html">Spencer Nay</a>
+                        <a href="ridge-poll.html">Ridge Poll</a>
+                        <a href="grace-richardson.html">Grace Richardson</a>
+                        <a href="julia-wasden.html">Julia Wasden</a>
+                        <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                        <a href="garrett-otto.html">Garrett Otto</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="gallery-section">
+        <div class="gallery-header">
+            <h1><i class="fas fa-camera"></i> Photo Gallery</h1>
+            <p class="gallery-intro">Browse through our collection of memories and adventures. Each photo tells a story of friendship, fun, and unforgettable moments.</p>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-filter">
+                <h3>Filter by Category:</h3>
+                <div class="filter-buttons">
+                    <input type="radio" id="all" name="gallery-filter" class="filter-input" checked>
+                    <label for="all" class="filter-btn">All Photos</label>
+                    
+                    <input type="radio" id="outdoor" name="gallery-filter" class="filter-input">
+                    <label for="outdoor" class="filter-btn">Outdoor Adventures</label>
+                    
+                    <input type="radio" id="sports" name="gallery-filter" class="filter-input">
+                    <label for="sports" class="filter-btn">Sports</label>
+                    
+                    <input type="radio" id="social" name="gallery-filter" class="filter-input">
+                    <label for="social" class="filter-btn">Social Events</label>
+                    
+                    <input type="radio" id="travel" name="gallery-filter" class="filter-input">
+                    <label for="travel" class="filter-btn">Travel</label>
+                </div>
+            </div>
+
+            <div class="gallery-grid">
+            <div class="gallery-item outdoor-item">
+                <img src="assets/images/photo1.jpg" alt="Hiking adventure">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Hiking Adventure</h3>
+                        <p>Summer 2024</p>
+                        <span class="gallery-tag">Outdoor Adventures</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item sports-item">
+                <img src="assets/images/photo2.jpg" alt="Pickleball tournament">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Pickleball Tournament</h3>
+                        <p>Spring 2024</p>
+                        <span class="gallery-tag">Sports</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item social-item">
+                <img src="assets/images/photo3.jpg" alt="Birthday celebration">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Birthday Celebration</h3>
+                        <p>Winter 2023</p>
+                        <span class="gallery-tag">Social Events</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item social-item">
+                <img src="assets/images/photo4.jpg" alt="Game night">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Game Night</h3>
+                        <p>Fall 2023</p>
+                        <span class="gallery-tag">Social Events</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item travel-item">
+                <img src="assets/images/photo5.jpg" alt="Road trip to Yellowstone">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Yellowstone Road Trip</h3>
+                        <p>Summer 2023</p>
+                        <span class="gallery-tag">Travel</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item outdoor-item">
+                <img src="assets/images/photo6.jpg" alt="Camping trip">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Camping Trip</h3>
+                        <p>Spring 2023</p>
+                        <span class="gallery-tag">Outdoor Adventures</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item sports-item">
+                <img src="assets/images/photo7.jpg" alt="Volleyball match">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Volleyball Match</h3>
+                        <p>Summer 2023</p>
+                        <span class="gallery-tag">Sports</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item outdoor-item">
+                <img src="assets/images/photo8.jpg" alt="Campfire night">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Campfire Night</h3>
+                        <p>Fall 2022</p>
+                        <span class="gallery-tag">Outdoor Adventures</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item travel-item">
+                <img src="assets/images/photo9.jpg" alt="Mountain hike">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Mountain Hike</h3>
+                        <p>Summer 2022</p>
+                        <span class="gallery-tag">Travel</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item social-item">
+                <img src="assets/images/photo10.jpg" alt="Holiday party">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Holiday Party</h3>
+                        <p>Winter 2022</p>
+                        <span class="gallery-tag">Social Events</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item sports-item">
+                <img src="assets/images/photo11.jpg" alt="Frisbee in the park">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Frisbee in the Park</h3>
+                        <p>Spring 2022</p>
+                        <span class="gallery-tag">Sports</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item travel-item">
+                <img src="assets/images/photo12.jpg" alt="Beach day">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Beach Day</h3>
+                        <p>Summer 2021</p>
+                        <span class="gallery-tag">Travel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-cta">
+            <h2><i class="fas fa-heart"></i> Share Your Memories</h2>
+            <p>Have photos from our adventures together? Share them with the group and we'll add them to our gallery!</p>
+            <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+    </main>
+
+        <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
+                <h3><a href="index.html">Pickles</a></h3>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Pickles. All rights reserved.</p>
+                <p>A group of friends, endless adventures</p>
+            </div>
+
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="why-choose-us.html">About</a>
+            <a href="our-services.html">Activities</a>
+            <a href="testimonials.html">Stories</a>
+            <a href="contact.html">Friends</a>
+        </div>
+    </footer>
+</body>
+</html>
+

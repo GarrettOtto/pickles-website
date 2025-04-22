@@ -4,11 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonials — Pickles</title>
+    <title>Friend Stories — Pickles Friend Group — Pickles Friend Group</title>
+    <meta name="description" content="Read what our friends have to say about their experiences with the Pickles group.">
+    <meta name="theme-color" content="#305921">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix for dropdown active link color */
+        .dropdown-content a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            background-color: #f0f0f0;
+        }
+        
+        /* Override the default hover styles for active items */
+        .navbar-links .dropdown:hover .dropdown-content a.active,
+        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+            color: var(--primary-color) !important;
+            background-color: #e0e0e0;
+        }
+        
+        /* Updated testimonial card styles */
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .testimonial-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
 </head>
 <body>
     <header class="main-header">
@@ -18,67 +62,114 @@
                 <a href="index.html" class="brand-name">Pickles</a>
             </div>
             <ul class="navbar-links">
-                <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                <li class="dropdown"><a href="contact.html">Our Staff ▾</a>
-                    <ul class="dropdown-content">
-                        <li><a href="noah-perkins.html">Noah Perkins</a></li>
-                        <li><a href="chance-wiese.html">Chance Wiese</a></li>
-                        <li><a href="ashlyn-hall.html">Ashlyn Hall</a></li>
-                        <li><a href="abbie-barker.html">Abbie Barker</a></li>
-                        <li><a href="konner-clawson.html">Konner Clawson</a></li>
-                        <li><a href="mckenly-day.html">McKenly Day</a></li>
-                        <li><a href="spencer-nay.html">Spencer Nay</a></li>
-                        <li><a href="ridge-poll.html">Ridge Poll</a></li>
-                        <li><a href="grace-richardson.html">Grace Richardson</a></li>
-                        <li><a href="julia-wasden.html">Julia Wasden</a></li>
-                        <li><a href="abby-bartholomew.html">Abby Bartholomew</a></li>
-                        <li><a href="garrett-otto.html">Garrett Otto</a></li>
-                    </ul>
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="why-choose-us.html" id="nav-about">About Us</a></li>
+                <li><a href="our-services.html" id="nav-activities">Activities</a></li>
+                <li><a href="testimonials.html" class="active" id="nav-stories">Stories</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" id="nav-friends">Friends</a>
+                    <div class="dropdown-content">
+                        <a href="noah-perkins.html">Noah Perkins</a>
+                        <a href="chance-wiese.html">Chance Wiese</a>
+                        <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                        <a href="abbie-barker.html">Abbie Barker</a>
+                        <a href="konner-clawson.html">Konner Clawson</a>
+                        <a href="mckenly-day.html">McKenly Day</a>
+                        <a href="spencer-nay.html">Spencer Nay</a>
+                        <a href="ridge-poll.html">Ridge Poll</a>
+                        <a href="grace-richardson.html">Grace Richardson</a>
+                        <a href="julia-wasden.html">Julia Wasden</a>
+                        <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                        <a href="garrett-otto.html">Garrett Otto</a>
+                    </div>
                 </li>
-                <li><a href="our-services.html">Our Services</a></li>
-                <li><a href="testimonials.html" class="active">Testimonials</a></li>
             </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
+
     <main class="section testimonials-section">
-        <h2>What People Are Saying</h2>
-
-        <div class="testimonial-card">
-            <p class="quote">“Pickles captures the essence of friendship in every frame. Browsing their images feels like paging through a beautifully crafted adventure journal.”</p>
-            <p class="author">— Olivia R., Boulder, CO</p>
+        <div class="testimonials-header">
+            <h1><i class="fas fa-quote-left"></i> Friend Stories</h1>
+            <p class="testimonials-intro">Here's what our amazing friends have to say about their experiences with our group. Each story represents a unique perspective on our shared adventures and memories.</p>
         </div>
 
-        <div class="testimonial-card">
-            <p class="quote">“The stories behind each photo inspire me to explore more and notice the magic in everyday moments.”</p>
-            <p class="author">— Marcus A., Portland, OR</p>
-        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="quote"><i class="fas fa-quote-left quote-icon"></i> That weekend camping trip to Moab was unforgettable! From stargazing to rock climbing, and especially that epic game of Spikeball at sunset. These are the moments that make our friendship so special.</p>
+                    <p class="author">— Noah Perkins</p>
+                    <div class="testimonial-tag">Outdoor Adventure</div>
+                </div>
+            </div>
 
-        <div class="testimonial-card">
-            <p class="quote">“I stumbled upon Pickles while planning a road trip. Their imagery and captions convinced me to take the scenic route—and it was worth every mile.”</p>
-            <p class="author">— Priya S., Austin, TX</p>
-        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="quote"><i class="fas fa-quote-left quote-icon"></i> Our weekly pickleball tournaments have become the highlight of my week. The competitive spirit, the laughter, and even Chance's questionable line calls - I wouldn't change any of it!</p>
+                    <p class="author">— Grace Richardson</p>
+                    <div class="testimonial-tag">Sports</div>
+                </div>
+            </div>
 
-        <div class="testimonial-card">
-            <p class="quote">“The warmth and authenticity of this collective radiate off the screen. It feels less like a website and more like joining a group of old friends around a campfire.”</p>
-            <p class="author">— Ethan G., Manchester, UK</p>
-        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="quote"><i class="fas fa-quote-left quote-icon"></i> Remember that impromptu road trip to Yellowstone? Six of us packed in one car, singing at the top of our lungs, and stopping at every quirky roadside attraction. Those are the adventures that make life amazing.</p>
+                    <p class="author">— Ashlyn Hall</p>
+                    <div class="testimonial-tag">Road Trip</div>
+                </div>
+            </div>
 
-        <div class="testimonial-card">
-            <p class="quote">“From soft sunrise hues to star‑strewn skies, their photographs remind me why I fell in love with travel photography in the first place.”</p>
-            <p class="author">— Sofia L., Barcelona, ES</p>
-        </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="quote"><i class="fas fa-quote-left quote-icon"></i> Game nights at Spencer's place have become legendary. Whether we're playing Catan, Codenames, or just sharing stories, it's always a blast. Plus, McKenly's snack game is unmatched!</p>
+                    <p class="author">— Konner Clawson</p>
+                    <div class="testimonial-tag">Game Night</div>
+                </div>
+            </div>
 
-        <div class="testimonial-card">
-            <p class="quote">“Each update rekindles my sense of wonder. I look forward to every new post.”</p>
-            <p class="author">— Jackson K., Sydney, AU</p>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="quote"><i class="fas fa-quote-left quote-icon"></i> I love how our group pushes each other to try new things. From learning photography to trying rock climbing, we've all grown so much together. Can't wait for our next adventure!</p>
+                    <p class="author">— Julia Wasden</p>
+                    <div class="testimonial-tag">Personal Growth</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="quote"><i class="fas fa-quote-left quote-icon"></i> The best part about our friend group? No matter how busy life gets, we always make time for each other. Whether it's a quick coffee catch-up or a weekend adventure, these moments keep us connected.</p>
+                    <p class="author">— Ridge Poll</p>
+                    <div class="testimonial-tag">Friendship</div>
+                </div>
+            </div>
         </div>
+        
+
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; <span id="year"></span> Pickles. All rights reserved.</p>
-    </footer>
+        <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
+                <h3><a href="index.html">Pickles</a></h3>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Pickles. All rights reserved.</p>
+                <p>A group of friends, endless adventures</p>
+            </div>
 
-    <script src="assets/script.js"></script>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="why-choose-us.html">About</a>
+            <a href="our-services.html">Activities</a>
+            <a href="testimonials.html">Stories</a>
+            <a href="contact.html">Friends</a>
+        </div>
+    </footer>
 </body>
 </html>
+

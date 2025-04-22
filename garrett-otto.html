@@ -1,54 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Garrett Otto — Pickles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garrett Otto — Pickles Friend Group — Pickles Friend Group</title>
+    <meta name="description" content="Meet Garrett Otto, a valued member of the Pickles friend group.">
+    <meta name="theme-color" content="#305921">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix for dropdown active link color */
+        .dropdown-content a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            background-color: #f0f0f0;
+        }
+        
+        /* Override the default hover styles for active items */
+        .navbar-links .dropdown:hover .dropdown-content a.active,
+        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+            color: var(--primary-color) !important;
+            background-color: #e0e0e0;
+        }
+        
+        /* Social Media Section Styles */
+        .social-media-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .social-media-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+            opacity: 0.9;
+        }
+        
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .instagram-btn { background-color: #E1306C; }
+        .linkedin-btn { background-color: #0077B5; }
+        .github-btn { background-color: #333333; }
+        .vsco-btn { background-color: #000000; }
+        
+        @media (max-width: 768px) {
+            .social-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .social-btn {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
 </head>
 <body>
-  <header class="main-header">
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
-        <a href="index.html" class="brand-name">Pickles</a>
-      </div>
-      <ul class="navbar-links">
-        <li class="dropdown"><a href="contact.html">Our Staff ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="noah-perkins.html">Noah Perkins</a></li>
-            <li><a href="chance-wiese.html">Chance Wiese</a></li>
-            <li><a href="ashlyn-hall.html">Ashlyn Hall</a></li>
-            <li><a href="abbie-barker.html">Abbie Barker</a></li>
-            <li><a href="konner-clawson.html">Konner Clawson</a></li>
-            <li><a href="mckenly-day.html">McKenly Day</a></li>
-            <li><a href="spencer-nay.html">Spencer Nay</a></li>
-            <li><a href="ridge-poll.html">Ridge Poll</a></li>
-            <li><a href="grace-richardson.html">Grace Richardson</a></li>
-            <li><a href="julia-wasden.html">Julia Wasden</a></li>
-            <li><a href="abby-bartholomew.html">Abby Bartholomew</a></li>
-            <li><a href="garrett-otto.html" class="active">Garrett Otto</a></li>
-          </ul>
-        </li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="why-choose-us.html">Why Choose Us</a></li>
-        <li><a href="our-services.html">Our Services</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
+                <a href="index.html" class="brand-name">Pickles</a>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="why-choose-us.html" id="nav-about">About Us</a></li>
+                <li><a href="our-services.html" id="nav-activities">Activities</a></li>
+                <li><a href="testimonials.html" id="nav-stories">Stories</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" class="active" id="nav-friends">Friends</a>
+                    <div class="dropdown-content">
+                        <a href="noah-perkins.html">Noah Perkins</a>
+                        <a href="chance-wiese.html">Chance Wiese</a>
+                        <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                        <a href="abbie-barker.html">Abbie Barker</a>
+                        <a href="konner-clawson.html">Konner Clawson</a>
+                        <a href="mckenly-day.html">McKenly Day</a>
+                        <a href="spencer-nay.html">Spencer Nay</a>
+                        <a href="ridge-poll.html">Ridge Poll</a>
+                        <a href="grace-richardson.html">Grace Richardson</a>
+                        <a href="julia-wasden.html">Julia Wasden</a>
+                        <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                        <a href="garrett-otto.html" class="active">Garrett Otto</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
 
-  <main class="section about-section">
-    <h2>Meet Garrett Otto</h2>
-    <img src="assets/images/staff%20images/garrett-otto.png" alt="Garrett Otto" class="staff-img" style="margin:20px auto 30px;display:block;width:160px;height:160px;border-radius:50%;object-fit:cover;">
-    <p>Garrett is Pickle Gallery’s resident tinkerer and gear innovator. With fifteen years in mechanical design, he custom‑builds lightweight camera rigs, weatherproof lens housings, and collapsible tripods that withstand extreme conditions. Garrett’s workshop resembles a mad scientist’s lab—3D printers hum alongside laser cutters, while sketches of experimental optics cover the walls. He revels in troubleshooting: if a piece of gear fails mid‑shoot, Garrett conjures a fix with duct tape and ingenuity. His product‑testing vlogs have garnered a cult following among adventure photographers eager to hack their own solutions. Garrett’s credo: invent the tools your imagination requires.<br><br></p>
+
+  <main class="section staff-profile">
+    <div class="profile-header">
+      <h1>Meet Garrett Otto</h1>
+      <div class="profile-image-wrapper">
+        <img src="assets/images/staff%20images/garrett-otto.png" alt="Garrett Otto" class="staff-img">
+      </div>
+    </div>
+    <div class="profile-content">
+      <p>Hey there! I'm Garrett, one of the original members of the Pickles crew. When I'm not hanging out with this amazing group of friends, you can usually find me tinkering with tech or planning our next adventure.</p>
+      <div class="profile-details">
+        <div class="detail-item">
+          <h3><i class="fas fa-user"></i> About Me</h3>
+          <p>I'm a tech enthusiast and adventure seeker who loves bringing new ideas to life. Whether it's organizing group activities or finding creative solutions to problems, I'm always up for a challenge!</p>
+        </div>
+        <div class="detail-item">
+          <h3><i class="fas fa-star"></i> Fun Facts</h3>
+          <ul class="fun-facts">
+            <li><i class="fas fa-gamepad"></i> Avid gamer and tech enthusiast</li>
+            <li><i class="fas fa-mountain"></i> Always up for a new adventure</li>
+            <li><i class="fas fa-users"></i> Love bringing people together</li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile-gallery">
+        <h3><i class="fas fa-camera"></i> Recent Adventures</h3>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="assets/images/photo3.jpg" alt="Hiking adventure">
+            <div class="photo-overlay">
+              <span>Mountain Hike</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="assets/images/photo5.jpg" alt="Game night">
+            <div class="photo-overlay">
+              <span>Game Night</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-media-section">
+        <h3><i class="fas fa-share-alt"></i> Get in Touch</h3>
+        <div class="social-links">
+          <a href="#" class="social-btn instagram-btn"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#" class="social-btn linkedin-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#" class="social-btn github-btn"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" class="social-btn vsco-btn"><i class="fas fa-camera"></i> VSCO</a>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <footer class="main-footer">
-    <p>&copy; <span id="year"></span> Pickles. All rights reserved.</p>
-  </footer>
-  <script src="assets/script.js"></script>
+      <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
+                <h3><a href="index.html">Pickles</a></h3>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Pickles. All rights reserved.</p>
+                <p>A group of friends, endless adventures</p>
+            </div>
+
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="why-choose-us.html">About</a>
+            <a href="our-services.html">Activities</a>
+            <a href="testimonials.html">Stories</a>
+            <a href="contact.html">Friends</a>
+        </div>
+    </footer>
 </body>
 </html>
+

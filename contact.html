@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — Pickles</title>
-    <!-- Google Fonts -->
+    <title>Our Friends — Pickles — Pickles Friend Group</title>
+    <meta name="description" content="Meet the amazing friends that make up the Pickles group - a community of adventurers, creators, and lifelong friends.">
+    <meta name="theme-color" content="#305921">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix for dropdown active link color */
+        .dropdown-content a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            background-color: #f0f0f0;
+        }
+        
+        /* Override the default hover styles for active items */
+        .navbar-links .dropdown:hover .dropdown-content a.active,
+        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+            color: var(--primary-color) !important;
+            background-color: #e0e0e0;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
 </head>
 <body>
     <header class="main-header">
@@ -19,129 +38,161 @@
                 <a href="index.html" class="brand-name">Pickles</a>
             </div>
             <ul class="navbar-links">
-                <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                <li class="dropdown"><a href="contact.html" class="active">Our Staff ▾</a>
-                    <ul class="dropdown-content">
-                        <li><a href="noah-perkins.html">Noah Perkins</a></li>
-                        <li><a href="chance-wiese.html">Chance Wiese</a></li>
-                        <li><a href="ashlyn-hall.html">Ashlyn Hall</a></li>
-                        <li><a href="abbie-barker.html">Abbie Barker</a></li>
-                        <li><a href="konner-clawson.html">Konner Clawson</a></li>
-                        <li><a href="mckenly-day.html">McKenly Day</a></li>
-                        <li><a href="spencer-nay.html">Spencer Nay</a></li>
-                        <li><a href="ridge-poll.html">Ridge Poll</a></li>
-                        <li><a href="grace-richardson.html">Grace Richardson</a></li>
-                        <li><a href="julia-wasden.html">Julia Wasden</a></li>
-                        <li><a href="abby-bartholomew.html">Abby Bartholomew</a></li>
-                        <li><a href="garrett-otto.html">Garrett Otto</a></li>
-                    </ul>
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="why-choose-us.html" id="nav-about">About Us</a></li>
+                <li><a href="our-services.html" id="nav-activities">Activities</a></li>
+                <li><a href="testimonials.html" id="nav-stories">Stories</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" class="active" id="nav-friends">Friends</a>
+                    <div class="dropdown-content">
+                        <a href="noah-perkins.html">Noah Perkins</a>
+                        <a href="chance-wiese.html">Chance Wiese</a>
+                        <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                        <a href="abbie-barker.html">Abbie Barker</a>
+                        <a href="konner-clawson.html">Konner Clawson</a>
+                        <a href="mckenly-day.html">McKenly Day</a>
+                        <a href="spencer-nay.html">Spencer Nay</a>
+                        <a href="ridge-poll.html">Ridge Poll</a>
+                        <a href="grace-richardson.html">Grace Richardson</a>
+                        <a href="julia-wasden.html">Julia Wasden</a>
+                        <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                        <a href="garrett-otto.html">Garrett Otto</a>
+                    </div>
                 </li>
-                <li><a href="our-services.html">Our Services</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
             </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <main class="section contact-section" id="team">
-        <h2>Meet Our Team</h2>
 
-        <!-- Staff Members -->
-        <!-- Assuming files staff1.jpg .. staff11.jpg inside assets/images/staff images/ -->
-
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff1.png" alt="Staff 1" class="staff-img">
-            <div class="staff-info">
-                <h3>Avery Collins — Curatorial Lead</h3>
-                <p>Avery brings a discerning eye to our collection, weaving cohesive visual narratives that celebrate the subtle artistry of everyday life. With years of experience in fine‑art curation, Avery ensures each image resonates with the spirit of discovery and camaraderie that defines Pickle Gallery.</p>
-            </div>
+    <main class="section friends-section" id="friends">
+        <div class="section-header">
+            <h1><i class="fas fa-users"></i> Meet Our Friends</h1>
+            <p class="section-intro">Get to know the amazing people that make up our Pickles community!</p>
         </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff2.png" alt="Staff 2" class="staff-img">
-            <div class="staff-info">
-                <h3>Blake Ramirez — Expedition Photographer</h3>
-                <p>Blake’s lens captures raw adventures, from misty mountain ridges to neon‑lit city streets. An advocate for authentic storytelling, Blake frames moments that remind us why exploration and friendship go hand‑in‑hand.</p>
+        <div class="friends-grid">
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/noah-perkins.jpg" alt="Noah Perkins" class="friend-img">
+                <div class="friend-info">
+                    <h3>Noah Perkins</h3>
+                    <p>The adventurous spirit who's always up for a new challenge. Whether it's organizing pickleball tournaments or planning weekend hikes, Noah brings endless energy to our group.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff3.png" alt="Staff 3" class="staff-img">
-            <div class="staff-info">
-                <h3>Cameron Lee — Technical Director</h3>
-                <p>Cameron orchestrates the behind‑the‑scenes magic that keeps our digital journal running smoothly. From color grading to site optimization, Cameron’s meticulous approach ensures every photograph shines online.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/chance-wiese.jpg" alt="Chance Wiese" class="friend-img">
+                <div class="friend-info">
+                    <h3>Chance Wiese</h3>
+                    <p>Our resident storyteller and joke master. Chance has a way of turning every gathering into an unforgettable memory with his wit and charm.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff4.png" alt="Staff 4" class="staff-img">
-            <div class="staff-info">
-                <h3>Dakota Singh — Storytelling Strategist</h3>
-                <p>Dakota crafts the narratives that accompany our visuals, pairing prose with pixels to evoke emotion and context. Their background in creative writing turns each gallery update into an immersive journey.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/ashlyn-hall.jpg" alt="Ashlyn Hall" class="friend-img">
+                <div class="friend-info">
+                    <h3>Ashlyn Hall</h3>
+                    <p>The creative force behind many of our group's best ideas. Ashlyn's artistic touch and eye for detail make every event special.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff5.png" alt="Staff 5" class="staff-img">
-            <div class="staff-info">
-                <h3>Emerson Clark — Community Liaison</h3>
-                <p>Emerson bridges the gap between Pickle Gallery and its audience, fostering conversations that inspire future expeditions. Their warmth and enthusiasm make every visitor feel part of the adventure.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/abbie-barker.jpg" alt="Abbie Barker" class="friend-img">
+                <div class="friend-info">
+                    <h3>Abbie Barker</h3>
+                    <p>Our sunshine on cloudy days! Abbie's positive attitude and infectious laugh brighten up every gathering.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff6.png" alt="Staff 6" class="staff-img">
-            <div class="staff-info">
-                <h3>Finley Zhao — Visual Archivist</h3>
-                <p>Finley meticulously preserves our ever‑growing archive, ensuring each photo’s metadata, location, and story are catalogued for generations to come.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/konner-clawson.jpg" alt="Konner Clawson" class="friend-img">
+                <div class="friend-info">
+                    <h3>Konner Clawson</h3>
+                    <p>The strategic mind behind our game nights. Konner keeps us all on our toes with his clever plays and friendly competition.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff7.png" alt="Staff 7" class="staff-img">
-            <div class="staff-info">
-                <h3>Harper Bennett — Field Guide</h3>
-                <p>Harper scouts hidden vantage points and off‑the‑beaten‑path locales, turning ordinary trips into frame‑worthy adventures.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/mckenly-day.jpg" alt="McKenly Day" class="friend-img">
+                <div class="friend-info">
+                    <h3>McKenly Day</h3>
+                    <p>Our adventure coordinator extraordinaire. McKenly has a knack for finding the most exciting activities and bringing everyone together.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff8.png" alt="Staff 8" class="staff-img">
-            <div class="staff-info">
-                <h3>Jordan Patel — Lighting Specialist</h3>
-                <p>From golden‑hour glows to star‑studded skies, Jordan’s mastery of natural and artificial light gives our imagery its signature warmth and depth.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/spencer-nay.jpg" alt="Spencer Nay" class="friend-img">
+                <div class="friend-info">
+                    <h3>Spencer Nay</h3>
+                    <p>The tech wizard with a heart of gold. Spencer's innovative ideas keep our group connected and our activities running smoothly.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff9.png" alt="Staff 9" class="staff-img">
-            <div class="staff-info">
-                <h3>Keegan Morales — Post‑Production Artist</h3>
-                <p>Keegan infuses each shot with subtle enhancements, balancing authenticity with aesthetic finesse to keep the Pickle Gallery vibe consistent.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/ridge-poll.jpg" alt="Ridge Poll" class="friend-img">
+                <div class="friend-info">
+                    <h3>Ridge Poll</h3>
+                    <p>Our sports enthusiast and team player. Ridge brings competitive spirit and camaraderie to every game we play.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff10.png" alt="Staff 10" class="staff-img">
-            <div class="staff-info">
-                <h3>Logan O’Connor — Logistics Coordinator</h3>
-                <p>From gear checklists to travel itineraries, Logan orchestrates the practical details that let creativity flourish in the field.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/grace-richardson.jpg" alt="Grace Richardson" class="friend-img">
+                <div class="friend-info">
+                    <h3>Grace Richardson</h3>
+                    <p>The thoughtful planner who makes sure no detail is overlooked. Grace's organizational skills keep our events running perfectly.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="staff-member">
-            <img src="assets/images/staff%20images/staff11.png" alt="Staff 11" class="staff-img">
-            <div class="staff-info">
-                <h3>Morgan Reyes — Brand Visionary</h3>
-                <p>Morgan charts Pickle Gallery’s long‑term vision, uniting aesthetics, mission, and community engagement into a cohesive creative roadmap.</p>
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/julia-wasden.jpg" alt="Julia Wasden" class="friend-img">
+                <div class="friend-info">
+                    <h3>Julia Wasden</h3>
+                    <p>Our creative soul and photography enthusiast. Julia captures the beauty in every moment we share together.</p>
+                </div>
+            </div>
+
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/abby-bartholomew.jpg" alt="Abby Bartholomew" class="friend-img">
+                <div class="friend-info">
+                    <h3>Abby Bartholomew</h3>
+                    <p>The friend who always knows how to make everyone feel included. Abby's warmth and kindness make our group feel like family.</p>
+                </div>
+            </div>
+
+            <div class="friend-card">
+                <img src="assets/images/staff%20images/garrett-otto.jpg" alt="Garrett Otto" class="friend-img">
+                <div class="friend-info">
+                    <h3>Garrett Otto</h3>
+                    <p>Our tech-savvy adventurer who brings both innovation and fun to the group. Garrett's passion for trying new things keeps our activities fresh and exciting.</p>
+                </div>
             </div>
         </div>
 
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; <span id="year"></span> Pickles. All rights reserved.</p>
-    </footer>
+        <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
+                <h3><a href="index.html">Pickles</a></h3>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Pickles. All rights reserved.</p>
+                <p>A group of friends, endless adventures</p>
+            </div>
 
-    <script src="assets/script.js"></script>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="why-choose-us.html">About</a>
+            <a href="our-services.html">Activities</a>
+            <a href="testimonials.html">Stories</a>
+            <a href="contact.html">Friends</a>
+        </div>
+    </footer>
 </body>
 </html>
+

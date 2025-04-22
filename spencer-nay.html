@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spencer Nay — Pickles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spencer Nay — Pickles — Pickles Friend Group</title>
+    <meta name="description" content="Page description goes here.">
+    <meta name="theme-color" content="#305921">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix for dropdown active link color */
+        .dropdown-content a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            background-color: #f0f0f0;
+        }
+        
+        /* Override the default hover styles for active items */
+        .navbar-links .dropdown:hover .dropdown-content a.active,
+        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+            color: var(--primary-color) !important;
+            background-color: #e0e0e0;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
 </head>
 <body>
-  <header class="main-header">
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
-        <a href="index.html" class="brand-name">Pickles</a>
-      </div>
-      <ul class="navbar-links">
-        <li class="dropdown"><a href="contact.html">Our Staff ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="noah-perkins.html">Noah Perkins</a></li>
-            <li><a href="chance-wiese.html">Chance Wiese</a></li>
-            <li><a href="ashlyn-hall.html">Ashlyn Hall</a></li>
-            <li><a href="abbie-barker.html">Abbie Barker</a></li>
-            <li><a href="konner-clawson.html">Konner Clawson</a></li>
-            <li><a href="mckenly-day.html">McKenly Day</a></li>
-            <li><a href="spencer-nay.html" class="active">Spencer Nay</a></li>
-            <li><a href="ridge-poll.html">Ridge Poll</a></li>
-            <li><a href="grace-richardson.html">Grace Richardson</a></li>
-            <li><a href="julia-wasden.html">Julia Wasden</a></li>
-            <li><a href="abby-bartholomew.html">Abby Bartholomew</a></li>
-            <li><a href="garrett-otto.html">Garrett Otto</a></li>
-          </ul>
-        </li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="why-choose-us.html">Why Choose Us</a></li>
-        <li><a href="our-services.html">Our Services</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
+                <a href="index.html" class="brand-name">Pickles</a>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="why-choose-us.html" id="nav-about">About Us</a></li>
+                <li><a href="our-services.html" id="nav-activities">Activities</a></li>
+                <li><a href="testimonials.html" id="nav-stories">Stories</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" class="active" id="nav-friends">Friends</a>
+                    <div class="dropdown-content">
+                        <a href="noah-perkins.html">Noah Perkins</a>
+                        <a href="chance-wiese.html">Chance Wiese</a>
+                        <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                        <a href="abbie-barker.html">Abbie Barker</a>
+                        <a href="konner-clawson.html">Konner Clawson</a>
+                        <a href="mckenly-day.html">McKenly Day</a>
+                        <a href="spencer-nay.html" class="active">Spencer Nay</a>
+                        <a href="ridge-poll.html">Ridge Poll</a>
+                        <a href="grace-richardson.html">Grace Richardson</a>
+                        <a href="julia-wasden.html">Julia Wasden</a>
+                        <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                        <a href="garrett-otto.html">Garrett Otto</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
 
   <main class="section about-section">
     <h2>Meet Spencer Nay</h2>
@@ -46,9 +73,26 @@
     <p>Spencer is Pickle Gallery’s lighting savant, celebrated for transforming mundane settings into cinematic scenes with a single bounce board or lantern. Trained in theatrical stagecraft, he instinctively sculpts highlights and shadows to guide the viewer’s eye. Spencer’s tutorials show how natural reflectors—snowfields, limestone cliffs, ocean foam—can amplify ambient light, minimizing the crew’s environmental footprint. During nocturnal shoots, his ingenuity turns headlamps and campfires into storytelling spotlights. Spencer’s mantra: light shapes mood, and mood shapes memory.<br><br></p>
   </main>
 
-  <footer class="main-footer">
-    <p>&copy; <span id="year"></span> Pickles. All rights reserved.</p>
-  </footer>
-  <script src="assets/script.js"></script>
+      <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
+                <h3><a href="index.html">Pickles</a></h3>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Pickles. All rights reserved.</p>
+                <p>A group of friends, endless adventures</p>
+            </div>
+
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="why-choose-us.html">About</a>
+            <a href="our-services.html">Activities</a>
+            <a href="testimonials.html">Stories</a>
+            <a href="contact.html">Friends</a>
+        </div>
+    </footer>
 </body>
 </html>
+
