@@ -92,23 +92,45 @@
         
         <div class="about-gallery">
             <h2><i class="fas fa-camera"></i> Moments Together</h2>
-            <div class="photo-grid">
-                <div class="photo-item">
-                    <img src="assets/images/photo2.jpg" alt="Friends hiking together">
-                    <div class="photo-overlay">
-                        <span>Mountain Adventures</span>
+            <div class="gallery-carousel">
+                <div class="carousel" id="lightbox-close">
+                    <input type="radio" name="gallery-control" id="gallery-item-1" checked>
+                    <input type="radio" name="gallery-control" id="gallery-item-2">
+                    <input type="radio" name="gallery-control" id="gallery-item-3">
+                    
+                    <!-- Navigation controls that change based on which item is selected -->
+                    <!-- Previous buttons -->
+                    <label for="gallery-item-3" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
+                    <label for="gallery-item-1" class="carousel-prev" id="prev-2"><i class="fas fa-chevron-left"></i></label>
+                    <label for="gallery-item-2" class="carousel-prev" id="prev-3"><i class="fas fa-chevron-left"></i></label>
+                    
+                    <!-- Next buttons -->
+                    <label for="gallery-item-2" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
+                    <label for="gallery-item-3" class="carousel-next" id="next-2"><i class="fas fa-chevron-right"></i></label>
+                    <label for="gallery-item-1" class="carousel-next" id="next-3"><i class="fas fa-chevron-right"></i></label>
+                    
+                    <div class="carousel-items">
+                        <div class="carousel-item" id="item-1">
+                            <a href="#lightbox-1" class="lightbox-trigger">
+                                <img src="assets/images/test.jpg" alt="Moments Together 1">
+                            </a>
+                        </div>
+                        <div class="carousel-item" id="item-2">
+                            <a href="#lightbox-2" class="lightbox-trigger">
+                                <img src="assets/images/test.jpg" alt="Moments Together 2">
+                            </a>
+                        </div>
+                        <div class="carousel-item" id="item-3">
+                            <a href="#lightbox-3" class="lightbox-trigger">
+                                <img src="assets/images/test.jpg" alt="Moments Together 3">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="photo-item">
-                    <img src="assets/images/photo3.jpg" alt="Friends at a picnic">
-                    <div class="photo-overlay">
-                        <span>Summer Gatherings</span>
-                    </div>
-                </div>
-                <div class="photo-item">
-                    <img src="assets/images/photo4.jpg" alt="Friends playing games">
-                    <div class="photo-overlay">
-                        <span>Game Nights</span>
+                    
+                    <div class="carousel-nav">
+                        <label for="gallery-item-1" class="nav-dot">1</label>
+                        <label for="gallery-item-2" class="nav-dot">2</label>
+                        <label for="gallery-item-3" class="nav-dot">3</label>
                     </div>
                 </div>
             </div>
@@ -121,7 +143,35 @@
         </div>
     </main>
 
-        <footer class="main-footer">
+  <!-- Lightbox Gallery -->
+  <div class="lightbox" id="lightbox-1">
+    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+    <a href="#lightbox-3" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+    <div class="lightbox-content">
+      <img src="assets/images/test.jpg" alt="Moments Together 1" class="lightbox-image">
+    </div>
+    <a href="#lightbox-2" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
+  </div>
+
+  <div class="lightbox" id="lightbox-2">
+    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+    <a href="#lightbox-1" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+    <div class="lightbox-content">
+      <img src="assets/images/test.jpg" alt="Moments Together 2" class="lightbox-image">
+    </div>
+    <a href="#lightbox-3" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
+  </div>
+
+  <div class="lightbox" id="lightbox-3">
+    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+    <a href="#lightbox-2" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+    <div class="lightbox-content">
+      <img src="assets/images/test.jpg" alt="Moments Together 3" class="lightbox-image">
+    </div>
+    <a href="#lightbox-1" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
+  </div>
+
+    <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">

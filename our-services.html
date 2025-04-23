@@ -986,18 +986,6 @@
                 </div>
             </div>
 
-            <div class="activity-card" data-category="social">
-                <div class="activity-card-image" style="background-image: url('assets/images/photo1.jpg')">
-                </div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-coffee"></i> Coffee Catchups</h3>
-                    <p>Spontaneous coffee meetups are a staple of our group. Whether it's a quick morning chat or a long afternoon hangout, these casual gatherings keep us connected through busy weeks. Abby always knows the best local spots!</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Abby</span>
-                        <span class="activity-frequency"><i class="fas fa-bolt"></i> Spontaneous</span>
-                    </div>
-                </div>
-            </div>
 
             <div class="activity-card" data-category="social">
                 <div class="activity-card-image" style="background-image: url('assets/images/photo9.jpg')"></div>
@@ -1017,117 +1005,77 @@
                 <p>Memorable moments from our favorite group activities</p>
             </div>
             
-            <div class="highlights-grid">
-                <div class="highlight-item">
-                    <img src="assets/images/photo1.jpg" alt="Hiking Trip Highlight">
-                    <div class="highlight-badge"><i class="fas fa-mountain"></i> Outdoor</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-hiking"></i> Mountain Hiking Trip</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> June 2024</div>
+            <div class="gallery-carousel">
+                <div class="carousel" id="activity-lightbox-close">
+                    <input type="radio" name="gallery-control" id="gallery-item-1" checked>
+                    <input type="radio" name="gallery-control" id="gallery-item-2">
+                    <input type="radio" name="gallery-control" id="gallery-item-3">
+                    
+                    <!-- Navigation controls that change based on which item is selected -->
+                    <!-- Previous buttons -->
+                    <label for="gallery-item-3" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
+                    <label for="gallery-item-1" class="carousel-prev" id="prev-2"><i class="fas fa-chevron-left"></i></label>
+                    <label for="gallery-item-2" class="carousel-prev" id="prev-3"><i class="fas fa-chevron-left"></i></label>
+                    
+                    <!-- Next buttons -->
+                    <label for="gallery-item-2" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
+                    <label for="gallery-item-3" class="carousel-next" id="next-2"><i class="fas fa-chevron-right"></i></label>
+                    <label for="gallery-item-1" class="carousel-next" id="next-3"><i class="fas fa-chevron-right"></i></label>
+                    
+                    <div class="carousel-items">
+                        <div class="carousel-item" id="item-1">
+                            <a href="#activity-lightbox-1" class="lightbox-trigger">
+                                <img src="assets/images/test.jpg" alt="Activity Highlight 1">
+                            </a>
+                        </div>
+                        <div class="carousel-item" id="item-2">
+                            <a href="#activity-lightbox-2" class="lightbox-trigger">
+                                <img src="assets/images/test.jpg" alt="Activity Highlight 2">
+                            </a>
+                        </div>
+                        <div class="carousel-item" id="item-3">
+                            <a href="#activity-lightbox-3" class="lightbox-trigger">
+                                <img src="assets/images/test.jpg" alt="Activity Highlight 3">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-nav">
+                        <label for="gallery-item-1" class="nav-dot">1</label>
+                        <label for="gallery-item-2" class="nav-dot">2</label>
+                        <label for="gallery-item-3" class="nav-dot">3</label>
                     </div>
                 </div>
                 
-                <div class="highlight-item">
-                    <img src="assets/images/photo2.jpg" alt="Game Night Highlight">
-                    <div class="highlight-badge"><i class="fas fa-dice"></i> Social</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-trophy"></i> Game Night Champions</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> May 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo3.jpg" alt="Cooking Class Highlight">
-                    <div class="highlight-badge"><i class="fas fa-utensils"></i> Creative</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-birthday-cake"></i> Baking Competition</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> April 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo4.jpg" alt="Beach Day Highlight">
-                    <div class="highlight-badge"><i class="fas fa-volleyball-ball"></i> Sports</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-umbrella-beach"></i> Beach Volleyball</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> July 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo5.jpg" alt="Stargazing Highlight">
-                    <div class="highlight-badge"><i class="fas fa-moon"></i> Outdoor</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-star"></i> Stargazing Night</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> March 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo6.jpg" alt="Camping Highlight">
-                    <div class="highlight-badge"><i class="fas fa-campground"></i> Outdoor</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-fire"></i> Weekend Camping</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> May 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo7.jpg" alt="Pickleball Tournament">
-                    <div class="highlight-badge"><i class="fas fa-table-tennis"></i> Sports</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-medal"></i> Pickleball Tournament</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> August 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo8.jpg" alt="Movie Night">
-                    <div class="highlight-badge"><i class="fas fa-film"></i> Social</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-couch"></i> Movie Night</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> September 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo9.jpg" alt="Holiday Party">
-                    <div class="highlight-badge"><i class="fas fa-gifts"></i> Social</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-holly-berry"></i> Holiday Party</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> December 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo1.jpg" alt="Kayaking Adventure">
-                    <div class="highlight-badge"><i class="fas fa-water"></i> Outdoor</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-ship"></i> Kayaking Adventure</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> July 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo2.jpg" alt="Art Workshop">
-                    <div class="highlight-badge"><i class="fas fa-palette"></i> Creative</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-paint-brush"></i> Art Workshop</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> October 2024</div>
-                    </div>
-                </div>
-                
-                <div class="highlight-item">
-                    <img src="assets/images/photo3.jpg" alt="Cooking Class">
-                    <div class="highlight-badge"><i class="fas fa-utensils"></i> Creative</div>
-                    <div class="highlight-overlay">
-                        <div class="highlight-title"><i class="fas fa-pizza-slice"></i> Cooking Class</div>
-                        <div class="highlight-date"><i class="fas fa-calendar-alt"></i> November 2024</div>
-                    </div>
-                </div>
             </div>
-            
+        </div>
+        
+        <!-- Activity Lightbox Gallery -->
+        <div class="lightbox" id="activity-lightbox-1">
+            <a href="#activity-lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+            <a href="#activity-lightbox-3" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+            <div class="lightbox-content">
+                <img src="assets/images/test.jpg" alt="Activity Highlight 1" class="lightbox-image">
+            </div>
+            <a href="#activity-lightbox-2" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
+        </div>
 
+        <div class="lightbox" id="activity-lightbox-2">
+            <a href="#activity-lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+            <a href="#activity-lightbox-1" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+            <div class="lightbox-content">
+                <img src="assets/images/test.jpg" alt="Activity Highlight 2" class="lightbox-image">
+            </div>
+            <a href="#activity-lightbox-3" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <div class="lightbox" id="activity-lightbox-3">
+            <a href="#activity-lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+            <a href="#activity-lightbox-2" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+            <div class="lightbox-content">
+                <img src="assets/images/test.jpg" alt="Activity Highlight 3" class="lightbox-image">
+            </div>
+            <a href="#activity-lightbox-1" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
         </div>
         </div> <!-- Closing tag for filter-system -->
     </main>
