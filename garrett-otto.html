@@ -11,6 +11,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Availability Status Styles */
+        .availability-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        .availability-status.available {
+            background-color: #4CAF50;
+        }
+        
+        .availability-status.taken {
+            background-color: #F44336;
+        }
+        
+        .profile-header {
+            position: relative;
+        }
+        
+
+        
+        /* Profile Image Styling */
+        .profile-image-wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 3px solid var(--secondary-color);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-image-wrapper img.staff-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        @media (max-width: 768px) {
+            .availability-status {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .profile-image-wrapper {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
         /* Fix for dropdown active link color */
         .dropdown-content a.active {
             color: var(--primary-color) !important;
@@ -87,6 +148,34 @@
                 justify-content: center;
             }
         }
+        
+        /* How I Joined Section Styles */
+        .how-i-joined-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            grid-column: span 2;
+        }
+        
+        .how-i-joined-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .how-i-joined-section p {
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .how-i-joined-section {
+                grid-column: 1;
+            }
+        }
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -133,8 +222,11 @@
   <main class="section staff-profile">
     <div class="profile-header">
       <h1>Meet Garrett Otto</h1>
+      <div class="availability-status available">
+        <span>Available</span>
+      </div>
       <div class="profile-image-wrapper">
-        <img src="assets/images/staff%20images/garrett-otto.png" alt="Garrett Otto" class="staff-img">
+        <img src="assets/images/staff images/garrett-otto.png" alt="Garrett Otto smiling selfie" class="staff-img" loading="eager" decoding="async">
       </div>
     </div>
     <div class="profile-content">
@@ -152,6 +244,10 @@
             <li><i class="fas fa-users"></i> Love bringing people together</li>
           </ul>
         </div>
+      </div>
+      <div class="how-i-joined-section">
+        <h3><i class="fas fa-book-open"></i> How I Joined</h3>
+        <p>I've been part of the Pickles crew since the very beginning! It all started during freshman year of college when a group of us met in the same dorm building. We clicked instantly over our shared love for adventure and trying new things. One weekend, we decided to go on an impromptu camping trip, and that's when the "Pickles" name was born (it's a funny story involving a jar of pickles and a midnight snack raid). Since then, we've been inseparable, creating memories and embarking on countless adventures together.</p>
       </div>
       <div class="profile-gallery">
         <h3><i class="fas fa-camera"></i> Recent Adventures</h3>
