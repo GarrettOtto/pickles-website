@@ -72,106 +72,449 @@
             <h1><i class="fas fa-users"></i> Meet Our Friends</h1>
             <p class="section-intro">Get to know the amazing people that make up our Pickles community!</p>
         </div>
-
-        <div class="friends-grid">
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/noah-perkins.jpg" alt="Noah Perkins" class="friend-img">
-                <div class="friend-info">
-                    <h3>Noah Perkins</h3>
-                    <p>The adventurous spirit who's always up for a new challenge. Whether it's organizing pickleball tournaments or planning weekend hikes, Noah brings endless energy to our group.</p>
-                </div>
+        
+        <!-- Search and Filter Bar -->
+        <div class="friends-controls">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="friend-search" placeholder="Search friends..." class="friend-search">
             </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/chance-wiese.jpg" alt="Chance Wiese" class="friend-img">
-                <div class="friend-info">
-                    <h3>Chance Wiese</h3>
-                    <p>Our resident storyteller and joke master. Chance has a way of turning every gathering into an unforgettable memory with his wit and charm.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/ashlyn-hall.jpg" alt="Ashlyn Hall" class="friend-img">
-                <div class="friend-info">
-                    <h3>Ashlyn Hall</h3>
-                    <p>The creative force behind many of our group's best ideas. Ashlyn's artistic touch and eye for detail make every event special.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/abbie-barker.jpg" alt="Abbie Barker" class="friend-img">
-                <div class="friend-info">
-                    <h3>Abbie Barker</h3>
-                    <p>Our sunshine on cloudy days! Abbie's positive attitude and infectious laugh brighten up every gathering.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/konner-clawson.jpg" alt="Konner Clawson" class="friend-img">
-                <div class="friend-info">
-                    <h3>Konner Clawson</h3>
-                    <p>The strategic mind behind our game nights. Konner keeps us all on our toes with his clever plays and friendly competition.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/mckenly-day.jpg" alt="McKenly Day" class="friend-img">
-                <div class="friend-info">
-                    <h3>McKenly Day</h3>
-                    <p>Our adventure coordinator extraordinaire. McKenly has a knack for finding the most exciting activities and bringing everyone together.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/spencer-nay.jpg" alt="Spencer Nay" class="friend-img">
-                <div class="friend-info">
-                    <h3>Spencer Nay</h3>
-                    <p>The tech wizard with a heart of gold. Spencer's innovative ideas keep our group connected and our activities running smoothly.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/ridge-poll.jpg" alt="Ridge Poll" class="friend-img">
-                <div class="friend-info">
-                    <h3>Ridge Poll</h3>
-                    <p>Our sports enthusiast and team player. Ridge brings competitive spirit and camaraderie to every game we play.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/grace-richardson.jpg" alt="Grace Richardson" class="friend-img">
-                <div class="friend-info">
-                    <h3>Grace Richardson</h3>
-                    <p>The thoughtful planner who makes sure no detail is overlooked. Grace's organizational skills keep our events running perfectly.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/julia-wasden.jpg" alt="Julia Wasden" class="friend-img">
-                <div class="friend-info">
-                    <h3>Julia Wasden</h3>
-                    <p>Our creative soul and photography enthusiast. Julia captures the beauty in every moment we share together.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/abby-bartholomew.jpg" alt="Abby Bartholomew" class="friend-img">
-                <div class="friend-info">
-                    <h3>Abby Bartholomew</h3>
-                    <p>The friend who always knows how to make everyone feel included. Abby's warmth and kindness make our group feel like family.</p>
-                </div>
-            </div>
-
-            <div class="friend-card">
-                <img src="assets/images/staff%20images/garrett-otto.jpg" alt="Garrett Otto" class="friend-img">
-                <div class="friend-info">
-                    <h3>Garrett Otto</h3>
-                    <p>Our tech-savvy adventurer who brings both innovation and fun to the group. Garrett's passion for trying new things keeps our activities fresh and exciting.</p>
+            
+            <div class="filter-container">
+                <div class="filter-label"><i class="fas fa-filter"></i> Filter by:</div>
+                <div class="filter-options">
+                    <label class="filter-option active">
+                        <input type="radio" name="friend-filter" value="all" checked>
+                        <span>All</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="friend-filter" value="founding">
+                        <span>Founding Members</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="friend-filter" value="newest">
+                        <span>Newest Members</span>
+                    </label>
                 </div>
             </div>
         </div>
+        
+        <!-- Friends Grid -->
+        <div class="friends-grid">
+            <!-- Noah Perkins -->
+            <div class="friend-card" data-category="founding">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Noah Perkins" class="friend-img">
+                            <div class="friend-status founding-member">Founding Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Noah Perkins</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-mountain"></i> Adventurer</span>
+                                <span class="friend-tag"><i class="fas fa-volleyball-ball"></i> Sports</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="noah-perkins.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>The adventurous spirit who's always up for a new challenge. Whether it's organizing pickleball tournaments or planning weekend hikes, Noah brings endless energy to our group.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Adventure is worthwhile in itself!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chance Wiese -->
+            <div class="friend-card" data-category="founding">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Chance Wiese" class="friend-img">
+                            <div class="friend-status founding-member">Founding Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Chance Wiese</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-book"></i> Storyteller</span>
+                                <span class="friend-tag"><i class="fas fa-laugh"></i> Comedian</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="chance-wiese.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>Our resident storyteller and joke master. Chance has a way of turning every gathering into an unforgettable memory with his wit and charm.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Life's too short not to laugh every day!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ashlyn Hall -->
+            <div class="friend-card" data-category="founding">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Ashlyn Hall" class="friend-img">
+                            <div class="friend-status founding-member">Founding Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Ashlyn Hall</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-paint-brush"></i> Creative</span>
+                                <span class="friend-tag"><i class="fas fa-lightbulb"></i> Innovator</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="ashlyn-hall.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>The creative force behind many of our group's best ideas. Ashlyn's artistic touch and eye for detail make every event special.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Creativity takes courage and friends who appreciate it."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Abbie Barker -->
+            <div class="friend-card" data-category="newest">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Abbie Barker" class="friend-img">
+                            <div class="friend-status new-member">New Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Abbie Barker</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-sun"></i> Optimist</span>
+                                <span class="friend-tag"><i class="fas fa-heart"></i> Supportive</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="abbie-barker.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>Our sunshine on cloudy days! Abbie's positive attitude and infectious laugh brighten up every gathering.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Every day is a good day with the right perspective."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Konner Clawson -->
+            <div class="friend-card" data-category="founding">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Konner Clawson" class="friend-img">
+                            <div class="friend-status founding-member">Founding Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Konner Clawson</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-chess"></i> Strategist</span>
+                                <span class="friend-tag"><i class="fas fa-gamepad"></i> Gamer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="konner-clawson.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>The strategic mind behind our game nights. Konner keeps us all on our toes with his clever plays and friendly competition.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"In games and in life, strategy matters, but friends matter more."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- McKenly Day -->
+            <div class="friend-card" data-category="newest">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="McKenly Day" class="friend-img">
+                            <div class="friend-status new-member">New Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>McKenly Day</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-compass"></i> Explorer</span>
+                                <span class="friend-tag"><i class="fas fa-calendar-alt"></i> Organizer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="mckenly-day.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>Our adventure coordinator extraordinaire. McKenly has a knack for finding the most exciting activities and bringing everyone together.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"The best adventures are the ones shared with friends."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Spencer Nay -->
+            <div class="friend-card" data-category="newest">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Spencer Nay" class="friend-img">
+                            <div class="friend-status new-member">New Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Spencer Nay</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-laptop-code"></i> Tech Guru</span>
+                                <span class="friend-tag"><i class="fas fa-robot"></i> Innovator</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="spencer-nay.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>The tech wizard with a heart of gold. Spencer's innovative ideas keep our group connected and our activities running smoothly.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Technology should bring people together, not keep them apart."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ridge Poll -->
+            <div class="friend-card" data-category="founding">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Ridge Poll" class="friend-img">
+                            <div class="friend-status founding-member">Founding Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Ridge Poll</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-running"></i> Athlete</span>
+                                <span class="friend-tag"><i class="fas fa-users"></i> Team Player</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="ridge-poll.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>Our sports enthusiast and team player. Ridge brings competitive spirit and camaraderie to every game we play.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Winning is fun, but winning with friends is unforgettable."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grace Richardson -->
+            <div class="friend-card" data-category="newest">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Grace Richardson" class="friend-img">
+                            <div class="friend-status new-member">New Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Grace Richardson</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-tasks"></i> Organizer</span>
+                                <span class="friend-tag"><i class="fas fa-clipboard-check"></i> Planner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="grace-richardson.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>The thoughtful planner who makes sure no detail is overlooked. Grace's organizational skills keep our events running perfectly.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Good planning creates great memories."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Julia Wasden -->
+            <div class="friend-card" data-category="newest">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Julia Wasden" class="friend-img">
+                            <div class="friend-status new-member">New Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Julia Wasden</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-camera"></i> Photographer</span>
+                                <span class="friend-tag"><i class="fas fa-palette"></i> Artist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="julia-wasden.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>Our creative soul and photography enthusiast. Julia captures the beauty in every moment we share together.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Life is a collection of moments worth capturing."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Abby Bartholomew -->
+            <div class="friend-card" data-category="newest">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Abby Bartholomew" class="friend-img">
+                            <div class="friend-status new-member">New Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Abby Bartholomew</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-hands-helping"></i> Supportive</span>
+                                <span class="friend-tag"><i class="fas fa-home"></i> Welcoming</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="abby-bartholomew.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>The friend who always knows how to make everyone feel included. Abby's warmth and kindness make our group feel like family.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"True friendship means feeling at home with each other."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Garrett Otto -->
+            <div class="friend-card" data-category="founding">
+                <div class="friend-card-inner">
+                    <div class="friend-card-front">
+                        <div class="friend-image-wrapper">
+                            <img src="assets/images/test.jpg" alt="Garrett Otto" class="friend-img">
+                            <div class="friend-status founding-member">Founding Member</div>
+                        </div>
+                        <div class="friend-brief">
+                            <h3>Garrett Otto</h3>
+                            <div class="friend-tags">
+                                <span class="friend-tag"><i class="fas fa-laptop"></i> Tech Savvy</span>
+                                <span class="friend-tag"><i class="fas fa-hiking"></i> Adventurer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-card-back">
+                        <a href="garrett-otto.html" class="friend-profile-link">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p>Our tech-savvy adventurer who brings both innovation and fun to the group. Garrett's passion for trying new things keeps our activities fresh and exciting.</p>
+                        <div class="friend-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"The best technology enhances our adventures together."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
     </main>
+
+    <!-- JavaScript for Search and Filter Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search functionality
+            const searchInput = document.getElementById('friend-search');
+            const friendCards = document.querySelectorAll('.friend-card');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                friendCards.forEach(card => {
+                    const name = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('.friend-card-back p').textContent.toLowerCase();
+                    const tags = Array.from(card.querySelectorAll('.friend-tag')).map(tag => tag.textContent.toLowerCase());
+                    
+                    // Check if any of the content matches the search term
+                    const isMatch = name.includes(searchTerm) || 
+                                  description.includes(searchTerm) || 
+                                  tags.some(tag => tag.includes(searchTerm));
+                    
+                    // Show or hide the card based on search match
+                    card.style.display = isMatch ? 'block' : 'none';
+                });
+            });
+            
+            // Filter functionality
+            const filterOptions = document.querySelectorAll('.filter-option');
+            
+            filterOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Update active class
+                    filterOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Get selected filter value
+                    const filterValue = this.querySelector('input').value;
+                    
+                    // Filter the cards
+                    friendCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const category = card.getAttribute('data-category');
+                            card.style.display = category === filterValue ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 
         <footer class="main-footer">
         <div class="footer-content">

@@ -357,9 +357,175 @@
           <a href="https://github.com/GarrettOtto" class="social-btn github-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://vsco.co/otto-garrett3/gallery" class="social-btn vsco-btn" target="_blank"><i class="fas fa-camera"></i> VSCO</a>
         </div>
+        
+        <div class="contact-form-section">
+          <div class="form-header">
+            <span class="form-icon"><i class="fas fa-envelope-open-text"></i></span>
+            <h4>Send Me a Message</h4>
+            <p class="form-subtitle">I'll get back to you as soon as possible!</p>
+          </div>
+          
+          <form id="contact-form" class="contact-form">
+            <!-- Name Field -->
+            <div class="form-group floating-label">
+              <input type="text" id="name" name="name" placeholder=" " required>
+              <label for="name">Your Name</label>
+              <span class="input-icon"><i class="fas fa-user"></i></span>
+            </div>
+            
+            <!-- Age Field -->
+            <div class="form-row">
+              <div class="form-group floating-label">
+                <input type="number" id="age" name="age" placeholder=" " min="13" max="120" required>
+                <label for="age">Your Age</label>
+                <span class="input-icon"><i class="fas fa-birthday-cake"></i></span>
+              </div>
+              
+              <!-- Email Field -->
+              <div class="form-group floating-label">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Your Email</label>
+                <span class="input-icon"><i class="fas fa-at"></i></span>
+              </div>
+            </div>
+            
+            <!-- Gender Field (Radio Buttons) -->
+            <div class="form-group radio-group">
+              <label class="group-label"><i class="fas fa-venus-mars"></i> Gender</label>
+              <div class="radio-options">
+                <div class="radio-option">
+                  <input type="radio" id="gender-female" name="gender" value="Female" required>
+                  <label for="gender-female">Female</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="gender-male" name="gender" value="Male">
+                  <label for="gender-male">Male</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Hobbies Field -->
+            <div class="form-group floating-label">
+              <input type="text" id="hobbies" name="hobbies" placeholder=" " required>
+              <label for="hobbies">Your Hobbies</label>
+              <span class="input-icon"><i class="fas fa-hiking"></i></span>
+            </div>
+            
+            <!-- Favorite Song Field -->
+            <div class="form-group floating-label">
+              <input type="text" id="favorite-song" name="favorite_song" placeholder=" " required>
+              <label for="favorite-song">Your Favorite Song</label>
+              <span class="input-icon"><i class="fas fa-music"></i></span>
+            </div>
+            
+            <!-- Socials Field -->
+            <div class="form-group floating-label">
+              <input type="text" id="socials" name="socials" placeholder=" " required>
+              <label for="socials">Your Social Media Handles</label>
+              <span class="input-icon"><i class="fas fa-share-alt"></i></span>
+            </div>
+            
+            <!-- About You Field -->
+            <div class="form-group floating-label textarea-group">
+              <textarea id="about" name="about" rows="3" placeholder=" " required></textarea>
+              <label for="about">Tell Me About You</label>
+              <span class="input-icon textarea-icon"><i class="fas fa-user-circle"></i></span>
+            </div>
+            
+            <div class="form-footer">
+              <div class="form-note">
+                <i class="fas fa-info-circle"></i>
+                <span id="form-status">Send me a message directly</span>
+              </div>
+              <button type="submit" class="btn-primary btn-submit" id="submit-btn">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </main>
+
+  <!-- EmailJS Scripts -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      // Initialize EmailJS with your public key
+      emailjs.init('UWO1amvI6vLW513q9'); // Public Key
+      
+      // Get the form element
+      const form = document.getElementById('contact-form');
+      const statusElement = document.getElementById('form-status');
+      const submitButton = document.getElementById('submit-btn');
+      
+      // Add submit event listener to the form
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Change button state to indicate loading
+        submitButton.disabled = true;
+        submitButton.querySelector('.btn-text').textContent = 'Sending...';
+        statusElement.textContent = 'Sending your message...';
+        statusElement.classList.add('sending');
+        
+        // Get selected gender
+        let selectedGender = '';
+        const genderRadios = document.getElementsByName('gender');
+        for (const radio of genderRadios) {
+          if (radio.checked) {
+            selectedGender = radio.value;
+            break;
+          }
+        }
+        
+        // Prepare the template parameters
+        const templateParams = {
+          name: document.getElementById('name').value,
+          age: document.getElementById('age').value,
+          email: document.getElementById('email').value,
+          gender: selectedGender,
+          hobbies: document.getElementById('hobbies').value,
+          about: document.getElementById('about').value,
+          socials: document.getElementById('socials').value,
+          favorite_song: document.getElementById('favorite-song').value
+        };
+        
+        // Send the email using EmailJS
+        emailjs.send('picklesWebsite', 'template_u8tqdt6', templateParams) // Service ID and Template ID
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            statusElement.classList.remove('sending');
+            statusElement.textContent = 'Message sent successfully!';
+            statusElement.style.color = 'var(--accent-color)';
+            submitButton.querySelector('.btn-text').textContent = 'Message Sent';
+            submitButton.classList.add('success');
+            
+            // Reset the form fields after a delay for better UX
+            setTimeout(() => {
+              form.reset();
+              
+              // Reset the form after 5 seconds for another potential submission
+              setTimeout(() => {
+                statusElement.textContent = 'Send me a message directly';
+                statusElement.style.color = '';
+                submitButton.querySelector('.btn-text').textContent = 'Send Message';
+                submitButton.classList.remove('success');
+                submitButton.disabled = false;
+              }, 5000);
+            }, 1000);
+          }, function(error) {
+            console.log('FAILED...', error);
+            statusElement.classList.remove('sending');
+            statusElement.textContent = 'Failed to send message. Please try again.';
+            statusElement.style.color = '#e74c3c';
+            submitButton.querySelector('.btn-text').textContent = 'Try Again';
+            submitButton.disabled = false;
+          });
+      });
+    })();
+  </script>
 
   <!-- Lightbox Gallery -->
   <div class="lightbox" id="lightbox-1">
