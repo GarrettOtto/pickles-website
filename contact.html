@@ -36,8 +36,17 @@
         }
         
         .friend-status.cool-kids-club {
-            top: 40px; /* Position below the first tag */
+            top: 45px; /* Position below the first tag with more spacing */
             background-color: #FF69B4; /* Hot Pink */
+        }
+        
+        /* Additional status positions for cards with multiple statuses */
+        .friend-status:nth-of-type(3) {
+            top: 80px; /* Position for a third status tag */
+        }
+        
+        .friend-status:nth-of-type(4) {
+            top: 115px; /* Position for a fourth status tag if needed */
         }
         
         /* Fix for dropdown active link color */
@@ -467,7 +476,7 @@
             </div>
             
             <!-- Bree Judson -->
-            <div class="friend-card" data-category="founding cool-kids">
+            <div class="friend-card" data-category="founding">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
