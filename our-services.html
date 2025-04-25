@@ -26,261 +26,192 @@
         }
         
         /* Activities Page Styles */
-        .activities-container {
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
+        .activities-section {
+            padding: 4rem 0;
             background-color: var(--bg-color);
         }
         
-        /* Hero Section */
-        .activities-hero {
-            position: relative;
-            height: 60vh;
-            min-height: 500px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .section-header {
             text-align: center;
-            color: white;
-            max-width: 800px;
-            padding: 0 2rem;
-            animation: fadeIn 1.2s ease-out;
+            margin-bottom: 3rem;
         }
         
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+        .section-header h1 {
+            color: var(--primary-color);
             font-family: 'Playfair Display', serif;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
         
-        .hero-content h1 i {
+        .section-header h1 i {
             margin-right: 0.5rem;
             color: var(--accent-color);
         }
         
-        .hero-intro {
-            font-size: 1.3rem;
-            line-height: 1.6;
+        .section-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+        
+        .section-intro {
             max-width: 700px;
             margin: 0 auto;
-            font-weight: 400;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
-        /* Filter Section */
-        .activities-filter-container {
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
-            margin: 0 auto 3rem;
-            padding: 2rem;
-            text-align: center;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        
-        .activities-filter-container h2 {
-            color: var(--primary-color);
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 0.5rem;
-        }
-        
-        .filter-system {
             margin: 0 auto;
+            padding: 0 2rem;
         }
         
-        .filter-input {
-            display: none;
+        .activity-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
         }
         
-        .filter-buttons {
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .activity-card-inner {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            height: 100%;
         }
         
-        .filter-btn {
-            background-color: #fff;
-            border: 2px solid var(--primary-color);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .activity-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .activity-content h3 {
             color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            position: relative;
+            padding-bottom: 0.8rem;
         }
         
-        .filter-btn i {
-            font-size: 1rem;
+        .activity-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .activity-content h3 i {
             color: var(--accent-color);
         }
         
-        .filter-btn:hover {
-            background-color: var(--secondary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-            border-color: var(--secondary-color);
+        .activity-content p {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
         }
         
-        .filter-btn:hover i {
-            color: white;
-        }
-        
-        .filter-btn.active, #filter-all:checked ~ .filter-buttons label[for="filter-all"],
-        #filter-sports:checked ~ .filter-buttons label[for="filter-sports"],
-        #filter-outdoor:checked ~ .filter-buttons label[for="filter-outdoor"],
-        #filter-creative:checked ~ .filter-buttons label[for="filter-creative"],
-        #filter-social:checked ~ .filter-buttons label[for="filter-social"] {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-            border-color: var(--primary-color);
-        }
-        
-        #filter-all:checked ~ .filter-buttons label[for="filter-all"] i,
-        #filter-sports:checked ~ .filter-buttons label[for="filter-sports"] i,
-        #filter-outdoor:checked ~ .filter-buttons label[for="filter-outdoor"] i,
-        #filter-creative:checked ~ .filter-buttons label[for="filter-creative"] i,
-        #filter-social:checked ~ .filter-buttons label[for="filter-social"] i {
-            color: white;
-        }
-        
-        /* CSS-only filtering with transitions */
-        .activity-card {
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 0.4s ease, transform 0.5s ease, box-shadow 0.3s ease;
-        }
-        
-        #filter-all:checked ~ .activity-cards-container .activity-card {
+        .activity-meta {
             display: flex;
-            opacity: 1;
-            transform: scale(1);
+            justify-content: space-between;
+            margin-top: auto;
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
         
-        #filter-sports:checked ~ .activity-cards-container .activity-card:not([data-category="sports"]),
-        #filter-outdoor:checked ~ .activity-cards-container .activity-card:not([data-category="outdoor"]),
-        #filter-creative:checked ~ .activity-cards-container .activity-card:not([data-category="creative"]),
-        #filter-social:checked ~ .activity-cards-container .activity-card:not([data-category="social"]) {
-            opacity: 0;
-            transform: scale(0.8);
-            position: absolute;
-            pointer-events: none;
-            display: none;
+        .activity-host, .activity-frequency {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
-        /* Style for active filter button */
-        #filter-all:checked ~ .filter-buttons label[for="filter-all"],
-        #filter-sports:checked ~ .filter-buttons label[for="filter-sports"],
-        #filter-outdoor:checked ~ .filter-buttons label[for="filter-outdoor"],
-        #filter-creative:checked ~ .filter-buttons label[for="filter-creative"],
-        #filter-social:checked ~ .filter-buttons label[for="filter-social"] {
-            background-color: var(--primary-color);
-            color: white;
+        .activity-host i, .activity-frequency i {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Additional Mobile Styles */
+        @media (max-width: 576px) {
+            .activities-grid {
+                padding: 0 1rem;
+            }
         }
         
         /* Activity Cards */
-        .activity-cards-container {
+        .activities-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2.5rem;
             position: relative;
-            min-height: 400px; /* Ensure container maintains height when filtering */
-            margin-top: 3rem;
+            margin: 2rem auto;
         }
         
         .activity-card {
-            background: white;
+            background-color: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            height: 380px;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .activity-card-inner {
+            display: block;
+            text-decoration: none;
+            color: inherit;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.05);
+            width: 100%;
         }
         
         .activity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .activity-card:active {
             transform: translateY(-5px);
-            transition: transform 0.1s ease;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
         
-        .activity-card-image {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .activity-card-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(48, 89, 33, 0.2), transparent);
-            z-index: 1;
-        }
-        
-        .activity-card-content {
-            padding: 2rem;
-            flex: 1;
+        .activity-content {
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            position: relative;
+            height: 100%;
+            text-align: left;
         }
         
-        .activity-card-content::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background-color: white;
-            border-radius: 50%;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-            z-index: 1;
-        }
+        /* Removed the white circle */
         
         .activity-card h3 {
             color: var(--primary-color);
@@ -308,16 +239,13 @@
         .activity-meta {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 0.8rem;
-            margin-top: auto;
-            padding-top: 1.2rem;
-            border-top: 1px dashed rgba(0,0,0,0.1);
+            font-size: 0.85rem;
+            color: #666;
+            margin: 1rem 0;
+            gap: 0.5rem;
         }
         
-        /* Common styles for all tags */
-        .activity-tag, .activity-host, .activity-frequency {
+        .activity-meta span {
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -325,508 +253,115 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            background-color: rgba(139, 195, 74, 0.1);
+            color: var(--primary-color);
             transition: all 0.3s ease;
             white-space: nowrap;
-            line-height: 1.2;
         }
         
-        .activity-host {
-            color: var(--text-light);
-            background-color: #f8f9fa;
-        }
-        
-        .activity-card:hover .activity-host {
-            background-color: #f0f0f0;
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-        }
-        
-        .activity-host i {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-        }
-        
-        .activity-tag {
-            color: white;
-        }
-        
-        .activity-tag i {
-            font-size: 0.9rem;
-        }
-        
-        .activity-card:hover .activity-tag {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-        }
-        
-        .sports-tag {
-            background-color: #2196F3;
-        }
-        
-        .outdoor-tag {
-            background-color: #4CAF50;
-        }
-        
-        .creative-tag {
-            background-color: #9C27B0;
-        }
-        
-        .social-tag {
-            background-color: #FF9800;
-        }
-        
-        /* Activity Highlights */
-        .activity-highlights {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
-            text-align: center;
-            background-color: var(--bg-color);
-            border-radius: var(--border-radius);
+        .activity-quote {
             position: relative;
-            overflow: hidden;
+            margin-top: auto;
+            padding: 1rem;
+            font-style: italic;
+            background-color: rgba(139, 195, 74, 0.1);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 0;
         }
         
-        .activity-highlights::before {
-            content: '';
-            position: absolute;
+        /* Modal popup styles */
+        .modal {
+            visibility: hidden;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow: auto;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
         
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 100;
-            opacity: 0.8;
-            text-decoration: none;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            opacity: 1;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-            color: white;
-        }
-        
-        .back-to-top i {
-            font-size: 1.2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-            }
-        }
-        
-        .activity-highlights h2 {
-            color: var(--primary-color);
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
-            display: inline-block;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
             padding-bottom: 1rem;
         }
         
-        .activity-highlights h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-            border-radius: 3px;
+        .modal-header h2 {
+            color: var(--primary-color);
+            margin: 0;
+            font-family: 'Playfair Display', serif;
         }
         
-        .highlights-intro {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .highlight-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 250px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+        .close-button {
+            font-size: 1.8rem;
+            color: #777;
             cursor: pointer;
+            transition: color 0.2s ease;
         }
         
-        .highlight-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(48, 89, 33, 0.2), transparent);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .highlight-item:hover::before {
-            opacity: 1;
-        }
-        
-        .highlight-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .highlight-item:active {
-            transform: translateY(-2px);
-            transition: transform 0.1s ease;
-        }
-        
-        .highlight-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .highlight-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .highlight-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 1.5rem;
-            color: white;
-            text-align: left;
-            transition: all 0.3s ease;
-            transform: translateY(0);
-            z-index: 2;
-        }
-        
-        .highlight-item:hover .highlight-overlay {
-            transform: translateY(-5px);
-            background: linear-gradient(transparent, rgba(48, 89, 33, 0.9));
-        }
-        
-        .highlight-title {
-            display: block;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-        
-        .highlight-desc {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-        }
-        
-        .highlight-date {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            background-color: rgba(255,255,255,0.2);
-            border-radius: 4px;
-            margin-top: 0.5rem;
-        }
-        
-        .highlight-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            z-index: 3;
-            transition: all 0.3s ease;
-        }
-        
-        .highlight-item:hover .highlight-badge {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .highlights-cta {
-            margin-top: 3rem;
-        }
-        
-        .btn-secondary {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background-color: transparent;
+        .close-button:hover {
             color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
         
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        .modal-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
         
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-            }
-        }
-        
-        .activities-content {
-            padding: 4rem 0 0;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 250px);
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .highlight-item {
-            position: relative;
-            border-radius: 12px;
+        .modal-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 250px;
         }
         
-        .highlight-item img {
+        .modal-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            height: auto;
+            display: block;
         }
         
-        .highlight-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        .modal-text {
+            flex: 1;
+            min-width: 300px;
         }
         
-        .highlight-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .highlight-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.8rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .highlight-item:hover .highlight-overlay {
-            padding-bottom: 2.5rem;
-        }
-        
-        .highlight-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .highlight-title i {
-            color: var(--accent-color);
-        }
-        
-        .highlight-date {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .highlight-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
+        .modal-quote {
             background-color: var(--primary-color);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+            margin-top: 1.5rem;
         }
         
-        .view-all-container {
-            text-align: center;
-            margin-top: 3.5rem;
-        }
+        /* Quote icon removed from modal */
         
-        .view-all-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.7rem;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            font-size: 1.1rem;
-        }
-        
-        .view-all-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-        }
-        
-        .view-all-btn i {
-            font-size: 1.2rem;
-        }
-        
-        .highlights-cta {
-            margin-top: 3rem;
-        }
-        
-        @media (max-width: 1200px) {
-            .activity-cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .highlights-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .activity-cards-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero-intro {
-                font-size: 1.1rem;
-            }
-            
-            .highlights-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-intro {
-                font-size: 1rem;
-            }
-            
-            .highlights-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .activity-card-content {
-                padding: 1.5rem;
-            }
-            
-            .activity-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-        
-        .activity-frequency {
-            background-color: #f8f9fa;
-            color: var(--primary-color);
-        }
-        
-        .activity-card:hover .activity-frequency {
-            background-color: #f0f0f0;
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-        }
-        
-        .activity-frequency i {
-            font-size: 0.9rem;
+        /* CSS-only modal trigger */
+        .modal:target {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
     <!-- Font Awesome for icons -->
@@ -861,7 +396,7 @@
                         <a href="julia-wasden.html">Julia Wasden</a>
                         <a href="abby-bartholomew.html">Abby Bartholomew</a>
                         <a href="garrett-otto.html">Garrett Otto</a>
-                    </div>
+
                 </li>
             </ul>
             <div class="mobile-menu-toggle">
@@ -870,218 +405,380 @@
         </nav>
     </header>
 
-
-    <main class="activities-container">
-        <!-- Hero Section -->
-        <section class="activities-hero" style="background-image: url('assets/images/test.jpg')">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1><i class="fas fa-calendar-alt"></i> Our Group Activities</h1>
-                <p class="hero-intro">From sports to stargazing, here are some of the amazing activities we love to do together as friends. Join us for unforgettable moments and endless fun!</p>
-            </div>
-        </section>
-        
-        <!-- Activities Content Section -->
-        <section class="activities-content">
-            <div class="container">
-            
-            <div class="activity-cards-container">
+    <main class="section activities-section" id="activities">
+        <div class="section-header">
+            <h1><i class="fas fa-calendar-alt"></i> Our Activities</h1>
+            <p class="section-intro">Discover the fun things we do together as the Pickles friend group!</p>
+        </div>
+        <div class="activities-grid">
             <!-- Sports Activities -->
             <div class="activity-card" data-category="sports">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-table-tennis"></i> Weekly Pickleball</h3>
-                    <p>Our signature activity! Every Thursday evening, we meet at the local courts for intense matches and friendly competition. All skill levels welcome - from beginners to our resident pro Grace! Join us for some rallies, laughs, and maybe even learn Chance's famous spin serve.</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Grace</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-week"></i> Weekly</span>
-                    </div>
-                </div>
+                <a href="#pickleball-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-table-tennis"></i> Weekly Pickleball</h3>
+                            <p>Our signature activity! Every Thursday evening, we meet at the local courts for intense matches and friendly competition. All skill levels welcome - from beginners to our resident pro Grace!</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Grace</span>
+                                <span><i class="fas fa-calendar"></i> Weekly</span>
+                            </div>
+
+                        </div>
+                </a>
             </div>
 
             <div class="activity-card" data-category="sports">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-volleyball-ball"></i> Beach Sports</h3>
-                    <p>When the weather's warm, we head to the sand for volleyball, spikeball, and frisbee. Our epic tournaments are known for both competitive spirit and endless laughter. Ridge's diving saves are a must-see!</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Ridge</span>
-                        <span class="activity-frequency"><i class="fas fa-leaf"></i> Seasonal</span>
-                    </div>
-                </div>
+                <a href="#beach-sports-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-volleyball-ball"></i> Beach Sports</h3>
+                            <p>When summer hits, we take over a section of the beach for volleyball, spikeball, frisbee, and more. These laid-back competitions always end with a sunset picnic.</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Abbie</span>
+                                <span><i class="fas fa-calendar"></i> Summer Weekends</span>
+                            </div>
+
+                        </div>
+                </a>
             </div>
 
             <!-- Outdoor Activities -->
             <div class="activity-card" data-category="outdoor">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-mountain"></i> Weekend Adventures</h3>
-                    <p>Monthly outdoor excursions to explore Utah's beautiful landscapes. Whether it's hiking in Moab, camping under the stars, or rock climbing at local spots, these trips create our most memorable moments. Noah's trail mix is legendary!</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Chance</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-alt"></i> Monthly</span>
-                    </div>
-                </div>
+                <a href="#weekend-adventures-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-mountain"></i> Weekend Adventures</h3>
+                            <p>Monthly outdoor excursions to explore Utah's beautiful landscapes. Whether it's hiking in Moab, camping under the stars, or rock climbing at local spots, these trips create our most memorable moments.</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Chance</span>
+                                <span><i class="fas fa-calendar"></i> Monthly</span>
+                            </div>
+
+                        </div>
+                </a>
             </div>
 
             <div class="activity-card" data-category="outdoor">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-star"></i> Stargazing Nights</h3>
-                    <p>Once a month, we escape the city lights for a night under the stars. Garrett brings his telescope, and we spend hours spotting constellations, sharing stories, and contemplating the universe (with hot chocolate, of course!).</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Garrett</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-alt"></i> Monthly</span>
-                    </div>
-                </div>
+                <a href="#stargazing-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-star"></i> Stargazing Nights</h3>
+                            <p>Once a month, we escape the city lights for a night under the stars. Garrett brings his telescope, and we spend hours spotting constellations, sharing stories, and contemplating the universe.</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Garrett</span>
+                                <span><i class="fas fa-calendar"></i> Monthly</span>
+                            </div>
+
+                        </div>
+                </a>
             </div>
 
             <!-- Creative Activities -->
             <div class="activity-card" data-category="creative">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-camera"></i> Photo Adventures</h3>
-                    <p>Julia leads our photography outings where we capture stunning landscapes and candid moments. From sunset shoots to urban exploration, we're always finding new perspectives and creating lasting memories.</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Ellie</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-week"></i> Bi-weekly</span>
-                    </div>
-                </div>
+                <a href="#photo-adventures-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-camera"></i> Photo Adventures</h3>
+                            <p>Julia leads our photography outings where we capture stunning landscapes and candid moments. From sunset shoots to urban exploration, we're always finding new perspectives and creating lasting memories.</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Julia</span>
+                                <span><i class="fas fa-calendar"></i> Bi-weekly</span>
+                            </div>
+
+                        </div>
+                </a>
             </div>
 
             <div class="activity-card" data-category="creative">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-birthday-cake"></i> Baking Sessions</h3>
-                    <p>Abbie hosts amazing baking sessions where we try new recipes and perfect old favorites. From cookies to complex cakes, it's always a delicious adventure. The best part? Taste testing everything at the end!</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Abbie</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-alt"></i> Monthly</span>
-                    </div>
-                </div>
+                <a href="#baking-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-birthday-cake"></i> Baking Sessions</h3>
+                            <p>Abbie hosts amazing baking sessions where we try new recipes and perfect old favorites. From cookies to complex cakes, it's always a delicious adventure. The best part? Taste testing everything at the end!</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Abbie</span>
+                                <span><i class="fas fa-calendar"></i> Monthly</span>
+                            </div>
+
+                        </div>
+                </a>
             </div>
 
             <div class="activity-card" data-category="creative">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-paint-brush"></i> Creative Workshops</h3>
-                    <p>Ashlyn leads various creative sessions - from painting and crafting to DIY projects. It's a chance to explore our artistic sides and make something unique. The results are always interesting, to say the least!</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Ashlyn</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-alt"></i> Monthly</span>
-                    </div>
-                </div>
+                <a href="#creative-workshops-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-paint-brush"></i> Creative Workshops</h3>
+                            <p>Ashlyn leads various creative sessions - from painting and crafting to DIY projects. It's a chance to explore our artistic sides and make something unique. The results are always interesting, to say the least!</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Ashlyn</span>
+                                <span><i class="fas fa-calendar"></i> Monthly</span>
+                            </div>
+
+                        </div>
+                </a>
             </div>
 
             <!-- Social Activities -->
             <div class="activity-card" data-category="social">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-dice"></i> Game Nights</h3>
-                    <p>Spencer hosts our legendary game nights every other Saturday. From strategic board games like Catan and Ticket to Ride to hilarious party games like Codenames and Jackbox, there's something for everyone. McKenly always brings the best snacks!</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Spencer</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-week"></i> Bi-weekly</span>
-                    </div>
-                </div>
-            </div>
+                <a href="#game-nights-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-dice"></i> Game Nights</h3>
+                            <p>Spencer hosts our legendary game nights every other Saturday. From strategic board games like Catan and Ticket to Ride to hilarious party games like Codenames and Jackbox, there's something for everyone.</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Spencer</span>
+                                <span><i class="fas fa-calendar"></i> Bi-weekly</span>
+                            </div>
 
+                        </div>
+                </a>
+            </div>
 
             <div class="activity-card" data-category="social">
-                <div class="activity-card-image" style="background-image: url('assets/images/test.jpg')"></div>
-                <div class="activity-card-content">
-                    <h3><i class="fas fa-gifts"></i> Holiday Traditions</h3>
-                    <p>From our annual Halloween costume contest to our epic Christmas gift exchange, we love celebrating together. Each holiday brings its own special traditions that make our friendship even stronger.</p>
-                    <div class="activity-meta">
-                        <span class="activity-host"><i class="fas fa-user"></i> Host: Everyone</span>
-                        <span class="activity-frequency"><i class="fas fa-calendar-alt"></i> Monthly</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="activity-highlights">
-            <div class="highlights-heading">
-                <h2><i class="fas fa-star"></i> Activity Highlights</h2>
-                <p>Memorable moments from our favorite group activities</p>
-            </div>
-            
-            <div class="gallery-carousel">
-                <div class="carousel" id="activity-lightbox-close">
-                    <input type="radio" name="gallery-control" id="gallery-item-1" checked>
-                    <input type="radio" name="gallery-control" id="gallery-item-2">
-                    <input type="radio" name="gallery-control" id="gallery-item-3">
-                    
-                    <!-- Navigation controls that change based on which item is selected -->
-                    <!-- Previous buttons -->
-                    <label for="gallery-item-3" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
-                    <label for="gallery-item-1" class="carousel-prev" id="prev-2"><i class="fas fa-chevron-left"></i></label>
-                    <label for="gallery-item-2" class="carousel-prev" id="prev-3"><i class="fas fa-chevron-left"></i></label>
-                    
-                    <!-- Next buttons -->
-                    <label for="gallery-item-2" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
-                    <label for="gallery-item-3" class="carousel-next" id="next-2"><i class="fas fa-chevron-right"></i></label>
-                    <label for="gallery-item-1" class="carousel-next" id="next-3"><i class="fas fa-chevron-right"></i></label>
-                    
-                    <div class="carousel-items">
-                        <div class="carousel-item" id="item-1">
-                            <a href="#activity-lightbox-1" class="lightbox-trigger">
-                                <img src="assets/images/test.jpg" alt="Activity Highlight 1">
-                            </a>
-                        </div>
-                        <div class="carousel-item" id="item-2">
-                            <a href="#activity-lightbox-2" class="lightbox-trigger">
-                                <img src="assets/images/test.jpg" alt="Activity Highlight 2">
-                            </a>
-                        </div>
-                        <div class="carousel-item" id="item-3">
-                            <a href="#activity-lightbox-3" class="lightbox-trigger">
-                                <img src="assets/images/test.jpg" alt="Activity Highlight 3">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-nav">
-                        <label for="gallery-item-1" class="nav-dot">1</label>
-                        <label for="gallery-item-2" class="nav-dot">2</label>
-                        <label for="gallery-item-3" class="nav-dot">3</label>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        <!-- Activity Lightbox Gallery -->
-        <div class="lightbox" id="activity-lightbox-1">
-            <a href="#activity-lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-            <a href="#activity-lightbox-3" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-            <div class="lightbox-content">
-                <img src="assets/images/test.jpg" alt="Activity Highlight 1" class="lightbox-image">
-            </div>
-            <a href="#activity-lightbox-2" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-        </div>
+                <a href="#holiday-traditions-modal" class="activity-card-inner">
+                        <div class="activity-content">
+                            <h3><i class="fas fa-gifts"></i> Holiday Traditions</h3>
+                            <p>From our annual Halloween costume contest to our epic Christmas gift exchange, we love celebrating together. Each holiday brings its own special traditions that make our friendship even stronger.</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-user"></i> Host: Everyone</span>
+                                <span><i class="fas fa-calendar"></i> Monthly</span>
+                            </div>
 
-        <div class="lightbox" id="activity-lightbox-2">
-            <a href="#activity-lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-            <a href="#activity-lightbox-1" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-            <div class="lightbox-content">
-                <img src="assets/images/test.jpg" alt="Activity Highlight 2" class="lightbox-image">
+                        </div>
+                </a>
             </div>
-            <a href="#activity-lightbox-3" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
         </div>
-
-        <div class="lightbox" id="activity-lightbox-3">
-            <a href="#activity-lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-            <a href="#activity-lightbox-2" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-            <div class="lightbox-content">
-                <img src="assets/images/test.jpg" alt="Activity Highlight 3" class="lightbox-image">
-            </div>
-            <a href="#activity-lightbox-1" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-        </div>
-        </div> <!-- Closing tag for filter-system -->
     </main>
-    
 
-        <footer class="main-footer">
+    <!-- Modal Popups for Activities -->
+    <!-- Weekly Pickleball Modal -->
+    <div id="pickleball-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-table-tennis"></i> Weekly Pickleball</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Weekly Pickleball" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Join us for our most popular activity! We have equipment to share, and players of all skill levels are welcome. The friendly competition and post-game socializing make this a weekly highlight.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Grace</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Weekly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"The best exercise is the one you actually enjoy doing."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Grace</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beach Sports Modal -->
+    <div id="beach-sports-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-volleyball-ball"></i> Beach Sports</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Beach Sports" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Our summer tradition! We take over a section of the beach for volleyball, spikeball, frisbee, and more. These laid-back competitions always end with a sunset picnic.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Ridge</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Seasonal</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"Sand between your toes, friends by your side - summer."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Chance</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weekend Adventures Modal -->
+    <div id="weekend-adventures-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-mountain"></i> Weekend Adventures</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Weekend Adventures" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Once a month, we escape the city to explore Utah's incredible natural beauty. These trips range from day hikes to overnight camping adventures, always with plenty of photo opportunities.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Chance</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Monthly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"The mountains are calling, and the Pickles must go!"<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Chance</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stargazing Nights Modal -->
+    <div id="stargazing-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-star"></i> Stargazing Nights</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Stargazing Nights" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Escape the city lights and join us for a peaceful evening under the stars. We bring telescopes, blankets, and hot chocolate to make the most of Utah's clear night skies.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Garrett</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Monthly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"Look up at the stars and not down at your feet."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Garrett</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Adventures Modal -->
+    <div id="photo-adventures-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-camera"></i> Photo Adventures</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Photo Adventures" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Grab your camera and join us as we explore beautiful locations specifically chosen for photography. All skill levels welcome - from smartphone shooters to DSLR enthusiasts!</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Julia</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Bi-weekly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"The best camera is the one you have with you."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Julia</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Baking Sessions Modal -->
+    <div id="baking-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-birthday-cake"></i> Baking Sessions</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Baking Sessions" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Join us in the kitchen for a fun, flour-filled adventure! We tackle everything from simple cookies to elaborate cakes, with plenty of laughs (and taste tests) along the way.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Abbie</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Monthly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"Baking is love made visible."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Abbie</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Creative Workshops Modal -->
+    <div id="creative-workshops-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-paint-brush"></i> Creative Workshops</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Creative Workshops" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Express yourself through art! Each month features a different creative medium or project. No experience necessary - just bring your enthusiasm and willingness to try something new.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Ashlyn</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Monthly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"Creativity takes courage."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Ashlyn</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Nights Modal -->
+    <div id="game-nights-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-dice"></i> Game Nights</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Game Nights" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>Whether you're a competitive strategist or just looking for laughs, our game nights have something for everyone. We rotate between strategy games, party games, and video games.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Spencer</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Bi-weekly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"It's not about winning, it's about the memories we make along the way."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Spencer</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Holiday Traditions Modal -->
+    <div id="holiday-traditions-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-gifts"></i> Holiday Traditions</h2>
+                <a href="#!" class="close-button">&times;</a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="assets/images/test.jpg" alt="Holiday Traditions" class="activity-img">
+                </div>
+                <div class="modal-text">
+                    <p>We celebrate every holiday with enthusiasm! Our annual traditions include a Halloween costume contest, Thanksgiving potluck, Christmas gift exchange, and many more special events throughout the year.</p>
+                    <br>
+                    <div class="modal-meta">
+                        <p><strong><i class="fas fa-user"></i> Host:</strong> Everyone</p>
+                        <p><strong><i class="fas fa-calendar"></i> Frequency:</strong> Monthly</p>
+                    </div>
+                    <div class="modal-quote">
+                        <p>"Traditions are the stories that families write together."<br><span style="font-style: italic; font-size: 0.9rem; margin-top: 5px; display: block;">— Grace</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">

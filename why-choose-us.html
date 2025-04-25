@@ -97,32 +97,40 @@
                     <input type="radio" name="gallery-control" id="gallery-item-1" checked>
                     <input type="radio" name="gallery-control" id="gallery-item-2">
                     <input type="radio" name="gallery-control" id="gallery-item-3">
+                    <input type="radio" name="gallery-control" id="gallery-item-4">
                     
                     <!-- Navigation controls that change based on which item is selected -->
                     <!-- Previous buttons -->
-                    <label for="gallery-item-3" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
+                    <label for="gallery-item-4" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
                     <label for="gallery-item-1" class="carousel-prev" id="prev-2"><i class="fas fa-chevron-left"></i></label>
                     <label for="gallery-item-2" class="carousel-prev" id="prev-3"><i class="fas fa-chevron-left"></i></label>
+                    <label for="gallery-item-3" class="carousel-prev" id="prev-4"><i class="fas fa-chevron-left"></i></label>
                     
                     <!-- Next buttons -->
                     <label for="gallery-item-2" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
                     <label for="gallery-item-3" class="carousel-next" id="next-2"><i class="fas fa-chevron-right"></i></label>
-                    <label for="gallery-item-1" class="carousel-next" id="next-3"><i class="fas fa-chevron-right"></i></label>
+                    <label for="gallery-item-4" class="carousel-next" id="next-3"><i class="fas fa-chevron-right"></i></label>
+                    <label for="gallery-item-1" class="carousel-next" id="next-4"><i class="fas fa-chevron-right"></i></label>
                     
                     <div class="carousel-items">
                         <div class="carousel-item" id="item-1">
                             <a href="#lightbox-1" class="lightbox-trigger">
-                                <img src="assets/images/test.jpg" alt="Moments Together 1">
+                                <img src="assets/images/photo1.jpg" alt="Moments Together 1">
                             </a>
                         </div>
                         <div class="carousel-item" id="item-2">
                             <a href="#lightbox-2" class="lightbox-trigger">
-                                <img src="assets/images/test.jpg" alt="Moments Together 2">
+                                <img src="assets/images/photo25.jpg" alt="Moments Together 2">
                             </a>
                         </div>
                         <div class="carousel-item" id="item-3">
                             <a href="#lightbox-3" class="lightbox-trigger">
-                                <img src="assets/images/test.jpg" alt="Moments Together 3">
+                                <img src="assets/images/photo20.jpg" alt="Moments Together 3">
+                            </a>
+                        </div>
+                        <div class="carousel-item" id="item-4">
+                            <a href="#lightbox-4" class="lightbox-trigger">
+                                <img src="assets/images/photo37.jpg" alt="Moments Together 4">
                             </a>
                         </div>
                     </div>
@@ -131,6 +139,7 @@
                         <label for="gallery-item-1" class="nav-dot">1</label>
                         <label for="gallery-item-2" class="nav-dot">2</label>
                         <label for="gallery-item-3" class="nav-dot">3</label>
+                        <label for="gallery-item-4" class="nav-dot">4</label>
                     </div>
                 </div>
             </div>
@@ -148,9 +157,9 @@
   <!-- Lightbox Gallery -->
   <div class="lightbox" id="lightbox-1">
     <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-3" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+    <a href="#lightbox-4" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
     <div class="lightbox-content">
-      <img src="assets/images/test.jpg" alt="Moments Together 1" class="lightbox-image">
+      <img src="assets/images/photo1.jpg" alt="Moments Together 1" class="lightbox-image">
     </div>
     <a href="#lightbox-2" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
   </div>
@@ -159,7 +168,7 @@
     <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
     <a href="#lightbox-1" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
     <div class="lightbox-content">
-      <img src="assets/images/test.jpg" alt="Moments Together 2" class="lightbox-image">
+      <img src="assets/images/photo25.jpg" alt="Moments Together 2" class="lightbox-image">
     </div>
     <a href="#lightbox-3" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
   </div>
@@ -168,7 +177,16 @@
     <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
     <a href="#lightbox-2" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
     <div class="lightbox-content">
-      <img src="assets/images/test.jpg" alt="Moments Together 3" class="lightbox-image">
+      <img src="assets/images/photo20.jpg" alt="Moments Together 3" class="lightbox-image">
+    </div>
+    <a href="#lightbox-4" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
+  </div>
+
+  <div class="lightbox" id="lightbox-4">
+    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+    <a href="#lightbox-3" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+    <div class="lightbox-content">
+      <img src="assets/images/photo37.jpg" alt="Moments Together 4" class="lightbox-image">
     </div>
     <a href="#lightbox-1" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
   </div>
