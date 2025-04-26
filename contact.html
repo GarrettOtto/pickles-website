@@ -40,13 +40,23 @@
             background-color: #FF69B4; /* Hot Pink */
         }
         
-        /* Additional status positions for cards with multiple statuses */
-        .friend-status:nth-of-type(3) {
-            top: 80px; /* Position for a third status tag */
+        .friend-status.available {
+            top: 45px; /* Position closer to other tags */
+            background-color: #8bc34a; /* Light Green */
         }
         
-        .friend-status:nth-of-type(4) {
-            top: 115px; /* Position for a fourth status tag if needed */
+        .friend-status.taken {
+            top: 45px; /* Position closer to other tags */
+            background-color: #FFD700; /* Yellow */
+        }
+        
+        /* Additional status positions for cards with multiple statuses */
+        .friend-status:nth-of-type(2) {
+            top: 45px; /* Position for a second status tag */
+        }
+        
+        .friend-status:nth-of-type(3) {
+            top: 80px; /* Position for a third status tag */
         }
         
         /* Fix for dropdown active link color */
@@ -138,6 +148,14 @@
                         <input type="checkbox" name="friend-filter" value="cool-kids">
                         <span>Cool Kids Club</span>
                     </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="friend-filter" value="available">
+                        <span>Available</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="friend-filter" value="taken">
+                        <span>Taken</span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -145,12 +163,13 @@
         <!-- Friends Grid -->
         <div class="friends-grid">
             <!-- Noah Perkins -->
-            <div class="friend-card" data-category="founding">
+            <div class="friend-card" data-category="founding available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Noah Perkins" class="friend-img">
+                            <img src="assets/images/Staff - Noah Perkins/Noah.png" alt="Noah Perkins" class="friend-img" style="object-fit: cover; object-position: center 50%;">
                             <div class="friend-status founding-member">Founding Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Noah Perkins</h3>
@@ -175,12 +194,13 @@
             </div>
             
             <!-- Chance Wiese -->
-            <div class="friend-card" data-category="founding">
+            <div class="friend-card" data-category="founding available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Chance Wiese" class="friend-img">
+                            <img src="assets/images/Staff - Chance Wiese/Chance.png" alt="Chance Wiese" class="friend-img" style="object-fit: cover; object-position: center 60%;">
                             <div class="friend-status founding-member">Founding Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Chance Wiese</h3>
@@ -205,13 +225,14 @@
             </div>
             
             <!-- Ashlyn Hall -->
-            <div class="friend-card" data-category="founding cool-kids">
+            <div class="friend-card" data-category="founding cool-kids available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Ashlyn Hall" class="friend-img">
+                            <img src="assets/images/Staff - Ashlyn Hall/Ashlyn.png" alt="Ashlyn Hall" class="friend-img" style="object-fit: cover; object-position: center 10%;">
                             <div class="friend-status founding-member">Founding Member</div>
                             <div class="friend-status cool-kids-club">Cool Kids Club</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Ashlyn Hall</h3>
@@ -236,12 +257,13 @@
             </div>
             
             <!-- Abbie Barker -->
-            <div class="friend-card" data-category="newest">
+            <div class="friend-card" data-category="newest available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Abbie Barker" class="friend-img">
+                            <img src="assets/images/Staff - Abbie Barker/Abbie.png" alt="Abbie Barker" class="friend-img" style="object-fit: cover; object-position: center 30%;">
                             <div class="friend-status new-member">New Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Abbie Barker</h3>
@@ -266,12 +288,13 @@
             </div>
             
             <!-- Konner Clawson -->
-            <div class="friend-card" data-category="founding">
+            <div class="friend-card" data-category="founding available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Konner Clawson" class="friend-img">
+                            <img src="assets/images/Staff - Konner Clawson/Konner.png" alt="Konner Clawson" class="friend-img" style="object-fit: cover; object-position: center 0%;">
                             <div class="friend-status founding-member">Founding Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Konner Clawson</h3>
@@ -296,12 +319,13 @@
             </div>
             
             <!-- McKenly Day -->
-            <div class="friend-card" data-category="newest">
+            <div class="friend-card" data-category="newest taken">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="McKenly Day" class="friend-img">
+                            <img src="assets/images/Staff - McKenly Day/McKenly.png" alt="McKenly Day" class="friend-img" style="object-fit: cover; object-position: center 0%;">
                             <div class="friend-status new-member">New Member</div>
+                            <div class="friend-status taken">Taken <i class="fas fa-church"></i></div>
                         </div>
                         <div class="friend-brief">
                             <h3>McKenly Day</h3>
@@ -326,12 +350,13 @@
             </div>
             
             <!-- Spencer Nay -->
-            <div class="friend-card" data-category="newest">
+            <div class="friend-card" data-category="newest taken">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Spencer Nay" class="friend-img">
+                            <img src="assets/images/Staff - Spencer Nay/Spencer.png" alt="Spencer Nay" class="friend-img" style="object-fit: cover; object-position: center 50%;">
                             <div class="friend-status new-member">New Member</div>
+                            <div class="friend-status taken">Taken</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Spencer Nay</h3>
@@ -356,12 +381,13 @@
             </div>
             
             <!-- Ridge Poll -->
-            <div class="friend-card" data-category="founding">
+            <div class="friend-card" data-category="founding taken">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Ridge Poll" class="friend-img">
+                            <img src="assets/images/Staff - Ridge Poll/Ridge.png" alt="Ridge Poll" class="friend-img" style="object-fit: cover; object-position: center 30%;">
                             <div class="friend-status founding-member">Founding Member</div>
+                            <div class="friend-status taken">Taken</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Ridge Poll</h3>
@@ -386,12 +412,13 @@
             </div>
             
             <!-- Grace Richardson -->
-            <div class="friend-card" data-category="newest">
+            <div class="friend-card" data-category="newest available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Grace Richardson" class="friend-img">
+                            <img src="assets/images/Staff - Grace Richardson/Grace.png" alt="Grace Richardson" class="friend-img" style="object-fit: cover; object-position: center 0%;">
                             <div class="friend-status new-member">New Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Grace Richardson</h3>
@@ -416,12 +443,13 @@
             </div>
             
             <!-- Julia Wasden -->
-            <div class="friend-card" data-category="newest">
+            <div class="friend-card" data-category="newest available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Julia Wasden" class="friend-img">
+                            <img src="assets/images/Staff - Julia Wasden/Julia.png" alt="Julia Wasden" class="friend-img" style="object-fit: cover; object-position: center 20%;">
                             <div class="friend-status new-member">New Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Julia Wasden</h3>
@@ -446,12 +474,13 @@
             </div>
             
             <!-- Abby Bartholomew -->
-            <div class="friend-card" data-category="newest">
+            <div class="friend-card" data-category="newest taken">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Abby Bartholomew" class="friend-img">
+                            <img src="assets/images/Staff - Abby Bartholomew/Abby.png" alt="Abby Bartholomew" class="friend-img" style="object-fit: cover; object-position: center 30%;">
                             <div class="friend-status new-member">New Member</div>
+                            <div class="friend-status taken">Taken</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Abby Bartholomew</h3>
@@ -476,12 +505,13 @@
             </div>
             
             <!-- Bree Judson -->
-            <div class="friend-card" data-category="founding">
+            <div class="friend-card" data-category="founding available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
-                            <img src="assets/images/test.jpg" alt="Bree Judson" class="friend-img">
+                            <img src="assets/images/Staff - Brianna Judson/Brianna.png" alt="Bree Judson" class="friend-img" style="object-fit: cover; object-position: center 0%;">
                             <div class="friend-status founding-member">Founding Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Bree Judson</h3>
@@ -506,12 +536,13 @@
             </div>
             
             <!-- Garrett Otto -->
-            <div class="friend-card" data-category="newest">
+            <div class="friend-card" data-category="newest available">
                 <div class="friend-card-inner">
                     <div class="friend-card-front">
                         <div class="friend-image-wrapper">
                             <img src="assets/images/Staff - Garrett Otto/Garrett.png" alt="Garrett Otto" class="friend-img" style="object-fit: cover; object-position: center 0%;">
                             <div class="friend-status new-member">New Member</div>
+                            <div class="friend-status available">Available</div>
                         </div>
                         <div class="friend-brief">
                             <h3>Garrett Otto</h3>
@@ -549,21 +580,18 @@
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 
+                // Store search match status in a data attribute for each card
                 friendCards.forEach(card => {
                     const name = card.querySelector('h3').textContent.toLowerCase();
-                    const description = card.querySelector('.friend-card-back p').textContent.toLowerCase();
-                    const tags = Array.from(card.querySelectorAll('.friend-tag')).map(tag => tag.textContent.toLowerCase());
                     
-                    // Check if any of the content matches the search term
-                    const isMatch = name.includes(searchTerm) || 
-                                  description.includes(searchTerm) || 
-                                  tags.some(tag => tag.includes(searchTerm));
+                    // Only check if the name matches the search term
+                    const isMatch = name.includes(searchTerm);
                     
-                    // Show or hide the card based on search match
-                    card.style.display = isMatch ? 'block' : 'none';
+                    // Store search match status
+                    card.setAttribute('data-search-match', isMatch);
                 });
                 
-                // Reset filters when searching
+                // Apply filters which will respect search matches
                 applyFilters();
             });
             
@@ -613,16 +641,25 @@
                     document.querySelectorAll('input[name="friend-filter"]:checked')
                 ).map(input => input.value);
                 
-                // If "All" is selected or no filters are selected, show all cards
-                if (activeFilters.includes('all') || activeFilters.length === 0) {
-                    friendCards.forEach(card => {
-                        card.style.display = 'block';
-                    });
-                    return;
-                }
+                // Get current search term
+                const searchTerm = searchInput.value.toLowerCase();
                 
                 // Apply filters to cards
                 friendCards.forEach(card => {
+                    // Check if card matches search term
+                    const matchesSearch = searchTerm === '' || card.getAttribute('data-search-match') === 'true';
+                    
+                    if (!matchesSearch) {
+                        card.style.display = 'none';
+                        return;
+                    }
+                    
+                    // If "All" is selected or no filters are selected, show all cards that match search
+                    if (activeFilters.includes('all') || activeFilters.length === 0) {
+                        card.style.display = 'block';
+                        return;
+                    }
+                    
                     const cardCategories = card.getAttribute('data-category').split(' ');
                     
                     // Check if ALL of the active filters match the card's categories (logical AND)

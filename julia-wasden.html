@@ -4,13 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julia Wasden — Pickles — Pickles Friend Group</title>
-    <meta name="description" content="Page description goes here.">
+    <title>Julia Wasden — Pickles Friend Group</title>
+    <meta name="description" content="Meet Julia Wasden, a valued member of the Pickles friend group.">
     <meta name="theme-color" content="#305921">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Availability Status Styles */
+        .availability-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        /* Fun Facts List Styling */
+        .fun-facts {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .fun-facts li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .fun-facts li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .availability-status.available {
+            background-color: #4CAF50;
+        }
+        
+        .availability-status.taken {
+            background-color: #F44336;
+        }
+        
+        .profile-header {
+            position: relative;
+        }
+        
+        /* Profile Image Styling */
+        .profile-image-wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 3px solid var(--secondary-color);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-image-wrapper img.staff-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        @media (max-width: 768px) {
+            .availability-status {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .profile-image-wrapper {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
         /* Fix for dropdown active link color */
         .dropdown-content a.active {
             color: var(--primary-color) !important;
@@ -23,6 +102,176 @@
         .navbar-links .dropdown:hover .dropdown-content a.active:hover {
             color: var(--primary-color) !important;
             background-color: #e0e0e0;
+        }
+        
+        /* Social Media Section Styles */
+        .social-media-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .social-media-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+            opacity: 0.9;
+        }
+        
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .instagram-btn { background-color: #E1306C; }
+        .facebook-btn { background-color: #1877F2; }
+        .vsco-btn { background-color: #000000; }
+        
+        @media (max-width: 768px) {
+            .social-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .social-btn {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+        
+        /* How I Joined Section Styles */
+        .how-i-joined-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            grid-column: span 2;
+        }
+        
+        .how-i-joined-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .how-i-joined-section p {
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .how-i-joined-section {
+                grid-column: 1;
+            }
+        }
+        
+        /* Gallery Navigation Styles */
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(45, 85, 32, 0.7); /* Darker green background to match garrett-otto.html */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 1; /* Always visible */
+            transition: opacity 0.3s ease;
+            color: white; /* White arrow color */
+        }
+        
+        .carousel-prev {
+            left: 10px;
+        }
+        
+        .carousel-next {
+            right: 10px;
+        }
+        
+        /* Always show navigation arrows */
+        .carousel-prev, .carousel-next {
+            opacity: 1;
+        }
+        
+        /* Hide all prev/next buttons by default */
+        .carousel-prev, .carousel-next {
+            display: none;
+        }
+        
+        /* Show only the relevant prev/next buttons based on the selected item */
+        #gallery-item-1:checked ~ #prev-1,
+        #gallery-item-1:checked ~ #next-1 {
+            display: flex;
+        }
+        
+        /* Carousel Navigation Dots */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+        
+        .nav-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #1e3b15; /* Darker green to match garrett-otto.html */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.1);
+        }
+        
+        /* Highlight active dot */
+        #gallery-item-1:checked ~ .carousel-nav .nav-dot[for="gallery-item-1"] {
+            background-color: #2d5520; /* Darker green to match garrett-otto.html */
+            color: white;
+            transform: scale(1.1);
         }
     </style>
     <!-- Font Awesome for icons -->
@@ -43,7 +292,7 @@
                 <li><a href="our-services.html" id="nav-activities">Activities</a></li>
                 <li><a href="testimonials.html" id="nav-stories">Stories</a></li>
                 <li class="dropdown">
-                    <a href="contact.html" class="active" id="nav-friends">Friends</a>
+                    <a href="contact.html" id="nav-friends">Friends</a>
                     <div class="dropdown-content">
                         <a href="noah-perkins.html">Noah Perkins</a>
                         <a href="chance-wiese.html">Chance Wiese</a>
@@ -67,14 +316,89 @@
         </nav>
     </header>
 
+    <main class="section staff-profile">
+        <div class="profile-header">
+            <h1>Meet Julia Wasden</h1>
+            <div class="availability-status available">
+                <span>Available</span>
+            </div>
+            <div class="profile-image-wrapper">
+                <img src="assets/images/Staff - Julia Wasden/Julia.png" alt="Julia Wasden" class="staff-img" loading="eager" decoding="async">
+            </div>
+        </div>
 
-  <main class="section about-section">
-    <h2>Meet Julia Wasden</h2>
-    <img src="assets/images/staff%20images/julia-wasden.png" alt="Julia Wasden" class="staff-img" style="margin:20px auto 30px;display:block;width:160px;height:160px;border-radius:50%;object-fit:cover;">
-    <p>Julia is the multilingual storyteller who lends Pickle Gallery its global voice. Fluent in five languages, she deftly translates interviews and signage, allowing the team to converse respectfully across cultures. Julia’s essays combine anthropological insight with poetic flair, weaving local folklore and socio‑historical context into each photo essay. Her passion for cultural preservation drives partnerships with grassroots organizations, ensuring featured communities benefit directly from increased visibility. Julia’s guiding principle: every culture is a universe—approach with humility, curiosity, and gratitude.<br><br></p>
-  </main>
+        <div class="profile-content">
+            <p>Meet Julia, our resident photographer and creative visionary who captures the essence of every Pickles adventure through her lens. With an eye for detail and a passion for storytelling through images, Julia transforms our ordinary moments into extraordinary memories that we'll cherish for years to come.</p>
+            
+            <div class="profile-details">
+                <div class="detail-item">
+                    <h3><i class="fas fa-user"></i> About Me</h3>
+                    <p>I've always believed that a photograph is more than just an image—it's a moment frozen in time, a story waiting to be told. As the photographer of our group, I love documenting our adventures and the genuine connections we share. When I'm not behind the camera, I'm exploring new hiking trails, experimenting with different artistic mediums, or planning our next photo adventure. I find beauty in the smallest details and believe that life's most precious moments often happen in the spaces between planned events—those spontaneous laughs, quiet conversations, and unexpected discoveries that make our friendship so special.</p>
+                </div>
+                <div class="detail-item">
+                    <h3><i class="fas fa-star"></i> Fun Facts</h3>
+                    <ul class="fun-facts">
+                        <li><i class="fas fa-camera"></i> Won three local photography competitions with candid shots of our Pickles adventures</li>
+                        <li><i class="fas fa-plane"></i> Traveled to 12 countries documenting different cultures through street photography</li>
+                        <li><i class="fas fa-coffee"></i> Can identify the origin of coffee beans just by their aroma—a skill developed during my barista days</li>
+                        <li><i class="fas fa-moon"></i> Specializes in astrophotography and leads our stargazing nights with Garrett</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="how-i-joined-section">
+                <h3><i class="fas fa-book-open"></i> How I Joined Pickles</h3>
+                <p>My journey with the Pickles group began during a local photography exhibition where I had displayed some of my landscape work. Grace and Garrett stopped by my booth, and we instantly connected over our shared love for capturing Utah's natural beauty. They mentioned they were heading to a sunset hike with friends later that week and invited me to join them—both as a participant and to document the experience. I remember being nervous about meeting a whole group of new people, but that anxiety melted away within minutes of arriving. Everyone was so welcoming, genuinely interested in my photography, and excited to have their adventures documented. That evening, as we watched the sun paint the sky in brilliant hues of orange and pink, I knew I had found not just subjects for my camera, but true friends who appreciated both the art and the artist. Since then, our bi-weekly photo adventures have become a cornerstone of the Pickles experience, and I've watched our collection of memories grow with each click of my shutter.</p>
+            </div>
+            
+            <div class="profile-gallery">
+                <h3><i class="fas fa-camera"></i> Photo Gallery</h3>
+                <div class="gallery-carousel">
+                    <div class="carousel" id="lightbox-close">
+                        <input type="radio" name="gallery-control" id="gallery-item-1" checked>
+                        
+                        <!-- Navigation controls that change based on which item is selected -->
+                        <!-- Previous buttons -->
+                        <label for="gallery-item-1" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
+                        
+                        <!-- Next buttons -->
+                        <label for="gallery-item-1" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
+                        
+                        <div class="carousel-items">
+                            <div class="carousel-item" id="item-1">
+                                <a href="#lightbox-1" class="lightbox-trigger">
+                                    <img src="assets/images/Staff - Julia Wasden/photo1.jpg" alt="Julia Gallery 1">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-nav">
+                            <label for="gallery-item-1" class="nav-dot">1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-media-section">
+                <h3><i class="fas fa-share-alt"></i> Get in Touch</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/julia_wasden/" class="social-btn instagram-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=100012257283176" class="social-btn facebook-btn" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://vsco.co/juliawasd/gallery" class="social-btn vsco-btn" target="_blank"><i class="fas fa-camera"></i> VSCO</a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-      <footer class="main-footer">
+    <!-- Lightbox Galleries -->
+    <div class="lightbox" id="lightbox-1">
+        <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+        <div class="lightbox-content">
+            <img src="assets/images/Staff - Julia Wasden/photo1.jpg" alt="Julia Gallery 1" class="lightbox-image">
+        </div>
+    </div>
+
+    <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
@@ -96,4 +420,3 @@
     </footer>
 </body>
 </html>
-

@@ -4,13 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spencer Nay — Pickles — Pickles Friend Group</title>
-    <meta name="description" content="Page description goes here.">
+    <title>Spencer Nay — Pickles Friend Group</title>
+    <meta name="description" content="Meet Spencer Nay, a valued member of the Pickles friend group.">
     <meta name="theme-color" content="#305921">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Availability Status Styles */
+        .availability-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        /* Fun Facts List Styling */
+        .fun-facts {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .fun-facts li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .fun-facts li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .availability-status.available {
+            background-color: #4CAF50;
+        }
+        
+        .availability-status.taken {
+            background-color: #FFD700; /* Yellow */
+        }
+        
+        .profile-header {
+            position: relative;
+        }
+        
+        /* Profile Image Styling */
+        .profile-image-wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 3px solid var(--secondary-color);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-image-wrapper img.staff-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        @media (max-width: 768px) {
+            .availability-status {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .profile-image-wrapper {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
         /* Fix for dropdown active link color */
         .dropdown-content a.active {
             color: var(--primary-color) !important;
@@ -23,6 +102,182 @@
         .navbar-links .dropdown:hover .dropdown-content a.active:hover {
             color: var(--primary-color) !important;
             background-color: #e0e0e0;
+        }
+        
+        /* Social Media Section Styles */
+        .social-media-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .social-media-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+            opacity: 0.9;
+        }
+        
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .instagram-btn { background-color: #E1306C; }
+        .facebook-btn { background-color: #1877F2; }
+        .vsco-btn { background-color: #000000; }
+        
+        @media (max-width: 768px) {
+            .social-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .social-btn {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+        
+        /* How I Joined Section Styles */
+        .how-i-joined-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            grid-column: span 2;
+        }
+        
+        .how-i-joined-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .how-i-joined-section p {
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .how-i-joined-section {
+                grid-column: 1;
+            }
+        }
+        
+        /* Gallery Navigation Styles */
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(45, 85, 32, 0.7); /* Darker green background to match garrett-otto.html */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 1; /* Always visible */
+            transition: opacity 0.3s ease;
+            color: white; /* White arrow color */
+        }
+        
+        .carousel-prev {
+            left: 10px;
+        }
+        
+        .carousel-next {
+            right: 10px;
+        }
+        
+        /* Always show navigation arrows */
+        .carousel-prev, .carousel-next {
+            opacity: 1;
+        }
+        
+        /* Hide all prev/next buttons by default */
+        .carousel-prev, .carousel-next {
+            display: none;
+        }
+        
+        /* Show only the relevant prev/next buttons based on the selected item */
+        #gallery-item-1:checked ~ #prev-1,
+        #gallery-item-1:checked ~ #next-1,
+        #gallery-item-2:checked ~ #prev-2,
+        #gallery-item-2:checked ~ #next-2,
+        #gallery-item-3:checked ~ #prev-3,
+        #gallery-item-3:checked ~ #next-3 {
+            display: flex;
+        }
+        
+        /* Carousel Navigation Dots */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+        
+        .nav-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #1e3b15; /* Darker green to match garrett-otto.html */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.1);
+        }
+        
+        /* Highlight active dot */
+        #gallery-item-1:checked ~ .carousel-nav .nav-dot[for="gallery-item-1"],
+        #gallery-item-2:checked ~ .carousel-nav .nav-dot[for="gallery-item-2"],
+        #gallery-item-3:checked ~ .carousel-nav .nav-dot[for="gallery-item-3"] {
+            background-color: #2d5520; /* Darker green to match garrett-otto.html */
+            color: white;
+            transform: scale(1.1);
         }
     </style>
     <!-- Font Awesome for icons -->
@@ -67,14 +322,88 @@
         </nav>
     </header>
 
+    <main class="section staff-profile">
+        <div class="profile-header">
+            <h1>Meet Spencer Nay</h1>
+            <div class="availability-status taken">
+                <span>Taken</span>
+            </div>
+            <div class="profile-image-wrapper">
+                <img src="assets/images/Staff - Spencer Nay/Spencer.png" alt="Spencer Nay" class="staff-img" loading="eager" decoding="async">
+            </div>
+        </div>
 
-  <main class="section about-section">
-    <h2>Meet Spencer Nay</h2>
-    <img src="assets/images/staff%20images/spencer-nay.png" alt="Spencer Nay" class="staff-img" style="margin:20px auto 30px;display:block;width:160px;height:160px;border-radius:50%;object-fit:cover;">
-    <p>Spencer is Pickle Gallery’s lighting savant, celebrated for transforming mundane settings into cinematic scenes with a single bounce board or lantern. Trained in theatrical stagecraft, he instinctively sculpts highlights and shadows to guide the viewer’s eye. Spencer’s tutorials show how natural reflectors—snowfields, limestone cliffs, ocean foam—can amplify ambient light, minimizing the crew’s environmental footprint. During nocturnal shoots, his ingenuity turns headlamps and campfires into storytelling spotlights. Spencer’s mantra: light shapes mood, and mood shapes memory.<br><br></p>
-  </main>
+        <div class="profile-content">
+            <p>Spencer Nay is the tech wizard of the Pickles friend group, bringing innovative solutions and digital expertise to all our adventures. With his creative problem-solving skills and passion for technology, he ensures our group stays connected and our activities run smoothly. Beyond his technical prowess, Spencer's warm personality and genuine desire to help others make him an invaluable friend who's always ready to lend a hand or share his knowledge.</p>
+            
+            <div class="profile-details">
+                <div class="detail-item">
+                    <h3><i class="fas fa-user"></i> About Me</h3>
+                    <p>I've been fascinated by technology since I was a kid, taking apart computers just to see how they worked (and sometimes successfully putting them back together). My passion for innovation drives me to constantly learn new skills and explore emerging technologies. When I'm not coding or tinkering with gadgets, I enjoy hiking with friends, playing strategy board games, and experimenting with digital art. I believe that technology should bring people together rather than isolate them, which is why I love using my skills to enhance our group experiences. Whether it's creating custom apps for our adventures or troubleshooting technical issues, I find joy in using technology to solve real-world problems and make life better for the people around me.</p>
+                </div>
+                <div class="detail-item">
+                    <h3><i class="fas fa-star"></i> Fun Facts</h3>
+                    <ul class="fun-facts">
+                        <li><i class="fas fa-robot"></i> I built my first robot at age 12</li>
+                        <li><i class="fas fa-code"></i> I know seven programming languages</li>
+                        <li><i class="fas fa-gamepad"></i> I've designed three indie mobile games</li>
+                        <li><i class="fas fa-lightbulb"></i> I hold two patents for tech innovations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="how-i-joined-section">
+                <h3><i class="fas fa-book-open"></i> How I Joined Pickles</h3>
+                <p>I joined the Pickles group during my junior year of college when I was looking to expand my social circle beyond my computer science classmates. I met Garrett at a campus hackathon where we were paired as teammates. We clicked immediately over our shared love of technology and problem-solving, though our approaches were quite different. After the event, he mentioned this amazing group of friends who were planning a weekend camping trip and invited me to join. I was hesitant at first—outdoor adventures weren't typically my scene—but Garrett convinced me it would be a good way to balance my tech-heavy lifestyle. That weekend turned out to be transformative. Despite some initial awkwardness (and my embarrassing struggle to set up a tent), everyone was incredibly welcoming and patient. What impressed me most was how the group embraced everyone's unique talents and interests. They were genuinely interested in my tech projects, and I found myself equally fascinated by their diverse passions. By the end of the trip, I had not only made new friends but also discovered a new appreciation for unplugging and connecting with nature. Since then, I've become the unofficial tech support for our adventures, creating custom apps for our trips and helping everyone stay connected. The Pickles group has given me the perfect balance of technology and human connection that I didn't know I was missing.</p>
+            </div>
+            
+            <div class="profile-gallery">
+                <h3><i class="fas fa-camera"></i> Photo Gallery</h3>
+                <div class="gallery-carousel">
+                    <div class="carousel" id="lightbox-close">
+                        <input type="radio" name="gallery-control" id="gallery-item-1" checked>
+                        
+                        <!-- Navigation controls that change based on which item is selected -->
+                        <!-- Previous buttons -->
+                        <label for="gallery-item-1" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
+                        
+                        <!-- Next buttons -->
+                        <label for="gallery-item-1" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
+                        
+                        <div class="carousel-items">
+                            <div class="carousel-item" id="item-1">
+                                <a href="#lightbox-1" class="lightbox-trigger">
+                                    <img src="assets/images/Staff - Spencer Nay/photo1.jpg" alt="Spencer Gallery 1">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-nav">
+                            <label for="gallery-item-1" class="nav-dot">1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-media-section">
+                <h3><i class="fas fa-share-alt"></i> Get in Touch</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/snaykid/" class="social-btn instagram-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=100006324520684" class="social-btn facebook-btn" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-      <footer class="main-footer">
+    <!-- Lightbox Galleries -->
+    <div class="lightbox" id="lightbox-1">
+        <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+        <div class="lightbox-content">
+            <img src="assets/images/Staff - Spencer Nay/photo1.jpg" alt="Spencer Gallery 1" class="lightbox-image">
+        </div>
+    </div>
+
+    <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
@@ -96,4 +425,3 @@
     </footer>
 </body>
 </html>
-
