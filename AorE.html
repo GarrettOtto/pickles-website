@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | Pickles</title>
+    <meta name="description" content="Search for friends, activities, and stories from our adventures">
+    <meta name="theme-color" content="#305921">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        /* Fix for dropdown active link color */
+        .dropdown-content a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            background-color: #f0f0f0;
+        }
+        
+        /* Override the default hover styles for active items */
+        .navbar-links .dropdown:hover .dropdown-content a.active,
+        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+            color: var(--primary-color) !important;
+            background-color: #e0e0e0;
+        }
+        
+        /* Button group styles */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .button-group .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Search Container Styles */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            background: linear-gradient(135deg, #f5f7f0 0%, #e8f0e0 100%);
+            display: block;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background pattern removed */
+        
+        .content-wrapper {
+            width: 100%;
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        
+        .search-box {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 3rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(48, 89, 33, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(139, 195, 74, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .search-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 65px rgba(48, 89, 33, 0.2), 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Removed green bar at the top */
+        
+        /* Decorative elements removed */
+        
+        .search-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+        
+        .search-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+        
+        .search-subtitle {
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        .search-form {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .search-input-wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 5.5rem 1.2rem 1.5rem;
+            border: 2px solid rgba(224, 224, 224, 0.6);
+            border-radius: 50px;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(139, 195, 74, 0.15);
+            background-color: #fff;
+        }
+        
+        .search-input::placeholder {
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .search-input:focus::placeholder {
+            color: #bbb;
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            width: auto;
+            height: calc(100% - 10px);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(48, 89, 33, 0.2);
+        }
+        
+        .search-button:hover {
+            transform: translateY(-50%) scale(1.02);
+            box-shadow: 0 6px 15px rgba(48, 89, 33, 0.25);
+        }
+        
+        .search-button i {
+            font-size: 1.1rem;
+        }
+        
+        .search-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(48, 89, 33, 0.3);
+        }
+        
+        .search-button i {
+            font-size: 1.2rem;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        .search-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            position: relative;
+            padding-top: 1.5rem;
+            width: 100%;
+        }
+        
+        .search-options::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 195, 74, 0.3), transparent);
+        }
+        
+        .search-filter {
+            flex: 1;
+            min-width: 150px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .filter-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .filter-select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            border-radius: 8px;
+            background-color: white;
+            font-size: 0.95rem;
+            color: #333;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23305921' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+        
+        .filter-select:hover {
+            border-color: rgba(76, 175, 80, 0.4);
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.1);
+        }
+        
+        /* Decorative elements */
+
+        
+        /* Adjust search form to fill more space */
+        .search-form {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .search-input-wrapper {
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .search-options {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .search-filter {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            main {
+                padding: 20px 15px;
+            }
+            
+            .search-container {
+                width: 100%;
+                padding: 2rem 1.5rem;
+                margin: 0;
+            }
+            
+            .search-title {
+                font-size: 2.2rem;
+            }
+            
+            .search-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .search-options {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            
+            .search-filter {
+                width: 100%;
+            }
+            
+            .search-input {
+                padding: 1rem 1.5rem;
+            }
+            
+            .search-button {
+                width: 42px;
+                height: 42px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
+                <a href="index.html" class="brand-name">Pickles</a>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+                <li><a href="about-us.html" id="nav-about">About Us</a></li>
+                <li><a href="activities.html" id="nav-activities">Activities</a></li>
+                <li><a href="stories.html" id="nav-stories">Stories</a></li>
+                <li class="dropdown">
+                    <a href="friends.html" id="nav-friends">Friends</a>
+                    <div class="dropdown-content">
+                        <a href="noah-perkins.html">Noah Perkins</a>
+                        <a href="chance-wiese.html">Chance Wiese</a>
+                        <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                        <a href="abbie-barker.html">Abbie Barker</a>
+                        <a href="konner-clawson.html">Konner Clawson</a>
+                        <a href="mckenly-day.html">McKenly Day</a>
+                        <a href="spencer-nay.html">Spencer Nay</a>
+                        <a href="ridge-poll.html">Ridge Poll</a>
+                        <a href="grace-richardson.html">Grace Richardson</a>
+                        <a href="julia-wasden.html">Julia Wasden</a>
+                        <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                        <a href="brianna-judson.html">Brianna Judson</a>
+                        <a href="garrett-otto.html">Garrett Otto</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-wrapper">
+            <div class="search-box">
+                <!-- Decorative elements removed -->
+            <h2 class="search-title">Search</h2>
+            <p class="search-subtitle">Find friends, activities, and stories from our adventures</p>
+            <form class="search-form" action="#" method="get">
+                <div class="search-input-wrapper">
+                    <input type="search" name="q" id="search-input" placeholder="What are you looking for?" autocomplete="off" aria-label="Search" class="search-input">
+                    <button type="submit" class="search-button" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                        <span>Search</span>
+                    </button>
+                </div>
+                <div class="search-options">
+                    <div class="search-filter">
+                        <label for="search-category" class="filter-label">Category</label>
+                        <select id="search-category" name="category" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="activities">Activities</option>
+                            <option value="friends">Friends</option>
+                            <option value="stories">Stories</option>
+                            <option value="photos">Photos</option>
+                        </select>
+                    </div>
+                    <div class="search-filter">
+                        <label for="search-sort" class="filter-label">Sort by</label>
+                        <select id="search-sort" name="sort" class="filter-select">
+                            <option value="relevance">Relevance</option>
+                            <option value="date-new">Newest First</option>
+                            <option value="date-old">Oldest First</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
+                <h3><a href="index.html">Pickles</a></h3>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Pickles. All rights reserved.</p>
+                <p>A group of friends, endless adventures</p>
+            </div>
+
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About</a>
+            <a href="activities.html">Activities</a>
+            <a href="stories.html">Stories</a>
+            <a href="friends.html">Friends</a>
+        </div>
+    </footer>
+</body>
+</html>
+
