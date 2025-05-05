@@ -91,31 +91,25 @@
             width: 100%;
             min-height: 70vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 40px 20px;
             box-sizing: border-box;
+            position: relative;
         }
         
         .search-box {
             width: 90%;
             max-width: 500px;
             margin: 0 auto;
-            padding: 3rem;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(48, 89, 33, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05);
             text-align: center;
             position: relative;
-            border: 1px solid rgba(139, 195, 74, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
         .search-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 65px rgba(48, 89, 33, 0.2), 0 8px 16px rgba(0, 0, 0, 0.08);
         }
         
         /* Removed green bar at the top */
@@ -422,9 +416,6 @@
     <main>
         <div class="content-wrapper">
             <div class="search-box">
-                <!-- Decorative elements removed -->
-            <h2 class="search-title">Search</h2>
-            <p class="search-subtitle">Find friends, activities, and stories from our adventures</p>
             <form class="search-form" action="#" method="get">
                 <div class="search-input-wrapper">
                     <input type="search" name="q" id="search-input" placeholder="What are you looking for?" autocomplete="off" aria-label="Search" class="search-input">
@@ -433,29 +424,9 @@
                         <span>Search</span>
                     </button>
                 </div>
-                <div class="search-options">
-                    <div class="search-filter">
-                        <label for="search-category" class="filter-label">Category</label>
-                        <select id="search-category" name="category" class="filter-select">
-                            <option value="all">All Categories</option>
-                            <option value="activities">Activities</option>
-                            <option value="friends">Friends</option>
-                            <option value="stories">Stories</option>
-                            <option value="photos">Photos</option>
-                        </select>
-                    </div>
-                    <div class="search-filter">
-                        <label for="search-sort" class="filter-label">Sort by</label>
-                        <select id="search-sort" name="sort" class="filter-select">
-                            <option value="relevance">Relevance</option>
-                            <option value="date-new">Newest First</option>
-                            <option value="date-old">Oldest First</option>
-                            <option value="name">Name (A-Z)</option>
-                        </select>
-                    </div>
-                </div>
             </form>
             </div>
+            <div style="position: absolute; left: 27%; top: 57%; border: 2px dashed #305921; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; text-align: center; color: #305921; font-weight: bold; padding: 10px;">Insert Image Here</div>
         </div>
     </main>
 
@@ -472,7 +443,7 @@
 
         </div>
         <div class="footer-links">
-            <a href="aoretest.html">TRY ME</a>
+            <a href="aore.html">STARTING PAGE</a>
             <a href="index.html">Home</a>
             <a href="about-us.html">About</a>
             <a href="activities.html">Activities</a>
