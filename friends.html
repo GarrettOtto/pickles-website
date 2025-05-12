@@ -42,6 +42,13 @@
             z-index: 2;
         }
         
+        /* Hide status tags when card is flipped */
+        @media (max-width: 768px) {
+            .friend-card-inner.flipped .friend-status {
+                display: none;
+            }
+        }
+        
         .friend-status.founding-member {
             top: 10px;
             background-color: #4CAF50; /* Green */
@@ -1126,6 +1133,31 @@
                 closeMenu();
             }
         });
+    });
+    </script>
+
+    <!-- JavaScript for Friend Card Flipping on Mobile -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Only add touch handlers on mobile devices
+        if (window.innerWidth <= 768) {
+            const friendCards = document.querySelectorAll('.friend-card-inner');
+            
+            // Add click event to each card
+            friendCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Toggle the flipped class
+                    this.classList.toggle('flipped');
+                    
+                    // If the card is flipped, add the rotateY transform
+                    if (this.classList.contains('flipped')) {
+                        this.style.transform = 'rotateY(180deg)';
+                    } else {
+                        this.style.transform = 'rotateY(0deg)';
+                    }
+                });
+            });
+        }
     });
     </script>
 
