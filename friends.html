@@ -11,6 +11,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Hide mobile UI elements */
+        @media (max-width: 768px) {
+            /* Hide potential mobile headers */
+            #pickles-header-nav,
+            .pickles-header-nav,
+            .mobile-header-nav,
+            .mobile-top-bar,
+            .mobile-top-nav,
+            div[id*="mobile-header"],
+            div[class*="mobile-header"],
+            body > div:first-of-type:not(.nav-overlay):not(.mobile-menu-container) {
+                display: none !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+        }
+        
         /* Friend Status Styles */
         .friend-status {
             background-color: #4CAF50; /* Default green */
@@ -72,6 +89,219 @@
             color: var(--primary-color) !important;
             background-color: #e0e0e0;
         }
+        
+        /* Mobile Navigation Styles */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            padding: 0.4rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-nav-toggle:focus {
+            outline: none;
+        }
+        
+        .mobile-nav-toggle.active {
+            transform: rotate(90deg);
+        }
+        
+        /* Mobile menu overlay */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-container {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            /* Hide specific UI elements on mobile */
+            body > div:first-of-type:not(.nav-overlay):not(.mobile-menu-container),
+            body > div > a[href="index.html"],
+            body > div > a[href="about-us.html"],
+            div[class*="header"] > a[href="index.html"]:not(.brand-name),
+            div[class*="header"] > a[href="about-us.html"],
+            div[class*="nav"] > a[href="index.html"]:not(.brand-name),
+            div[class*="nav"] > a[href="about-us.html"],
+            .pickles-header-nav,
+            .mobile-header-buttons,
+            [id="nav-home"]:not(.mobile-menu a),
+            [id="nav-about"]:not(.mobile-menu a),
+            [id="nav-activities"]:not(.mobile-menu a),
+            [id="nav-stories"]:not(.mobile-menu a),
+            [id="nav-friends"]:not(.mobile-menu a), 
+            /* Target elements by text content using attribute selectors */
+            a[aria-label*="Home"],
+            a[aria-label*="About"],
+            a[title*="Home"],
+            a[title*="About"],
+            /* Target the green header bar specifically */
+            div[style*="background-color: rgb(48, 89, 33)"],
+            div[style*="background-color:#305921"],
+            div[style*="background: #305921"],
+            /* Hide any fixed positioned elements at the top except our navigation */
+            body > div[style*="position: fixed"]:not(.nav-overlay):not(.mobile-menu-container),
+            body > header > div[style*="position: fixed"]:not(.navbar) {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+            
+            /* Mobile Navigation */
+            .mobile-nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 1rem;
+                top: 1.2rem;
+                width: 32px;
+                height: 32px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+            
+            /* Hide desktop navbar and show mobile menu */
+            .navbar-links {
+                display: none;
+            }
+            
+            .mobile-menu-container {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 75%;
+                max-width: 250px;
+                height: 100vh;
+                background-color: var(--primary-color);
+                z-index: 95;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                overflow-y: auto;
+            }
+            
+            .mobile-menu-container.active {
+                left: 0;
+            }
+            
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+            
+            .mobile-menu li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .mobile-menu li:first-child {
+                margin-top: 3rem;
+            }
+            
+            .mobile-menu a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+            
+            .mobile-menu a.active {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-left: 3px solid var(--accent-color);
+            }
+            
+            .mobile-dropdown {
+                position: relative;
+            }
+            
+            .mobile-dropdown > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            /* Mobile dropdown toggle button */
+            .mobile-dropdown .dropdown-toggle {
+                padding: 0.5rem;
+                cursor: pointer;
+                color: white;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s ease;
+                position: absolute;
+                right: 0.5rem;
+                top: 1rem;
+                z-index: 5;
+            }
+            
+            /* Friends link should look exactly like other menu items */
+            .mobile-dropdown a.friends-link {
+                text-align: center;
+                padding: 1rem 1.2rem;
+                display: block;
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+            
+            .mobile-dropdown.active .dropdown-toggle {
+                transform: rotate(180deg);
+            }
+            
+            .mobile-dropdown.active > a::after {
+                transform: rotate(180deg);
+            }
+            
+            .mobile-dropdown-content {
+                display: none;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            
+            .mobile-dropdown.active .mobile-dropdown-content {
+                display: block;
+            }
+            
+            .mobile-dropdown-content a {
+                padding: 0.8rem 1rem 0.8rem 1.8rem;
+                font-size: 0.9rem;
+                line-height: 1.2;
+            }
+            
+            .nav-overlay {
+                display: none;
+                z-index: 90;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+        }
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -79,6 +309,7 @@
     <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
 </head>
 <body>
+    <div class="nav-overlay"></div>
     <header class="main-header">
         <nav class="navbar">
             <div class="navbar-brand">
@@ -109,8 +340,37 @@
                     </div>
                 </li>
             </ul>
-            <div class="mobile-menu-toggle">
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-menu-container">
+                <ul class="mobile-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li class="mobile-dropdown">
+                        <a href="friends.html" class="active" style="text-align: center; display: block; padding: 1rem 1.2rem; color: white; text-decoration: none; font-size: 1rem; line-height: 1.2;">Friends</a>
+                        <span class="dropdown-toggle" style="position: absolute; right: 1rem; top: 1rem;"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-content">
+                            <a href="noah-perkins.html">Noah Perkins</a>
+                            <a href="chance-wiese.html">Chance Wiese</a>
+                            <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                            <a href="abbie-barker.html">Abbie Barker</a>
+                            <a href="konner-clawson.html">Konner Clawson</a>
+                            <a href="mckenly-day.html">McKenly Day</a>
+                            <a href="spencer-nay.html">Spencer Nay</a>
+                            <a href="ridge-poll.html">Ridge Poll</a>
+                            <a href="grace-richardson.html">Grace Richardson</a>
+                            <a href="julia-wasden.html">Julia Wasden</a>
+                            <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                            <a href="brianna-judson.html">Brianna Judson</a>
+                            <a href="garrett-otto.html">Garrett Otto</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -670,6 +930,203 @@
                 });
             }
         });
+    </script>
+
+    <script>
+    // Mobile navigation toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu-container');
+        const navOverlay = document.querySelector('.nav-overlay');
+        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+        
+        // Function to hide the green header with Home and About Us buttons
+        function hideGreenHeader() {
+            if (window.innerWidth <= 768) {
+                // Look for all divs in the document that are NOT part of our main navigation
+                const allDivs = document.querySelectorAll('div:not(.navbar):not(.navbar-brand):not(.navbar-links):not(.mobile-menu-container):not(.mobile-menu):not(.dropdown-content):not(.mobile-dropdown-content)');
+                
+                allDivs.forEach(div => {
+                    // Skip our navigation elements
+                    if (div.closest('.navbar') || div.closest('.mobile-menu-container')) {
+                        return;
+                    }
+                    
+                    // Check if this div might be the green header
+                    const style = window.getComputedStyle(div);
+                    const bgColor = style.backgroundColor;
+                    
+                    // Check for green background color
+                    if (bgColor.includes('rgb(48, 89, 33)') || bgColor.includes('rgb(76, 175, 80)')) {
+                        // Check if it contains Home and About Us links
+                        const links = div.querySelectorAll('a');
+                        let hasHomeLink = false;
+                        let hasAboutLink = false;
+                        
+                        links.forEach(link => {
+                            const text = link.textContent.trim().toLowerCase();
+                            const href = link.getAttribute('href');
+                            
+                            if (text === 'home' || (href && href.includes('index.html'))) {
+                                hasHomeLink = true;
+                            }
+                            if (text === 'about us' || text === 'about' || (href && href.includes('about'))) {
+                                hasAboutLink = true;
+                            }
+                        });
+                        // If this div has both Home and About links, hide it
+                        if (hasHomeLink && hasAboutLink) {
+                            div.style.display = 'none';
+                            div.style.visibility = 'hidden';
+                            div.style.opacity = '0';
+                            div.style.pointerEvents = 'none';
+                            div.style.height = '0';
+                            div.style.overflow = 'hidden';
+                            div.style.position = 'absolute';
+                            div.style.top = '-9999px';
+                        }
+                    }
+                    
+                    // Also check if this is a header or navigation element (but not our main navigation)
+                    if (div.id && (div.id.includes('header') || div.id.includes('nav'))) {
+                        // Skip our main navigation elements
+                        if (div.closest('.navbar') || div.closest('.mobile-menu-container') ||
+                            div.classList.contains('navbar') || div.classList.contains('mobile-menu-container')) {
+                            return;
+                        }
+                        
+                        const links = div.querySelectorAll('a');
+                        let hasHomeLink = false;
+                        let hasAboutLink = false;
+                        
+                        links.forEach(link => {
+                            const text = link.textContent.trim().toLowerCase();
+                            const href = link.getAttribute('href');
+                            
+                            if (text === 'home' || (href && href.includes('index.html'))) {
+                                hasHomeLink = true;
+                            }
+                            if (text === 'about us' || text === 'about' || (href && href.includes('about'))) {
+                                hasAboutLink = true;
+                            }
+                        });
+                        
+                        // If this div has both Home and About links, hide it
+                        if (hasHomeLink && hasAboutLink) {
+                            div.style.display = 'none';
+                            div.style.visibility = 'hidden';
+                            div.style.opacity = '0';
+                            div.style.pointerEvents = 'none';
+                            div.style.height = '0';
+                            div.style.overflow = 'hidden';
+                            div.style.position = 'absolute';
+                            div.style.top = '-9999px';
+                        }
+                    }
+                });
+                
+                // Also hide any standalone Home and About Us links at the top (but not in our navigation)
+                const topLinks = document.querySelectorAll('body > a, body > div > a');
+                topLinks.forEach(link => {
+                    // Skip links in our navigation
+                    if (link.closest('.navbar') || link.closest('.mobile-menu-container') || 
+                        link.closest('.navbar-brand') || link.closest('.mobile-menu')) {
+                        return;
+                    }
+                    
+                    const text = link.textContent.trim().toLowerCase();
+                    const href = link.getAttribute('href');
+                    
+                    if ((text === 'home' || (href && href.includes('index.html'))) || 
+                        (text === 'about us' || text === 'about' || (href && href.includes('about')))) {
+                        link.style.display = 'none';
+                        link.style.visibility = 'hidden';
+                        link.style.opacity = '0';
+                        link.style.pointerEvents = 'none';
+                    }
+                });
+            }
+        }
+        
+        // Run the function on page load, after a short delay, and on resize
+        hideGreenHeader();
+        setTimeout(hideGreenHeader, 100); // Run again after a short delay
+        setTimeout(hideGreenHeader, 500); // Run again after a longer delay
+        window.addEventListener('resize', hideGreenHeader);
+        window.addEventListener('load', hideGreenHeader);
+        
+        // Toggle mobile menu
+        mobileToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            
+            // Toggle between hamburger and close icon
+            if (this.querySelector('i').classList.contains('fa-bars')) {
+                this.querySelector('i').classList.remove('fa-bars');
+                this.querySelector('i').classList.add('fa-times');
+            } else {
+                this.querySelector('i').classList.add('fa-bars');
+                this.querySelector('i').classList.remove('fa-times');
+            }
+            
+            // Hide green header when menu is opened
+            hideGreenHeader();
+        });
+        
+        // Close menu when clicking overlay
+        navOverlay.addEventListener('click', function() {
+            closeMenu();
+        });
+        
+        // Handle dropdown toggles on mobile
+        mobileDropdowns.forEach(dropdown => {
+            const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            
+            if (dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent event from bubbling up
+                    
+                    // Close any other open dropdowns
+                    mobileDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    dropdown.classList.toggle('active');
+                });
+            }
+        });
+        
+        // Close menu function
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            
+            // Close all dropdowns
+            mobileDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+        
+        // Close menu when clicking a link (except dropdown toggles)
+        const menuLinks = document.querySelectorAll('.mobile-menu a:not(.mobile-dropdown > a)');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    });
     </script>
 
         <footer class="main-footer">

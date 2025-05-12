@@ -11,6 +11,196 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Hide mobile UI elements */
+        @media (max-width: 768px) {
+            /* Hide potential mobile headers */
+            #pickles-header-nav,
+            .pickles-header-nav,
+            .mobile-header-nav,
+            .mobile-top-bar,
+            .mobile-top-nav,
+            div[id*="mobile-header"],
+            div[class*="mobile-header"],
+            [id="nav-home"]:not(.mobile-menu a),
+            [id="nav-about"]:not(.mobile-menu a),
+            [id="nav-activities"]:not(.mobile-menu a),
+            [id="nav-stories"]:not(.mobile-menu a),
+            [id="nav-friends"]:not(.mobile-menu a), 
+            body > div:first-of-type:not(.nav-overlay):not(.mobile-menu-container) {
+                display: none !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+        }
+        
+        /* Mobile Navigation Styles */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            padding: 0.4rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-nav-toggle:focus {
+            outline: none;
+        }
+        
+        .mobile-nav-toggle.active {
+            transform: rotate(90deg);
+        }
+        
+        /* Mobile menu overlay */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-container {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .mobile-nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 1rem;
+                top: 1.2rem;
+                width: 32px;
+                height: 32px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+            
+            /* Hide desktop navbar and show mobile menu */
+            .navbar-links {
+                display: none;
+            }
+            
+            .mobile-menu-container {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 75%;
+                max-width: 250px;
+                height: 100vh;
+                background-color: var(--primary-color);
+                z-index: 95;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                overflow-y: auto;
+            }
+            
+            .mobile-menu-container.active {
+                left: 0;
+            }
+            
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+            
+            .mobile-menu li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .mobile-menu li:first-child {
+                margin-top: 3rem;
+            }
+            
+            .mobile-menu a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+            
+            .mobile-menu a.active {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-left: 3px solid var(--accent-color);
+            }
+            
+            .mobile-dropdown {
+                position: relative;
+            }
+            
+            .mobile-dropdown > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            /* Mobile dropdown toggle button */
+            .mobile-dropdown .dropdown-toggle {
+                padding: 0.5rem;
+                cursor: pointer;
+                color: white;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s ease;
+                position: absolute;
+                right: 0.5rem;
+                top: 1rem;
+                z-index: 5;
+            }
+            
+            /* Friends link should look exactly like other menu items */
+            .mobile-dropdown a.friends-link {
+                text-align: center;
+                padding: 1rem 1.2rem;
+                display: block;
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+            
+            .mobile-dropdown.active .dropdown-toggle {
+                transform: rotate(180deg);
+            }
+            
+            .mobile-dropdown.active > a::after {
+                transform: rotate(180deg);
+            }
+            
+            .mobile-dropdown-content {
+                display: none;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            
+            .mobile-dropdown.active .mobile-dropdown-content {
+                display: block;
+            }
+            
+            .mobile-dropdown-content a {
+                padding: 0.8rem 1rem 0.8rem 1.8rem;
+            }
+        }
         /* Availability Status Styles */
         .availability-status {
             position: absolute;
@@ -78,15 +268,41 @@
         
         @media (max-width: 768px) {
             .availability-status {
-                top: 10px;
-                right: 10px;
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 1rem auto 0;
                 padding: 6px 12px;
                 font-size: 0.9rem;
+                display: inline-block;
             }
             
             .profile-image-wrapper {
                 width: 150px;
                 height: 150px;
+                margin-bottom: 0.5rem;
+            }
+            
+            /* Ensure profile image comes before availability status */
+            .profile-image-wrapper {
+                order: 1;
+            }
+            
+            /* Make profile header use flexbox for reordering */
+            .profile-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .profile-header h1 {
+                order: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .availability-status {
+                order: 2;
             }
         }
         
@@ -286,12 +502,17 @@
     <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
 </head>
 <body>
+    <div class="nav-overlay"></div>
     <header class="main-header">
         <nav class="navbar">
             <div class="navbar-brand">
                 <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
                 <a href="index.html" class="brand-name">Pickles</a>
             </div>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Desktop Navigation Menu -->
             <ul class="navbar-links">
                 <li><a href="index.html" id="nav-home">Home</a></li>
                 <li><a href="about-us.html" id="nav-about">About Us</a></li>
@@ -316,8 +537,33 @@
                     </div>
                 </li>
             </ul>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-menu-container">
+                <ul class="mobile-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li class="mobile-dropdown">
+                        <a href="friends.html" class="friends-link active">Friends</a>
+                        <span class="dropdown-toggle"><i class="fas fa-chevron-down"></i></span>
+                        <div class="mobile-dropdown-content">
+                            <a href="noah-perkins.html">Noah Perkins</a>
+                            <a href="chance-wiese.html">Chance Wiese</a>
+                            <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                            <a href="abbie-barker.html">Abbie Barker</a>
+                            <a href="konner-clawson.html">Konner Clawson</a>
+                            <a href="mckenly-day.html" class="active">McKenly Day</a>
+                            <a href="spencer-nay.html">Spencer Nay</a>
+                            <a href="ridge-poll.html">Ridge Poll</a>
+                            <a href="grace-richardson.html">Grace Richardson</a>
+                            <a href="julia-wasden.html">Julia Wasden</a>
+                            <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                            <a href="brianna-judson.html">Brianna Judson</a>
+                            <a href="garrett-otto.html">Garrett Otto</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -423,5 +669,126 @@
             <a href="friends.html">Friends</a>
         </div>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu functionality
+        const mobileToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu-container');
+        const navOverlay = document.querySelector('.nav-overlay');
+        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+        
+        // Toggle mobile menu
+        mobileToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            
+            // Change icon
+            const icon = mobileToggle.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+        
+        // Close menu when clicking overlay
+        navOverlay.addEventListener('click', function() {
+            closeMenu();
+        });
+        
+        // Mobile dropdown functionality
+        mobileDropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            
+            if (toggle) {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close other open dropdowns
+                    mobileDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    dropdown.classList.toggle('active');
+                });
+            }
+        });
+        
+        // Close menu function
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            
+            // Close all dropdowns
+            mobileDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+        
+        // Close menu when clicking a link (except dropdown toggles)
+        const menuLinks = document.querySelectorAll('.mobile-menu a:not(.mobile-dropdown > a)');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+        
+        // Function to hide any green header that might be injected
+        function hideGreenHeader() {
+            // This targets potential elements that might be injected and hides them
+            const potentialHeaders = document.querySelectorAll(
+                '#pickles-header-nav, .pickles-header-nav, .mobile-header-nav, .mobile-top-bar, .mobile-top-nav, div[id*="mobile-header"], div[class*="mobile-header"]'
+            );
+            
+            potentialHeaders.forEach(header => {
+                if (header) {
+                    header.style.display = 'none';
+                    header.style.height = '0';
+                    header.style.overflow = 'hidden';
+                }
+            });
+            
+            // Also check for the first div that might be a header
+            const firstDiv = document.querySelector('body > div:first-of-type:not(.nav-overlay):not(.mobile-menu-container)');
+            if (firstDiv && firstDiv !== document.querySelector('.nav-overlay')) {
+                const computedStyle = window.getComputedStyle(firstDiv);
+                const bgColor = computedStyle.backgroundColor;
+                
+                // If it has a green background or contains navigation elements, it might be an injected header
+                if (
+                    bgColor.includes('rgb(48, 89, 33)') || // Primary color
+                    bgColor.includes('rgb(76, 175, 80)') || // Secondary color
+                    bgColor.includes('rgb(139, 195, 74)') || // Accent color
+                    firstDiv.querySelector('a[href="index.html"]') || 
+                    firstDiv.querySelector('a[href="about-us.html"]')
+                ) {
+                    firstDiv.style.display = 'none';
+                    firstDiv.style.height = '0';
+                    firstDiv.style.overflow = 'hidden';
+                }
+            }
+        }
+        
+        // Run the function on page load, after a short delay, and on resize
+        hideGreenHeader();
+        setTimeout(hideGreenHeader, 100); // Run again after a short delay
+        setTimeout(hideGreenHeader, 500); // Run again after a longer delay
+        window.addEventListener('resize', hideGreenHeader);
+    });
+    </script>
 </body>
 </html>
