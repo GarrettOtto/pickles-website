@@ -8,7 +8,3 @@ directory = "."
 [[kv_namespaces]]
 binding = "__STATIC_CONTENT"
 id = "be07bdccc1324fb0bb70583735f62de1"
-
-[[bindings]]
-type = "static_asset"
-name = "ASSETS"
