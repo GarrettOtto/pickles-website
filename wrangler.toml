@@ -1,10 +1,9 @@
 name = "pickles-website"
-type = "javascript"
 compatibility_date = "2024-05-13"
+main = "./_worker.js"  # (Required placeholder to deploy static assets)
 
-[site]
-bucket = "."         # ✅ this is okay *if* index.html is in root
-entry-point = "."    # ✅ add this to avoid errors
+[assets]
+directory = "."
 
 [[kv_namespaces]]
 binding = "__STATIC_CONTENT"
