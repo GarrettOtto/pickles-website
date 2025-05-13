@@ -1,18 +1,12 @@
 name = "pickles-website"
+main = "index.js"
 compatibility_date = "2024-05-13"
 
 [site]
 bucket = "."
-entry-point = "."
 
 [build]
 command = ""
-publish = "."
 
-[[routes]]
-pattern = "/"
-script_name = "pickles-website"
-
-[[routes]]
-pattern = "/*"
-script_name = "pickles-website"
+# For Cloudflare Pages, we don't need routes in wrangler.toml
+# Routes are handled by the _redirects file and Pages configuration
