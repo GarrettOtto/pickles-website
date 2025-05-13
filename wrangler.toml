@@ -1,12 +1,11 @@
 name = "pickles-website"
-main = "index.js"
+type = "javascript"
 compatibility_date = "2024-05-13"
 
 [site]
-bucket = "."
+bucket = "."         # ✅ this is okay *if* index.html is in root
+entry-point = "."    # ✅ add this to avoid errors
 
-[build]
-command = ""
-
-# For Cloudflare Pages, we don't need routes in wrangler.toml
-# Routes are handled by the _redirects file and Pages configuration
+[[kv_namespaces]]
+binding = "__STATIC_CONTENT"
+id = "be07bdccc1324fb0bb70583735f62de1"
