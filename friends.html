@@ -400,27 +400,27 @@
                 <div class="filter-label"><i class="fas fa-filter"></i> Filter by:</div>
                 <div class="filter-options">
                     <label class="filter-option active">
-                        <input type="checkbox" name="friend-filter" value="all" checked>
+                        <input type="radio" name="friend-filter" value="all" checked>
                         <span>All</span>
                     </label>
                     <label class="filter-option">
-                        <input type="checkbox" name="friend-filter" value="founding">
+                        <input type="radio" name="friend-filter" value="founding">
                         <span>Founding Members</span>
                     </label>
                     <label class="filter-option">
-                        <input type="checkbox" name="friend-filter" value="newest">
+                        <input type="radio" name="friend-filter" value="newest">
                         <span>Newest Members</span>
                     </label>
                     <label class="filter-option">
-                        <input type="checkbox" name="friend-filter" value="cool-kids">
+                        <input type="radio" name="friend-filter" value="cool-kids">
                         <span>Cool Kids Club</span>
                     </label>
                     <label class="filter-option">
-                        <input type="checkbox" name="friend-filter" value="available">
+                        <input type="radio" name="friend-filter" value="available">
                         <span>Available</span>
                     </label>
                     <label class="filter-option">
-                        <input type="checkbox" name="friend-filter" value="taken">
+                        <input type="radio" name="friend-filter" value="taken">
                         <span>Taken</span>
                     </label>
                 </div>
@@ -863,39 +863,17 @@
             });
             
             // Filter functionality
-            const filterOptions = document.querySelectorAll('.filter-option');
-            const allFilterOption = document.querySelector('input[value="all"]');
-            
-            // Handle the "All" filter option
-            allFilterOption.addEventListener('change', function() {
-                if (this.checked) {
-                    // If "All" is checked, uncheck all other filters
-                    document.querySelectorAll('input[name="friend-filter"]:not([value="all"])').forEach(input => {
-                        input.checked = false;
-                        input.parentElement.classList.remove('active');
+            const filterRadioButtons = document.querySelectorAll('input[name="friend-filter"]');
+            const filterLabels = document.querySelectorAll('.filter-option');
+
+            filterRadioButtons.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // Update active class on labels
+                    filterLabels.forEach(label => {
+                        label.classList.remove('active');
                     });
-                    this.parentElement.classList.add('active');
-                }
-                applyFilters();
-            });
-            
-            // Handle other filter options
-            document.querySelectorAll('input[name="friend-filter"]:not([value="all"])').forEach(input => {
-                input.addEventListener('change', function() {
-                    // If any other filter is checked, uncheck "All"
                     if (this.checked) {
-                        allFilterOption.checked = false;
-                        allFilterOption.parentElement.classList.remove('active');
                         this.parentElement.classList.add('active');
-                    } else {
-                        this.parentElement.classList.remove('active');
-                        
-                        // If no filters are selected, check "All"
-                        const anyChecked = document.querySelectorAll('input[name="friend-filter"]:not([value="all"]):checked').length > 0;
-                        if (!anyChecked) {
-                            allFilterOption.checked = true;
-                            allFilterOption.parentElement.classList.add('active');
-                        }
                     }
                     applyFilters();
                 });
@@ -903,10 +881,9 @@
             
             // Function to apply all active filters
             function applyFilters() {
-                // Get all selected filter values
-                const activeFilters = Array.from(
-                    document.querySelectorAll('input[name="friend-filter"]:checked')
-                ).map(input => input.value);
+                // Get the selected filter value
+                const selectedFilterInput = document.querySelector('input[name="friend-filter"]:checked');
+                const activeFilter = selectedFilterInput ? selectedFilterInput.value : 'all'; // Default to 'all' if somehow none are checked
                 
                 // Get current search term
                 const searchTerm = searchInput.value.toLowerCase();
@@ -921,16 +898,16 @@
                         return;
                     }
                     
-                    // If "All" is selected or no filters are selected, show all cards that match search
-                    if (activeFilters.includes('all') || activeFilters.length === 0) {
+                    // If "All" is selected, show all cards that match search
+                    if (activeFilter === 'all') {
                         card.style.display = 'block';
                         return;
                     }
                     
                     const cardCategories = card.getAttribute('data-category').split(' ');
                     
-                    // Check if ALL of the active filters match the card's categories (logical AND)
-                    const isMatch = activeFilters.every(filter => cardCategories.includes(filter));
+                    // Check if the active filter matches any of the card's categories
+                    const isMatch = cardCategories.includes(activeFilter);
                     
                     // Show or hide based on filter match
                     card.style.display = isMatch ? 'block' : 'none';
