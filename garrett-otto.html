@@ -1247,6 +1247,15 @@
           }
       });
       
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+          if (!e.target.closest('.mobile-dropdown')) {
+              mobileDropdowns.forEach(dropdown => {
+                  dropdown.classList.remove('active');
+              });
+          }
+      });
+      
       // Close menu when clicking a link (except dropdown toggles)
       const menuLinks = document.querySelectorAll('.mobile-menu a:not(.mobile-dropdown > a)');
       menuLinks.forEach(link => {
