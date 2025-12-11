@@ -225,15 +225,15 @@
         
         /* Availability Status Styles */
         .availability-status {
-            position: relative;
+            position: absolute;
+            top: 20px;
+            right: 20px;
             padding: 8px 16px;
             border-radius: 50px;
             font-weight: 600;
             color: white;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
             z-index: 10;
-            margin: 1rem auto 0;
-            display: inline-block;
         }
         
         /* Fun Facts List Styling */
@@ -261,7 +261,7 @@
         }
         
         .availability-status.taken {
-            background-color: #F44336;
+            background-color: #FFD700; /* Yellow */
         }
         
         .profile-header {
@@ -565,11 +565,11 @@
     <main class="section staff-profile">
         <div class="profile-header">
             <h1>Meet Brianna Judson</h1>
-            <div class="profile-image-wrapper">
-                <img src="assets/images/Staff - Brianna Judson/Brianna.png" alt="Brianna Judson" class="staff-img" loading="eager" decoding="async">
-            </div>
             <div class="availability-status taken">
                 <span>Taken</span>
+            </div>
+            <div class="profile-image-wrapper">
+                <img src="assets/images/Staff - Brianna Judson/Brianna.png" alt="Brianna Judson" class="staff-img" loading="eager" decoding="async">
             </div>
         </div>
 

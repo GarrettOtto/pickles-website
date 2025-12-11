@@ -602,13 +602,14 @@
                 <div class="gallery-carousel">
                     <div class="carousel" id="lightbox-close">
                         <input type="radio" name="gallery-control" id="gallery-item-1" checked>
+                        <input type="radio" name="gallery-control" id="gallery-item-2">
                         
                         <!-- Navigation controls that change based on which item is selected -->
-                        <!-- Previous buttons -->
-                        <label for="gallery-item-1" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
+                        <label for="gallery-item-1" class="carousel-prev" id="prev-2"><i class="fas fa-chevron-left"></i></label>
+                        <label for="gallery-item-2" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
                         
-                        <!-- Next buttons -->
-                        <label for="gallery-item-1" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
+                        <label for="gallery-item-1" class="carousel-next" id="next-2"><i class="fas fa-chevron-right"></i></label>
+                        <label for="gallery-item-2" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
                         
                         <div class="carousel-items">
                             <div class="carousel-item" id="item-1">
@@ -618,13 +619,14 @@
                             </div>
                             <div class="carousel-item" id="item-2">
                                 <a href="#lightbox-2" class="lightbox-trigger">
-                                    <img src="assets/images/Staff - Julia Wasden/photo2.jpg" alt="Garrett Gallery 2">
+                                    <img src="assets/images/Staff - Julia Wasden/photo2.jpg" alt="Julia Gallery 2">
                                 </a>
                             </div>
                         </div>
                         
                         <div class="carousel-nav">
                             <label for="gallery-item-1" class="nav-dot">1</label>
+                            <label for="gallery-item-2" class="nav-dot">2</label>
                         </div>
                     </div>
                 </div>
@@ -644,11 +646,23 @@
     <!-- Lightbox Galleries -->
     <div class="lightbox" id="lightbox-1">
         <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+        <a href="#lightbox-2" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
         <div class="lightbox-content">
             <img src="assets/images/Staff - Julia Wasden/photo1.jpg" alt="Julia Gallery 1" class="lightbox-image">
         </div>
+        <a href="#lightbox-2" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
+    </div>
+    <div class="lightbox" id="lightbox-2">
+        <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
+        <a href="#lightbox-1" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
+        <div class="lightbox-content">
+            <img src="assets/images/Staff - Julia Wasden/photo2.jpg" alt="Julia Gallery 2" class="lightbox-image">
+        </div>
+        <a href="#lightbox-1" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
     </div>
 
+    <!-- JavaScript Files -->
+    <script src="assets/js/gallery.js"></script>   
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">
