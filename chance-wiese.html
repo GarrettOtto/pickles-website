@@ -98,12 +98,13 @@
                 left: -100%;
                 width: 75%;
                 max-width: 250px;
-                height: 100vh;
+                height: 100%;
                 background-color: var(--primary-color);
                 z-index: 95;
                 box-shadow: 5px 0 15px rgba(0,0,0,0.2);
                 transition: all 0.3s ease;
                 overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
             
             .mobile-menu-container.active {
@@ -114,8 +115,9 @@
                 display: flex;
                 flex-direction: column;
                 padding: 0;
-                margin: 0;
+                margin: 0 0 2rem 0;
                 list-style: none;
+                min-height: 100%;
             }
             
             .mobile-menu li {
@@ -190,11 +192,18 @@
             
             .mobile-dropdown-content {
                 display: none;
-                background-color: rgba(0, 0, 0, 0.2);
+                padding-left: 1rem;
+                background-color: rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
             }
             
             .mobile-dropdown.active .mobile-dropdown-content {
                 display: block;
+                max-height: 500px; /* Adjust based on your needs */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
             
             .mobile-dropdown-content a {
@@ -700,21 +709,38 @@
         
         // Mobile dropdown functionality
         mobileDropdowns.forEach(dropdown => {
-            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            const dropdownContent = dropdown.querySelector('.mobile-dropdown-content');
             
-            if (toggle) {
-                toggle.addEventListener('click', function(e) {
+            if (dropdownToggle && dropdownContent) {
+                dropdownToggle.addEventListener('click', function(e) {
                     e.preventDefault();
-                    e.stopPropagation();
+                    e.stopPropagation(); // Prevent event from bubbling up
                     
-                    // Close other open dropdowns
+                    const isOpening = !dropdown.classList.contains('active');
+                    
+                    // Close any other open dropdowns
                     mobileDropdowns.forEach(otherDropdown => {
                         if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
                             otherDropdown.classList.remove('active');
                         }
                     });
                     
-                    dropdown.classList.toggle('active');
+                    // Toggle the clicked dropdown
+                    dropdown.classList.toggle('active', isOpening);
+                    
+                    // If we're opening this dropdown, scroll it into view
+                    if (isOpening) {
+                        // Small timeout to allow the dropdown to open before scrolling
+                        setTimeout(() => {
+                            dropdown.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 10);
+                    }
+                });
+                
+                // Allow clicks inside the dropdown content to propagate (for scrolling)
+                dropdownContent.addEventListener('click', function(e) {
+                    e.stopPropagation();
                 });
             }
         });
@@ -738,6 +764,15 @@
             link.addEventListener('click', function() {
                 closeMenu();
             });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.mobile-dropdown')) {
+                mobileDropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
         });
         
         // Handle window resize

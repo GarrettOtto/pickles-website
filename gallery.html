@@ -24,6 +24,174 @@
             color: var(--primary-color) !important;
             background-color: #e0e0e0;
         }
+
+        /* Mobile Navigation Styles */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            padding: 0.4rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-nav-toggle:focus {
+            outline: none;
+        }
+        
+        .mobile-nav-toggle.active {
+            transform: rotate(90deg);
+        }
+        
+        /* Mobile menu overlay */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-container {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            /* Hide desktop navbar and show mobile menu */
+            .navbar-links {
+                display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 1rem;
+                top: 1.2rem;
+                width: 32px;
+                height: 32px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+            
+            .mobile-menu-container {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 75%;
+                max-width: 250px;
+                height: 100%;
+                background-color: var(--primary-color);
+                z-index: 95;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .mobile-menu-container.active {
+                left: 0;
+            }
+            
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 0 0 2rem 0;
+                list-style: none;
+                min-height: 100%;
+            }
+            
+            .mobile-menu li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .mobile-menu li:first-child {
+                margin-top: 3rem;
+            }
+            
+            .mobile-menu a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+            
+            .mobile-menu a.active {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-left: 3px solid var(--accent-color);
+            }
+            
+            .mobile-dropdown {
+                position: relative;
+            }
+            
+            .mobile-dropdown > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            /* Mobile dropdown toggle button */
+            .mobile-dropdown .dropdown-toggle {
+                padding: 0.5rem;
+                cursor: pointer;
+                color: white;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s ease;
+                position: absolute;
+                right: 0.5rem;
+                top: 1rem;
+                z-index: 5;
+            }
+            
+            .mobile-dropdown.active .dropdown-toggle {
+                transform: rotate(180deg);
+            }
+            
+            .mobile-dropdown.active > a::after {
+                transform: rotate(180deg);
+            }
+            
+            .mobile-dropdown-content {
+                display: none;
+                padding-left: 1rem;
+                background-color: rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .mobile-dropdown.active .mobile-dropdown-content {
+                display: block;
+                max-height: 500px; /* Adjust based on your needs */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .mobile-dropdown-content a {
+                padding: 0.8rem 1rem 0.8rem 1.8rem;
+                font-size: 0.9rem;
+                line-height: 1.2;
+            }
+        }
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -60,12 +228,42 @@
                     </div>
                 </li>
             </ul>
-            <div class="mobile-menu-toggle">
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
 
+    <!-- Mobile Menu -->
+    <div class="nav-overlay"></div>
+    <div class="mobile-menu-container">
+        <ul class="mobile-menu">
+            <li><a href="index.html" id="mobile-nav-home">Home</a></li>
+            <li><a href="about-us.html" id="mobile-nav-about">About Us</a></li>
+            <li><a href="activities.html" id="mobile-nav-activities">Activities</a></li>
+            <li><a href="stories.html" id="mobile-nav-stories">Stories</a></li>
+            <li class="mobile-dropdown">
+                <a href="friends.html" id="mobile-nav-friends">Friends</a>
+                <button class="dropdown-toggle" aria-expanded="false" aria-controls="mobile-friends-dropdown">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="mobile-friends-dropdown">
+                    <a href="noah-perkins.html">Noah Perkins</a>
+                    <a href="chance-wiese.html">Chance Wiese</a>
+                    <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                    <a href="abbie-barker.html">Abbie Barker</a>
+                    <a href="konner-clawson.html">Konner Clawson</a>
+                    <a href="mckenly-day.html">McKenly Day</a>
+                    <a href="spencer-nay.html">Spencer Nay</a>
+                    <a href="ridge-poll.html">Ridge Poll</a>
+                    <a href="grace-richardson.html">Grace Richardson</a>
+                    <a href="julia-wasden.html">Julia Wasden</a>
+                    <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                    <a href="garrett-otto.html">Garrett Otto</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 
     <main class="gallery-section">
         <div class="gallery-header">
@@ -224,7 +422,148 @@
         </div>
     </main>
 
-        <footer class="main-footer">
+    <!-- Mobile Navigation Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu-container');
+        const navOverlay = document.querySelector('.nav-overlay');
+        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+        
+        // Toggle mobile menu
+        mobileToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+            
+            // Toggle between hamburger and close icon
+            if (this.querySelector('i').classList.contains('fa-bars')) {
+                this.querySelector('i').classList.remove('fa-bars');
+                this.querySelector('i').classList.add('fa-times');
+            } else {
+                this.querySelector('i').classList.add('fa-bars');
+                this.querySelector('i').classList.remove('fa-times');
+            }
+        });
+        
+        // Close menu when clicking overlay
+        navOverlay.addEventListener('click', function() {
+            closeMenu();
+        });
+        
+        // Mobile dropdown functionality
+        mobileDropdowns.forEach(dropdown => {
+            const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            const dropdownContent = dropdown.querySelector('.mobile-dropdown-content');
+            
+            if (dropdownToggle && dropdownContent) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent event from bubbling up
+                    
+                    const isOpening = !dropdown.classList.contains('active');
+                    
+                    // Close any other open dropdowns
+                    mobileDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle the clicked dropdown
+                    dropdown.classList.toggle('active', isOpening);
+                    this.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
+                    
+                    // If we're opening this dropdown, scroll it into view
+                    if (isOpening) {
+                        // Small timeout to allow the dropdown to open before scrolling
+                        setTimeout(() => {
+                            dropdown.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 10);
+                    }
+                });
+                
+                // Allow clicks inside the dropdown content to propagate (for scrolling)
+                dropdownContent.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+        // Close menu function
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            
+            // Close all dropdowns
+            mobileDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+        
+        // Close menu when clicking a link (except dropdown toggles)
+        const menuLinks = document.querySelectorAll('.mobile-menu a:not(.mobile-dropdown > a)');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.mobile-dropdown')) {
+                mobileDropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                    const toggle = dropdown.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+        
+        // Hide any green header that might be injected
+        function hideGreenHeader() {
+            // This targets potential elements that might be injected and hides them
+            const potentialHeaders = document.querySelectorAll(
+                '#pickles-header-nav, .pickles-header-nav, .mobile-header-nav, .mobile-top-bar, .mobile-top-nav, div[id*="mobile-header"], div[class*="mobile-header"], [id="nav-home"]:not(.mobile-menu a), [id="nav-about"]:not(.mobile-menu a), [id="nav-activities"]:not(.mobile-menu a), [id="nav-stories"]:not(.mobile-menu a), [id="nav-friends"]:not(.mobile-menu a), body > div:first-of-type:not(.nav-overlay):not(.mobile-menu-container)'
+            );
+            
+            potentialHeaders.forEach(header => {
+                header.style.display = 'none';
+                header.style.visibility = 'hidden';
+                header.style.opacity = '0';
+                header.style.pointerEvents = 'none';
+                header.style.height = '0';
+                header.style.overflow = 'hidden';
+                header.style.position = 'absolute';
+                header.style.top = '-9999px';
+            });
+        }
+        
+        // Run the function on page load, after a short delay, and on resize
+        hideGreenHeader();
+        setTimeout(hideGreenHeader, 100); // Run again after a short delay
+        setTimeout(hideGreenHeader, 500); // Run again after a longer delay
+        window.addEventListener('resize', hideGreenHeader);
+    });
+    </script>
+
+    <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
