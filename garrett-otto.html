@@ -1,1307 +1,1710 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Garrett Otto | Pickles Friend Group | Utah</title>
-    <meta name="description" content="Get to know Garrett Otto, a valued member of the Pickles Friend Group in Utah. Learn about his interests, contributions to the group, and the adventures he's been part of.">
-    <meta name="theme-color" content="#305921">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="Get to know Garrett Otto, a valued member of the Pickles Friend Group in Utah. Learn about his interests, contributions to the group, and the adventures he's been part of."
+    />
+    <meta name="theme-color" content="#305921" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* Hide mobile UI elements */
-        @media (max-width: 768px) {
-            /* Hide potential mobile headers */
-            #pickles-header-nav,
-            .pickles-header-nav,
-            .mobile-header-nav,
-            .mobile-top-bar,
-            .mobile-top-nav,
-            div[id*="mobile-header"],
-            div[class*="mobile-header"],
-            [id="nav-home"]:not(.mobile-menu a),
-            [id="nav-about"]:not(.mobile-menu a),
-            [id="nav-activities"]:not(.mobile-menu a),
-            [id="nav-stories"]:not(.mobile-menu a),
-            [id="nav-friends"]:not(.mobile-menu a), 
-            body > div:first-of-type:not(.nav-overlay):not(.mobile-menu-container) {
-                display: none !important;
-                height: 0 !important;
-                overflow: hidden !important;
-            }
+      /* Hide mobile UI elements */
+      @media (max-width: 768px) {
+        /* Hide potential mobile headers */
+        #pickles-header-nav,
+        .pickles-header-nav,
+        .mobile-header-nav,
+        .mobile-top-bar,
+        .mobile-top-nav,
+        div[id*="mobile-header"],
+        div[class*="mobile-header"],
+        [id="nav-home"]:not(.mobile-menu a),
+        [id="nav-about"]:not(.mobile-menu a),
+        [id="nav-activities"]:not(.mobile-menu a),
+        [id="nav-stories"]:not(.mobile-menu a),
+        [id="nav-friends"]:not(.mobile-menu a),
+        body > div:first-of-type:not(.nav-overlay):not(.mobile-menu-container) {
+          display: none !important;
+          height: 0 !important;
+          overflow: hidden !important;
         }
-        
-        /* Fix for dropdown active link color */
-        .dropdown-content a.active {
-            color: var(--primary-color) !important;
-            font-weight: 600;
-            background-color: #f0f0f0;
-        }
-        
-        /* Override the default hover styles for active items */
-        .navbar-links .dropdown:hover .dropdown-content a.active,
-        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
-            color: var(--primary-color) !important;
-            background-color: #e0e0e0;
-        }
-        
-        /* Mobile Navigation Styles */
-        .mobile-nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 1000;
-            padding: 0.4rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-nav-toggle:focus {
-            outline: none;
-        }
-        
-        .mobile-nav-toggle.active {
-            transform: rotate(90deg);
-        }
-        
-        /* Mobile menu overlay */
-        .nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 90;
-        }
-        
-        /* Mobile menu styles */
-        .mobile-menu-container {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            /* Mobile Navigation */
-            .mobile-nav-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                right: 1rem;
-                top: 1.2rem;
-                width: 32px;
-                height: 32px;
-                background-color: rgba(255, 255, 255, 0.1);
-                border-radius: 50%;
-            }
-            
-            /* Hide desktop navbar and show mobile menu */
-            .navbar-links {
-                display: none;
-            }
-            
-            .mobile-menu-container {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 75%;
-                max-width: 250px;
-                height: 100%;
-                background-color: var(--primary-color);
-                z-index: 95;
-                box-shadow: 5px 0 15px rgba(0,0,0,0.2);
-                transition: all 0.3s ease;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .mobile-menu-container.active {
-                left: 0;
-            }
-            
-            .mobile-menu {
-                display: flex;
-                flex-direction: column;
-                padding: 0;
-                margin: 0 0 2rem 0;
-                list-style: none;
-                min-height: 100%;
-            }
-            
-            .mobile-menu li {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .mobile-menu li:first-child {
-                margin-top: 3rem;
-            }
-            
-            .mobile-menu a {
-                display: block;
-                color: white;
-                text-decoration: none;
-                padding: 1rem 1.2rem;
-                font-size: 1rem;
-                line-height: 1.2;
-            }
-            
-            .mobile-menu a.active {
-                background-color: rgba(255, 255, 255, 0.1);
-                border-left: 3px solid var(--accent-color);
-            }
-            
-            .mobile-dropdown {
-                position: relative;
-            }
-            
-            .mobile-dropdown > a {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            /* Mobile dropdown toggle button */
-            .mobile-dropdown .dropdown-toggle {
-                padding: 0.5rem;
-                cursor: pointer;
-                color: white;
-                background-color: rgba(255, 255, 255, 0.1);
-                border-radius: 50%;
-                width: 24px;
-                height: 24px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: transform 0.3s ease;
-                position: absolute;
-                right: 0.5rem;
-                top: 1rem;
-                z-index: 5;
-            }
-            
-            /* Friends link should look exactly like other menu items */
-            .mobile-dropdown a.friends-link {
-                text-align: center;
-                padding: 1rem 1.2rem;
-                display: block;
-                color: white;
-                text-decoration: none;
-                font-size: 1rem;
-                line-height: 1.2;
-            }
-            
-            .mobile-dropdown.active .dropdown-toggle {
-                transform: rotate(180deg);
-            }
-            
-            .mobile-dropdown.active > a::after {
-                transform: rotate(180deg);
-            }
-            
-            .mobile-dropdown-content {
-                display: none;
-                padding-left: 1rem;
-                background-color: rgba(0, 0, 0, 0.1);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-            
-            .mobile-dropdown.active .mobile-dropdown-content {
-                display: block;
-                max-height: 500px; /* Adjust based on your needs */
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .mobile-dropdown-content a {
-                padding: 0.8rem 1rem 0.8rem 1.8rem;
-                font-size: 0.9rem;
-                line-height: 1.2;
-            }
-            
-            .nav-overlay {
-                display: none;
-                z-index: 90;
-            }
-            
-            .nav-overlay.active {
-                display: block;
-            }
-        }
-        
-        /* Availability Status Styles */
-        .availability-status {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            color: white;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            z-index: 10;
-        }
-        
-        .availability-status.available {
-            background-color: #4CAF50;
-        }
-        
-        .availability-status.taken {
-            background-color: #F44336;
-        }
-        
-        .profile-header {
-            position: relative;
-        }
-        
+      }
 
-        
-        /* Profile Image Styling */
+      /* Fix for dropdown active link color */
+      .dropdown-content a.active {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+        background-color: #f0f0f0;
+      }
+
+      /* Override the default hover styles for active items */
+      .navbar-links .dropdown:hover .dropdown-content a.active,
+      .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+        color: var(--primary-color) !important;
+        background-color: #e0e0e0;
+      }
+
+      /* Mobile Navigation Styles */
+      .mobile-nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 1000;
+        padding: 0.4rem;
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-nav-toggle:focus {
+        outline: none;
+      }
+
+      .mobile-nav-toggle.active {
+        transform: rotate(90deg);
+      }
+
+      /* Mobile menu overlay */
+      .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 90;
+      }
+
+      /* Mobile menu styles */
+      .mobile-menu-container {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 1rem;
+          top: 1.2rem;
+          width: 32px;
+          height: 32px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+        }
+
+        /* Hide desktop navbar and show mobile menu */
+        .navbar-links {
+          display: none;
+        }
+
+        .mobile-menu-container {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          max-width: 250px;
+          height: 100%;
+          background-color: var(--primary-color);
+          z-index: 95;
+          box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-menu-container.active {
+          left: 0;
+        }
+
+        .mobile-menu {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+          margin: 0 0 2rem 0;
+          list-style: none;
+          min-height: 100%;
+        }
+
+        .mobile-menu li {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu li:first-child {
+          margin-top: 3rem;
+        }
+
+        .mobile-menu a {
+          display: block;
+          color: white;
+          text-decoration: none;
+          padding: 1rem 1.2rem;
+          font-size: 1rem;
+          line-height: 1.2;
+        }
+
+        .mobile-menu a.active {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-left: 3px solid var(--accent-color);
+        }
+
+        .mobile-dropdown {
+          position: relative;
+        }
+
+        .mobile-dropdown > a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* Mobile dropdown toggle button */
+        .mobile-dropdown .dropdown-toggle {
+          padding: 0.5rem;
+          cursor: pointer;
+          color: white;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.3s ease;
+          position: absolute;
+          right: 0.5rem;
+          top: 1rem;
+          z-index: 5;
+        }
+
+        /* Friends link should look exactly like other menu items */
+        .mobile-dropdown a.friends-link {
+          text-align: center;
+          padding: 1rem 1.2rem;
+          display: block;
+          color: white;
+          text-decoration: none;
+          font-size: 1rem;
+          line-height: 1.2;
+        }
+
+        .mobile-dropdown.active .dropdown-toggle {
+          transform: rotate(180deg);
+        }
+
+        .mobile-dropdown.active > a::after {
+          transform: rotate(180deg);
+        }
+
+        .mobile-dropdown-content {
+          display: none;
+          padding-left: 1rem;
+          background-color: rgba(0, 0, 0, 0.1);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+          display: block;
+          max-height: 500px; /* Adjust based on your needs */
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-dropdown-content a {
+          padding: 0.8rem 1rem 0.8rem 1.8rem;
+          font-size: 0.9rem;
+          line-height: 1.2;
+        }
+
+        .nav-overlay {
+          display: none;
+          z-index: 90;
+        }
+
+        .nav-overlay.active {
+          display: block;
+        }
+      }
+
+      /* Availability Status Styles */
+      .availability-status {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-weight: 600;
+        color: white;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+      }
+
+      .availability-status.available {
+        background-color: #4caf50;
+      }
+
+      .availability-status.taken {
+        background-color: #f44336;
+      }
+
+      .profile-header {
+        position: relative;
+      }
+
+      /* Profile Image Styling */
+      .profile-image-wrapper {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: 3px solid var(--secondary-color);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-image-wrapper img.staff-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @media (max-width: 768px) {
+        .button-group {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .button-group .btn-primary {
+          width: 100%;
+          text-align: center;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 1rem;
+          top: 1.2rem;
+          width: 32px;
+          height: 32px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+        }
+
+        /* Hide desktop navbar and show mobile menu */
+        .navbar-links {
+          display: none;
+        }
+
+        .mobile-menu-container {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          max-width: 250px;
+          height: 100vh;
+          background-color: var(--primary-color);
+          z-index: 95;
+          box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+          overflow-y: auto;
+        }
+
+        .mobile-menu-container.active {
+          left: 0;
+        }
+
+        .mobile-menu {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+        }
+
+        .mobile-menu li {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu li:first-child {
+          margin-top: 3rem;
+        }
+
+        .mobile-menu a {
+          display: block;
+          color: white;
+          text-decoration: none;
+          padding: 1rem 1.2rem;
+          font-size: 1rem;
+          line-height: 1.2;
+        }
+
+        .mobile-menu a.active {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-left: 3px solid var(--accent-color);
+        }
+
+        .mobile-dropdown {
+          position: relative;
+        }
+
+        .mobile-dropdown > a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* Mobile dropdown toggle button */
+        .mobile-dropdown .dropdown-toggle {
+          padding: 0.5rem;
+          cursor: pointer;
+          color: white;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.3s ease;
+          position: absolute;
+          right: 0.5rem;
+          top: 1rem;
+          z-index: 5;
+        }
+
+        /* Friends link should look exactly like other menu items */
+        .mobile-dropdown a.friends-link {
+          text-align: center;
+          padding: 1rem 1.2rem;
+          display: block;
+          color: white;
+          text-decoration: none;
+          font-size: 1rem;
+          line-height: 1.2;
+        }
+
+        .mobile-dropdown.active .dropdown-toggle {
+          transform: rotate(180deg);
+        }
+
+        .mobile-dropdown.active > a::after {
+          transform: rotate(180deg);
+        }
+
+        .mobile-dropdown-content {
+          display: none;
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+          display: block;
+        }
+
+        .mobile-dropdown-content a {
+          padding: 0.8rem 1rem 0.8rem 1.8rem;
+          font-size: 0.9rem;
+          line-height: 1.2;
+        }
+
+        .nav-overlay {
+          display: none;
+          z-index: 90;
+        }
+
+        .nav-overlay.active {
+          display: block;
+        }
+
+        /* Availability Status Mobile Styles */
+        .availability-status {
+          position: relative !important;
+          top: auto !important;
+          right: auto !important;
+          margin: 10px auto 0 !important;
+          padding: 6px 12px;
+          font-size: 0.9rem;
+          width: fit-content;
+          display: block !important;
+          clear: both !important;
+        }
+
         .profile-image-wrapper {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            border-radius: 50%;
-            border: 3px solid var(--secondary-color);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          width: 150px;
+          height: 150px;
+          margin-bottom: 5px;
         }
-        
-        .profile-image-wrapper img.staff-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+
+        .profile-header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
-        
-        @media (max-width: 768px) {
-            .button-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .button-group .btn-primary {
-                width: 100%;
-                text-align: center;
-            }
-            
-            /* Mobile Navigation */
-            .mobile-nav-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                right: 1rem;
-                top: 1.2rem;
-                width: 32px;
-                height: 32px;
-                background-color: rgba(255, 255, 255, 0.1);
-                border-radius: 50%;
-            }
-            
-            /* Hide desktop navbar and show mobile menu */
-            .navbar-links {
-                display: none;
-            }
-            
-            .mobile-menu-container {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 75%;
-                max-width: 250px;
-                height: 100vh;
-                background-color: var(--primary-color);
-                z-index: 95;
-                box-shadow: 5px 0 15px rgba(0,0,0,0.2);
-                transition: all 0.3s ease;
-                overflow-y: auto;
-            }
-            
-            .mobile-menu-container.active {
-                left: 0;
-            }
-            
-            .mobile-menu {
-                display: flex;
-                flex-direction: column;
-                padding: 0;
-                margin: 0;
-                list-style: none;
-            }
-            
-            .mobile-menu li {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .mobile-menu li:first-child {
-                margin-top: 3rem;
-            }
-            
-            .mobile-menu a {
-                display: block;
-                color: white;
-                text-decoration: none;
-                padding: 1rem 1.2rem;
-                font-size: 1rem;
-                line-height: 1.2;
-            }
-            
-            .mobile-menu a.active {
-                background-color: rgba(255, 255, 255, 0.1);
-                border-left: 3px solid var(--accent-color);
-            }
-            
-            .mobile-dropdown {
-                position: relative;
-            }
-            
-            .mobile-dropdown > a {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            /* Mobile dropdown toggle button */
-            .mobile-dropdown .dropdown-toggle {
-                padding: 0.5rem;
-                cursor: pointer;
-                color: white;
-                background-color: rgba(255, 255, 255, 0.1);
-                border-radius: 50%;
-                width: 24px;
-                height: 24px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: transform 0.3s ease;
-                position: absolute;
-                right: 0.5rem;
-                top: 1rem;
-                z-index: 5;
-            }
-            
-            /* Friends link should look exactly like other menu items */
-            .mobile-dropdown a.friends-link {
-                text-align: center;
-                padding: 1rem 1.2rem;
-                display: block;
-                color: white;
-                text-decoration: none;
-                font-size: 1rem;
-                line-height: 1.2;
-            }
-            
-            .mobile-dropdown.active .dropdown-toggle {
-                transform: rotate(180deg);
-            }
-            
-            .mobile-dropdown.active > a::after {
-                transform: rotate(180deg);
-            }
-            
-            .mobile-dropdown-content {
-                display: none;
-                background-color: rgba(0, 0, 0, 0.2);
-            }
-            
-            .mobile-dropdown.active .mobile-dropdown-content {
-                display: block;
-            }
-            
-            .mobile-dropdown-content a {
-                padding: 0.8rem 1rem 0.8rem 1.8rem;
-                font-size: 0.9rem;
-                line-height: 1.2;
-            }
-            
-            .nav-overlay {
-                display: none;
-                z-index: 90;
-            }
-            
-            .nav-overlay.active {
-                display: block;
-            }
-            
-            /* Availability Status Mobile Styles */
-            .availability-status {
-                position: relative !important;
-                top: auto !important;
-                right: auto !important;
-                margin: 10px auto 0 !important;
-                padding: 6px 12px;
-                font-size: 0.9rem;
-                width: fit-content;
-                display: block !important;
-                clear: both !important;
-            }
-            
-            .profile-image-wrapper {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 5px;
-            }
-            
-            .profile-header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        
-        /* Fix for dropdown active link color */
-        .dropdown-content a.active {
-            color: var(--primary-color) !important;
-            font-weight: 600;
-            background-color: #f0f0f0;
-        }
-        
-        /* Override the default hover styles for active items */
-        .navbar-links .dropdown:hover .dropdown-content a.active,
-        .navbar-links .dropdown:hover .dropdown-content a.active:hover {
-            color: var(--primary-color) !important;
-            background-color: #e0e0e0;
-        }
-        
-        /* Social Media Section Styles */
-        .social-media-section {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        
-        .social-media-section h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
+      }
+
+      /* Fix for dropdown active link color */
+      .dropdown-content a.active {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+        background-color: #f0f0f0;
+      }
+
+      /* Override the default hover styles for active items */
+      .navbar-links .dropdown:hover .dropdown-content a.active,
+      .navbar-links .dropdown:hover .dropdown-content a.active:hover {
+        color: var(--primary-color) !important;
+        background-color: #e0e0e0;
+      }
+
+      /* Social Media Section Styles */
+      .social-media-section {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .social-media-section h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .social-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        color: white;
+      }
+
+      .social-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+        opacity: 0.9;
+      }
+
+      .social-btn i {
+        font-size: 1.2rem;
+      }
+
+      .instagram-btn {
+        background-color: #e1306c;
+      }
+      .linkedin-btn {
+        background-color: #0077b5;
+      }
+      .github-btn {
+        background-color: #333333;
+      }
+      .vsco-btn {
+        background-color: #000000;
+      }
+
+      @media (max-width: 768px) {
         .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
+          flex-direction: column;
+          align-items: stretch;
         }
-        
+
         .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.25rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            color: white;
+          text-align: center;
+          justify-content: center;
         }
-        
-        .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-            opacity: 0.9;
-        }
-        
-        .social-btn i {
-            font-size: 1.2rem;
-        }
-        
-        .instagram-btn { background-color: #E1306C; }
-        .linkedin-btn { background-color: #0077B5; }
-        .github-btn { background-color: #333333; }
-        .vsco-btn { background-color: #000000; }
-        
-        @media (max-width: 768px) {
-            .social-links {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .social-btn {
-                text-align: center;
-                justify-content: center;
-            }
-        }
-        
-        /* How I Joined Section Styles */
+      }
+
+      /* How I Joined Section Styles */
+      .how-i-joined-section {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        grid-column: span 2;
+      }
+
+      .how-i-joined-section h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+      }
+
+      .how-i-joined-section p {
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 768px) {
         .how-i-joined-section {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            grid-column: span 2;
+          grid-column: 1;
         }
-        
-        .how-i-joined-section h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        .how-i-joined-section p {
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-        
-        @media (max-width: 768px) {
-            .how-i-joined-section {
-                grid-column: 1;
-            }
-        }
+      }
     </style>
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="icon" href="assets/images/animated_pickle.gif" type="image/gif">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link
+      rel="icon"
+      href="assets/images/animated_pickle.gif"
+      type="image/gif"
+    />
+  </head>
+  <body>
     <div class="nav-overlay"></div>
     <header class="main-header">
-        <nav class="navbar">
-            <div class="navbar-brand">
-                <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="brand-logo">
-                <a href="index.html" class="brand-name">Pickles</a>
-            </div>
-            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <!-- Desktop Navigation Menu -->
-            <ul class="navbar-links">
-                <li><a href="index.html" id="nav-home">Home</a></li>
-                <li><a href="about-us.html" id="nav-about">About Us</a></li>
-                <li><a href="activities.html" id="nav-activities">Activities</a></li>
-                <li><a href="stories.html" id="nav-stories">Stories</a></li>
-                <li class="dropdown">
-                    <a href="friends.html" class="active" id="nav-friends">Friends</a>
-                    <div class="dropdown-content">
-                        <a href="noah-perkins.html">Noah Perkins</a>
-                        <a href="chance-wiese.html">Chance Wiese</a>
-                        <a href="ashlyn-hall.html">Ashlyn Hall</a>
-                        <a href="abbie-barker.html">Abbie Barker</a>
-                        <a href="konner-clawson.html">Konner Clawson</a>
-                        <a href="mckenly-day.html">McKenly Day</a>
-                        <a href="spencer-nay.html">Spencer Nay</a>
-                        <a href="ridge-poll.html">Ridge Poll</a>
-                        <a href="grace-richardson.html">Grace Richardson</a>
-                        <a href="julia-wasden.html">Julia Wasden</a>
-                        <a href="abby-bartholomew.html">Abby Bartholomew</a>
-                        <a href="brianna-judson.html">Brianna Judson</a>
-                        <a href="garrett-otto.html" class="active">Garrett Otto</a>
-                    </div>
-                </li>
-            </ul>
-            
-            <!-- Mobile Navigation Menu -->
-            <div class="mobile-menu-container">
-                <ul class="mobile-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="activities.html">Activities</a></li>
-                    <li><a href="stories.html">Stories</a></li>
-                    <li class="mobile-dropdown">
-                        <a href="friends.html" style="text-align: center; display: block; padding: 1rem 1.2rem; color: white; text-decoration: none; font-size: 1rem; line-height: 1.2;">Friends</a>
-                        <span class="dropdown-toggle" style="position: absolute; right: 1rem; top: 1rem;"><i class="fas fa-chevron-down"></i></span>
-                        <div class="mobile-dropdown-content">
-                            <a href="noah-perkins.html">Noah Perkins</a>
-                            <a href="chance-wiese.html">Chance Wiese</a>
-                            <a href="ashlyn-hall.html">Ashlyn Hall</a>
-                            <a href="abbie-barker.html">Abbie Barker</a>
-                            <a href="konner-clawson.html">Konner Clawson</a>
-                            <a href="mckenly-day.html">McKenly Day</a>
-                            <a href="spencer-nay.html">Spencer Nay</a>
-                            <a href="ridge-poll.html">Ridge Poll</a>
-                            <a href="grace-richardson.html">Grace Richardson</a>
-                            <a href="julia-wasden.html">Julia Wasden</a>
-                            <a href="abby-bartholomew.html">Abby Bartholomew</a>
-                            <a href="brianna-judson.html">Brianna Judson</a>
-                            <a href="garrett-otto.html" class="active">Garrett Otto</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-
-  <main class="section staff-profile">
-    <div class="profile-header">
-      <h1>Meet Garrett Otto</h1>
-      <div class="profile-image-wrapper">
-        <img src="assets/images/Staff - Garrett Otto/Garrett.png" alt="Garrett Otto smiling selfie" class="staff-img" loading="eager" decoding="async">
-      </div>
-      <div class="availability-status available">
-        <span>Available</span>
-      </div>
-    </div>
-    <div class="profile-content">
-      <p>Hello! I’m Garrett, the social connector and chief "vibe validator" of the Pickles crew. I’m passionate about bringing people together. Whether that's on the soccer field or just hanging out with the group. You’ll rarely find me without my massive water bottle in one hand and a burrito in the other, ready to set the tone for whatever we are doing. I’m usually the one behind the wheel driving everyone to our next destination. And somehow, I'm always the one finishing off the food that everyone else couldn't handle.</p>
-      <div class="profile-details">
-        <div class="detail-item">
-          <h3><i class="fas fa-user"></i> About Me</h3>
-          <p>
-            As a fourth-year student at Weber State University (graduating Class of '26), I balance my studies with my work as a QA Specialist and Launch Coordinator at Tukios. When I’m not testing software or hitting the books, I’m prioritizing the important things: scripture study, soccer, running, and catching a much needed high-quality nap.            
-          </p>
-          <br>
-          <p>
-            I love the outdoors and often go hiking with the group, though my friends will warn you about my navigation skills… I have a history of getting lost and literally walking up the wrong mountain trying to find them. Within the group, I hold the dual titles of "Designated Driver" and "Leftover Destroyer". If there is food left on the table, consider it gone.
-          </p>
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <img
+            src="assets/images/animated_pickle.gif"
+            alt="Pickle Logo"
+            class="brand-logo"
+          />
+          <a href="index.html" class="brand-name">Pickles</a>
         </div>
-        <div class="detail-item">
-          <h3><i class="fas fa-star"></i> Fun Facts</h3>
-          <ul class="fun-facts">
-            <li><i class="fa-solid fa-bottle-water"></i> Hydration Expert: I drink an excessive amount of water… At least a gallon every single day</li>
-            <li><i class="fa-solid fa-hotdog"></i> The "Beto's Challenge": I have eaten two massive Beto’s burritos in one sitting (and I’ve done it multiple times)</li>
-            <li><i class="fas fa-map-marked-alt"></i> Directionally Challenged: Once got so lost on a hike I scaled a mountain solo just trying to find the group</li>
-            <li><i class="fa-solid fa-bread-slice"></i> Banana Bread Enthusiast: It is the superior baked good</li>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <!-- Desktop Navigation Menu -->
+        <ul class="navbar-links">
+          <li><a href="index.html" id="nav-home">Home</a></li>
+          <li><a href="about-us.html" id="nav-about">About Us</a></li>
+          <li><a href="activities.html" id="nav-activities">Activities</a></li>
+          <li><a href="stories.html" id="nav-stories">Stories</a></li>
+          <li class="dropdown">
+            <a href="friends.html" class="active" id="nav-friends">Friends</a>
+            <div class="dropdown-content">
+              <a href="noah-perkins.html">Noah Perkins</a>
+              <a href="chance-wiese.html">Chance Wiese</a>
+              <a href="ashlyn-hall.html">Ashlyn Hall</a>
+              <a href="abbie-barker.html">Abbie Barker</a>
+              <a href="konner-clawson.html">Konner Clawson</a>
+              <a href="mckenly-day.html">McKenly Day</a>
+              <a href="spencer-nay.html">Spencer Nay</a>
+              <a href="ridge-poll.html">Ridge Poll</a>
+              <a href="grace-richardson.html">Grace Richardson</a>
+              <a href="julia-wasden.html">Julia Wasden</a>
+              <a href="abby-bartholomew.html">Abby Bartholomew</a>
+              <a href="brianna-judson.html">Brianna Judson</a>
+              <a href="garrett-otto.html" class="active">Garrett Otto</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu-container">
+          <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="stories.html">Stories</a></li>
+            <li class="mobile-dropdown">
+              <a
+                href="friends.html"
+                style="
+                  text-align: center;
+                  display: block;
+                  padding: 1rem 1.2rem;
+                  color: white;
+                  text-decoration: none;
+                  font-size: 1rem;
+                  line-height: 1.2;
+                "
+                >Friends</a
+              >
+              <span
+                class="dropdown-toggle"
+                style="position: absolute; right: 1rem; top: 1rem"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+              <div class="mobile-dropdown-content">
+                <a href="noah-perkins.html">Noah Perkins</a>
+                <a href="chance-wiese.html">Chance Wiese</a>
+                <a href="ashlyn-hall.html">Ashlyn Hall</a>
+                <a href="abbie-barker.html">Abbie Barker</a>
+                <a href="konner-clawson.html">Konner Clawson</a>
+                <a href="mckenly-day.html">McKenly Day</a>
+                <a href="spencer-nay.html">Spencer Nay</a>
+                <a href="ridge-poll.html">Ridge Poll</a>
+                <a href="grace-richardson.html">Grace Richardson</a>
+                <a href="julia-wasden.html">Julia Wasden</a>
+                <a href="abby-bartholomew.html">Abby Bartholomew</a>
+                <a href="brianna-judson.html">Brianna Judson</a>
+                <a href="garrett-otto.html" class="active">Garrett Otto</a>
+              </div>
+            </li>
           </ul>
         </div>
-      </div>
-      <div class="how-i-joined-section">
-        <h3><i class="fas fa-book-open"></i> How I Joined</h3>
-        <p>
-          While my "Pickles" era officially began on March 21st, 2024, my history with the founders goes back much further. I met Noah way back during our AYSO soccer days and connected with Chance in a Junior High Spanish class.
-        </p>
-        <br>
-        <p>
-          We’ve been friends for years, but the group identity truly solidified recently over our shared obsession with pickleball. We created an Instagram group chat simply named "Pickles" to coordinate our highly competitive matches, and the name stuck instantly. From the soccer fields of our childhood to the pickleball courts of today, I couldn't ask for a better crew to drive around (and eat burritos with).
-        </p>
-      </div>
-      <div class="profile-gallery">
-        <h3><i class="fas fa-camera"></i> Photo Gallery</h3>
-        <div class="gallery-carousel">
-          <div class="carousel" id="lightbox-close">
-            <input type="radio" name="gallery-control" id="gallery-item-1" checked>
-            <input type="radio" name="gallery-control" id="gallery-item-2">
-            <input type="radio" name="gallery-control" id="gallery-item-3">
-            <input type="radio" name="gallery-control" id="gallery-item-4">
-            <input type="radio" name="gallery-control" id="gallery-item-5">
-            <input type="radio" name="gallery-control" id="gallery-item-6">
-            <input type="radio" name="gallery-control" id="gallery-item-7">
-            <input type="radio" name="gallery-control" id="gallery-item-8">
-            <input type="radio" name="gallery-control" id="gallery-item-9">
-            
-            <!-- Navigation controls that change based on which item is selected -->
-            <!-- Previous buttons -->
-            <label for="gallery-item-9" class="carousel-prev" id="prev-1"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-1" class="carousel-prev" id="prev-2"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-2" class="carousel-prev" id="prev-3"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-3" class="carousel-prev" id="prev-4"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-4" class="carousel-prev" id="prev-5"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-5" class="carousel-prev" id="prev-6"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-6" class="carousel-prev" id="prev-7"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-7" class="carousel-prev" id="prev-8"><i class="fas fa-chevron-left"></i></label>
-            <label for="gallery-item-8" class="carousel-prev" id="prev-9"><i class="fas fa-chevron-left"></i></label>
-            
-            <!-- Next buttons -->
-            <label for="gallery-item-2" class="carousel-next" id="next-1"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-3" class="carousel-next" id="next-2"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-4" class="carousel-next" id="next-3"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-5" class="carousel-next" id="next-4"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-6" class="carousel-next" id="next-5"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-7" class="carousel-next" id="next-6"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-8" class="carousel-next" id="next-7"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-9" class="carousel-next" id="next-8"><i class="fas fa-chevron-right"></i></label>
-            <label for="gallery-item-1" class="carousel-next" id="next-9"><i class="fas fa-chevron-right"></i></label>
-            
-            <div class="carousel-items">
-              <div class="carousel-item" id="item-1">
-                <a href="#lightbox-1" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo10.jpg" alt="Garrett Gallery 1">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-2">
-                <a href="#lightbox-2" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo11.jpg" alt="Garrett Gallery 2">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-3">
-                <a href="#lightbox-3" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo12.jpg" alt="Garrett Gallery 3">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-4">
-                <a href="#lightbox-4" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo13.jpg" alt="Garrett Gallery 4">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-5">
-                <a href="#lightbox-5" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo14.jpg" alt="Garrett Gallery 5">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-6">
-                <a href="#lightbox-6" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo15.jpg" alt="Garrett Gallery 6">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-7">
-                <a href="#lightbox-7" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo16.jpg" alt="Garrett Gallery 7">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-8">
-                <a href="#lightbox-8" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo17.jpg" alt="Garrett Gallery 8">
-                </a>
-              </div>
-              <div class="carousel-item" id="item-9">
-                <a href="#lightbox-9" class="lightbox-trigger">
-                  <img src="assets/images/Staff - Garrett Otto/photo18.jpg" alt="Garrett Gallery 9">
-                </a>
-              </div>
-            </div>
-            
-            <div class="carousel-nav">
-              <label for="gallery-item-1" class="nav-dot">1</label>
-              <label for="gallery-item-2" class="nav-dot">2</label>
-              <label for="gallery-item-3" class="nav-dot">3</label>
-              <label for="gallery-item-4" class="nav-dot">4</label>
-              <label for="gallery-item-5" class="nav-dot">5</label>
-              <label for="gallery-item-6" class="nav-dot">6</label>
-              <label for="gallery-item-7" class="nav-dot">7</label>
-              <label for="gallery-item-8" class="nav-dot">8</label>
-              <label for="gallery-item-9" class="nav-dot">9</label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="social-media-section">
-        <h3><i class="fas fa-share-alt"></i> Get in Touch</h3>
-        <div class="social-links">
-          <a href="https://www.instagram.com/otto.garrett/" class="social-btn instagram-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=100075096214001" class="social-btn facebook-btn" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-          <a href="https://github.com/GarrettOtto" class="social-btn github-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://vsco.co/otto-garrett3/gallery" class="social-btn vsco-btn" target="_blank"><i class="fas fa-camera"></i> VSCO</a>
-        </div>
-        
-        <div class="contact-form-section">
-          <div class="form-header">
-            <span class="form-icon"><i class="fas fa-envelope-open-text"></i></span>
-            <h4>Send Me a Message</h4>
-            <p class="form-subtitle">I'll get back to you as soon as possible!</p>
-          </div>
-          
-          <form id="contact-form" class="contact-form">
-            <!-- Name Field -->
-            <div class="form-group floating-label">
-              <input type="text" id="name" name="name" placeholder=" " required>
-              <label for="name">Your Name</label>
-              <span class="input-icon"><i class="fas fa-user"></i></span>
-            </div>
-            
-            <!-- Age Field -->
-            <div class="form-row">
-              <div class="form-group floating-label">
-                <input type="number" id="age" name="age" placeholder=" " min="13" max="120" required>
-                <label for="age">Your Age</label>
-                <span class="input-icon"><i class="fas fa-birthday-cake"></i></span>
-              </div>
-              
-              <!-- Email Field -->
-              <div class="form-group floating-label">
-                <input type="email" id="email" name="email" placeholder=" " required>
-                <label for="email">Your Email</label>
-                <span class="input-icon"><i class="fas fa-at"></i></span>
-              </div>
-            </div>
-            
-            <!-- Gender Field (Radio Buttons) -->
-            <div class="form-group radio-group">
-              <label class="group-label"><i class="fas fa-venus-mars"></i> Gender</label>
-              <div class="radio-options">
-                <div class="radio-option">
-                  <input type="radio" id="gender-female" name="gender" value="Female" required>
-                  <label for="gender-female">Female</label>
-                </div>
-                <div class="radio-option">
-                  <input type="radio" id="gender-male" name="gender" value="Male">
-                  <label for="gender-male">Male</label>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Hobbies Field -->
-            <div class="form-group floating-label">
-              <input type="text" id="hobbies" name="hobbies" placeholder=" " required>
-              <label for="hobbies">Your Hobbies</label>
-              <span class="input-icon"><i class="fas fa-hiking"></i></span>
-            </div>
-            
-            <!-- Favorite Song Field -->
-            <div class="form-group floating-label">
-              <input type="text" id="favorite-song" name="favorite_song" placeholder=" " required>
-              <label for="favorite-song">Your Favorite Song</label>
-              <span class="input-icon"><i class="fas fa-music"></i></span>
-            </div>
-            
-            <!-- Socials Field -->
-            <div class="form-group floating-label">
-              <input type="text" id="socials" name="socials" placeholder=" " required>
-              <label for="socials">Your Social Media Handles</label>
-              <span class="input-icon"><i class="fas fa-share-alt"></i></span>
-            </div>
-            
-            <!-- About You Field -->
-            <div class="form-group floating-label textarea-group">
-              <textarea id="about" name="about" rows="3" placeholder=" " required></textarea>
-              <label for="about">Tell Me About You</label>
-              <span class="input-icon textarea-icon"><i class="fas fa-user-circle"></i></span>
-            </div>
-            
-            <div class="form-footer">
-              <div class="form-note">
-                <i class="fas fa-info-circle"></i>
-                <span id="form-status">Send me a message directly</span>
-              </div>
-              <button type="submit" class="btn-primary btn-submit" id="submit-btn">
-                <span class="btn-text">Send Message</span>
-                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </main>
+      </nav>
+    </header>
 
-  <!-- EmailJS Scripts -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      // Initialize EmailJS with your public key
-      emailjs.init('UWO1amvI6vLW513q9'); // Public Key
-      
-      // Get the form element
-      const form = document.getElementById('contact-form');
-      const statusElement = document.getElementById('form-status');
-      const submitButton = document.getElementById('submit-btn');
-      
-      // Add submit event listener to the form
-      form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        
-        // Change button state to indicate loading
-        submitButton.disabled = true;
-        submitButton.querySelector('.btn-text').textContent = 'Sending...';
-        statusElement.textContent = 'Sending your message...';
-        statusElement.classList.add('sending');
-        
-        // Get selected gender
-        let selectedGender = '';
-        const genderRadios = document.getElementsByName('gender');
-        for (const radio of genderRadios) {
-          if (radio.checked) {
-            selectedGender = radio.value;
-            break;
+    <main class="section staff-profile">
+      <div class="profile-header">
+        <h1>Meet Garrett Otto</h1>
+        <div class="profile-image-wrapper">
+          <img
+            src="assets/images/Staff - Garrett Otto/Garrett.png"
+            alt="Garrett Otto smiling selfie"
+            class="staff-img"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <div class="availability-status available">
+          <span>Available</span>
+        </div>
+      </div>
+      <div class="profile-content">
+        <p>
+          TESTING Hello! I’m Garrett, the social connector and chief "vibe
+          validator" of the Pickles crew. I’m passionate about bringing people
+          together. Whether that's on the soccer field or just hanging out with
+          the group. You’ll rarely find me without my massive water bottle in
+          one hand and a burrito in the other, ready to set the tone for
+          whatever we are doing. I’m usually the one behind the wheel driving
+          everyone to our next destination. And somehow, I'm always the one
+          finishing off the food that everyone else couldn't handle.
+        </p>
+        <div class="profile-details">
+          <div class="detail-item">
+            <h3><i class="fas fa-user"></i> About Me</h3>
+            <p>
+              As a fourth-year student at Weber State University (graduating
+              Class of '26), I balance my studies with my work as a QA
+              Specialist and Launch Coordinator at Tukios. When I’m not testing
+              software or hitting the books, I’m prioritizing the important
+              things: scripture study, soccer, running, and catching a much
+              needed high-quality nap.
+            </p>
+            <br />
+            <p>
+              I love the outdoors and often go hiking with the group, though my
+              friends will warn you about my navigation skills… I have a history
+              of getting lost and literally walking up the wrong mountain trying
+              to find them. Within the group, I hold the dual titles of
+              "Designated Driver" and "Leftover Destroyer". If there is food
+              left on the table, consider it gone.
+            </p>
+          </div>
+          <div class="detail-item">
+            <h3><i class="fas fa-star"></i> Fun Facts</h3>
+            <ul class="fun-facts">
+              <li>
+                <i class="fa-solid fa-bottle-water"></i> Hydration Expert: I
+                drink an excessive amount of water… At least a gallon every
+                single day
+              </li>
+              <li>
+                <i class="fa-solid fa-hotdog"></i> The "Beto's Challenge": I
+                have eaten two massive Beto’s burritos in one sitting (and I’ve
+                done it multiple times)
+              </li>
+              <li>
+                <i class="fas fa-map-marked-alt"></i> Directionally Challenged:
+                Once got so lost on a hike I scaled a mountain solo just trying
+                to find the group
+              </li>
+              <li>
+                <i class="fa-solid fa-bread-slice"></i> Banana Bread Enthusiast:
+                It is the superior baked good
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="how-i-joined-section">
+          <h3><i class="fas fa-book-open"></i> How I Joined</h3>
+          <p>
+            While my "Pickles" era officially began on March 21st, 2024, my
+            history with the founders goes back much further. I met Noah way
+            back during our AYSO soccer days and connected with Chance in a
+            Junior High Spanish class.
+          </p>
+          <br />
+          <p>
+            We’ve been friends for years, but the group identity truly
+            solidified recently over our shared obsession with pickleball. We
+            created an Instagram group chat simply named "Pickles" to coordinate
+            our highly competitive matches, and the name stuck instantly. From
+            the soccer fields of our childhood to the pickleball courts of
+            today, I couldn't ask for a better crew to drive around (and eat
+            burritos with).
+          </p>
+        </div>
+        <div class="profile-gallery">
+          <h3><i class="fas fa-camera"></i> Photo Gallery</h3>
+          <div class="gallery-carousel">
+            <div class="carousel" id="lightbox-close">
+              <input
+                type="radio"
+                name="gallery-control"
+                id="gallery-item-1"
+                checked
+              />
+              <input type="radio" name="gallery-control" id="gallery-item-2" />
+              <input type="radio" name="gallery-control" id="gallery-item-3" />
+              <input type="radio" name="gallery-control" id="gallery-item-4" />
+              <input type="radio" name="gallery-control" id="gallery-item-5" />
+              <input type="radio" name="gallery-control" id="gallery-item-6" />
+              <input type="radio" name="gallery-control" id="gallery-item-7" />
+              <input type="radio" name="gallery-control" id="gallery-item-8" />
+              <input type="radio" name="gallery-control" id="gallery-item-9" />
+
+              <!-- Navigation controls that change based on which item is selected -->
+              <!-- Previous buttons -->
+              <label for="gallery-item-9" class="carousel-prev" id="prev-1"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-1" class="carousel-prev" id="prev-2"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-2" class="carousel-prev" id="prev-3"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-3" class="carousel-prev" id="prev-4"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-4" class="carousel-prev" id="prev-5"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-5" class="carousel-prev" id="prev-6"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-6" class="carousel-prev" id="prev-7"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-7" class="carousel-prev" id="prev-8"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+              <label for="gallery-item-8" class="carousel-prev" id="prev-9"
+                ><i class="fas fa-chevron-left"></i
+              ></label>
+
+              <!-- Next buttons -->
+              <label for="gallery-item-2" class="carousel-next" id="next-1"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-3" class="carousel-next" id="next-2"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-4" class="carousel-next" id="next-3"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-5" class="carousel-next" id="next-4"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-6" class="carousel-next" id="next-5"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-7" class="carousel-next" id="next-6"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-8" class="carousel-next" id="next-7"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-9" class="carousel-next" id="next-8"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+              <label for="gallery-item-1" class="carousel-next" id="next-9"
+                ><i class="fas fa-chevron-right"></i
+              ></label>
+
+              <div class="carousel-items">
+                <div class="carousel-item" id="item-1">
+                  <a href="#lightbox-1" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo10.jpg"
+                      alt="Garrett Gallery 1"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-2">
+                  <a href="#lightbox-2" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo11.jpg"
+                      alt="Garrett Gallery 2"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-3">
+                  <a href="#lightbox-3" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo12.jpg"
+                      alt="Garrett Gallery 3"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-4">
+                  <a href="#lightbox-4" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo13.jpg"
+                      alt="Garrett Gallery 4"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-5">
+                  <a href="#lightbox-5" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo14.jpg"
+                      alt="Garrett Gallery 5"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-6">
+                  <a href="#lightbox-6" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo15.jpg"
+                      alt="Garrett Gallery 6"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-7">
+                  <a href="#lightbox-7" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo16.jpg"
+                      alt="Garrett Gallery 7"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-8">
+                  <a href="#lightbox-8" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo17.jpg"
+                      alt="Garrett Gallery 8"
+                    />
+                  </a>
+                </div>
+                <div class="carousel-item" id="item-9">
+                  <a href="#lightbox-9" class="lightbox-trigger">
+                    <img
+                      src="assets/images/Staff - Garrett Otto/photo18.jpg"
+                      alt="Garrett Gallery 9"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <div class="carousel-nav">
+                <label for="gallery-item-1" class="nav-dot">1</label>
+                <label for="gallery-item-2" class="nav-dot">2</label>
+                <label for="gallery-item-3" class="nav-dot">3</label>
+                <label for="gallery-item-4" class="nav-dot">4</label>
+                <label for="gallery-item-5" class="nav-dot">5</label>
+                <label for="gallery-item-6" class="nav-dot">6</label>
+                <label for="gallery-item-7" class="nav-dot">7</label>
+                <label for="gallery-item-8" class="nav-dot">8</label>
+                <label for="gallery-item-9" class="nav-dot">9</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-media-section">
+          <h3><i class="fas fa-share-alt"></i> Get in Touch</h3>
+          <div class="social-links">
+            <a
+              href="https://www.instagram.com/otto.garrett/"
+              class="social-btn instagram-btn"
+              target="_blank"
+              ><i class="fab fa-instagram"></i> Instagram</a
+            >
+            <a
+              href="https://www.facebook.com/profile.php?id=100075096214001"
+              class="social-btn facebook-btn"
+              target="_blank"
+              ><i class="fab fa-facebook"></i> Facebook</a
+            >
+            <a
+              href="https://github.com/GarrettOtto"
+              class="social-btn github-btn"
+              target="_blank"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="https://vsco.co/otto-garrett3/gallery"
+              class="social-btn vsco-btn"
+              target="_blank"
+              ><i class="fas fa-camera"></i> VSCO</a
+            >
+          </div>
+
+          <div class="contact-form-section">
+            <div class="form-header">
+              <span class="form-icon"
+                ><i class="fas fa-envelope-open-text"></i
+              ></span>
+              <h4>Send Me a Message</h4>
+              <p class="form-subtitle">
+                I'll get back to you as soon as possible!
+              </p>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+              <!-- Name Field -->
+              <div class="form-group floating-label">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder=" "
+                  required
+                />
+                <label for="name">Your Name</label>
+                <span class="input-icon"><i class="fas fa-user"></i></span>
+              </div>
+
+              <!-- Age Field -->
+              <div class="form-row">
+                <div class="form-group floating-label">
+                  <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    placeholder=" "
+                    min="13"
+                    max="120"
+                    required
+                  />
+                  <label for="age">Your Age</label>
+                  <span class="input-icon"
+                    ><i class="fas fa-birthday-cake"></i
+                  ></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group floating-label">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="email">Your Email</label>
+                  <span class="input-icon"><i class="fas fa-at"></i></span>
+                </div>
+              </div>
+
+              <!-- Gender Field (Radio Buttons) -->
+              <div class="form-group radio-group">
+                <label class="group-label"
+                  ><i class="fas fa-venus-mars"></i> Gender</label
+                >
+                <div class="radio-options">
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="gender-female"
+                      name="gender"
+                      value="Female"
+                      required
+                    />
+                    <label for="gender-female">Female</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="gender-male"
+                      name="gender"
+                      value="Male"
+                    />
+                    <label for="gender-male">Male</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hobbies Field -->
+              <div class="form-group floating-label">
+                <input
+                  type="text"
+                  id="hobbies"
+                  name="hobbies"
+                  placeholder=" "
+                  required
+                />
+                <label for="hobbies">Your Hobbies</label>
+                <span class="input-icon"><i class="fas fa-hiking"></i></span>
+              </div>
+
+              <!-- Favorite Song Field -->
+              <div class="form-group floating-label">
+                <input
+                  type="text"
+                  id="favorite-song"
+                  name="favorite_song"
+                  placeholder=" "
+                  required
+                />
+                <label for="favorite-song">Your Favorite Song</label>
+                <span class="input-icon"><i class="fas fa-music"></i></span>
+              </div>
+
+              <!-- Socials Field -->
+              <div class="form-group floating-label">
+                <input
+                  type="text"
+                  id="socials"
+                  name="socials"
+                  placeholder=" "
+                  required
+                />
+                <label for="socials">Your Social Media Handles</label>
+                <span class="input-icon"><i class="fas fa-share-alt"></i></span>
+              </div>
+
+              <!-- About You Field -->
+              <div class="form-group floating-label textarea-group">
+                <textarea
+                  id="about"
+                  name="about"
+                  rows="3"
+                  placeholder=" "
+                  required
+                ></textarea>
+                <label for="about">Tell Me About You</label>
+                <span class="input-icon textarea-icon"
+                  ><i class="fas fa-user-circle"></i
+                ></span>
+              </div>
+
+              <div class="form-footer">
+                <div class="form-note">
+                  <i class="fas fa-info-circle"></i>
+                  <span id="form-status">Send me a message directly</span>
+                </div>
+                <button
+                  type="submit"
+                  class="btn-primary btn-submit"
+                  id="submit-btn"
+                >
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-icon"
+                    ><i class="fas fa-paper-plane"></i
+                  ></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- EmailJS Scripts -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        // Initialize EmailJS with your public key
+        emailjs.init("UWO1amvI6vLW513q9"); // Public Key
+
+        // Get the form element
+        const form = document.getElementById("contact-form");
+        const statusElement = document.getElementById("form-status");
+        const submitButton = document.getElementById("submit-btn");
+
+        // Add submit event listener to the form
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          // Change button state to indicate loading
+          submitButton.disabled = true;
+          submitButton.querySelector(".btn-text").textContent = "Sending...";
+          statusElement.textContent = "Sending your message...";
+          statusElement.classList.add("sending");
+
+          // Get selected gender
+          let selectedGender = "";
+          const genderRadios = document.getElementsByName("gender");
+          for (const radio of genderRadios) {
+            if (radio.checked) {
+              selectedGender = radio.value;
+              break;
+            }
+          }
+
+          // Prepare the template parameters
+          const templateParams = {
+            name: document.getElementById("name").value,
+            age: document.getElementById("age").value,
+            email: document.getElementById("email").value,
+            gender: selectedGender,
+            hobbies: document.getElementById("hobbies").value,
+            about: document.getElementById("about").value,
+            socials: document.getElementById("socials").value,
+            favorite_song: document.getElementById("favorite-song").value,
+          };
+
+          // Send the email using EmailJS
+          emailjs
+            .send("picklesWebsite", "template_u8tqdt6", templateParams) // Service ID and Template ID
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                statusElement.classList.remove("sending");
+                statusElement.textContent = "Message sent successfully!";
+                statusElement.style.color = "var(--accent-color)";
+                submitButton.querySelector(".btn-text").textContent =
+                  "Message Sent";
+                submitButton.classList.add("success");
+
+                // Reset the form fields after a delay for better UX
+                setTimeout(() => {
+                  form.reset();
+
+                  // Reset the form after 5 seconds for another potential submission
+                  setTimeout(() => {
+                    statusElement.textContent = "Send me a message directly";
+                    statusElement.style.color = "";
+                    submitButton.querySelector(".btn-text").textContent =
+                      "Send Message";
+                    submitButton.classList.remove("success");
+                    submitButton.disabled = false;
+                  }, 5000);
+                }, 1000);
+              },
+              function (error) {
+                console.log("FAILED...", error);
+                statusElement.classList.remove("sending");
+                statusElement.textContent =
+                  "Failed to send message. Please try again.";
+                statusElement.style.color = "#e74c3c";
+                submitButton.querySelector(".btn-text").textContent =
+                  "Try Again";
+                submitButton.disabled = false;
+              },
+            );
+        });
+      })();
+    </script>
+
+    <!-- Lightbox Gallery -->
+    <div class="lightbox" id="lightbox-1">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-9" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo10.jpg"
+          alt="Garrett Gallery 1"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-2" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-2">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-1" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo11.jpg"
+          alt="Garrett Gallery 2"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-3" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-3">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-2" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo12.jpg"
+          alt="Garrett Gallery 3"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-4" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-4">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-3" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo13.jpg"
+          alt="Garrett Gallery 4"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-5" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-5">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-4" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo14.jpg"
+          alt="Garrett Gallery 5"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-6" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-6">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-5" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo15.jpg"
+          alt="Garrett Gallery 6"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-7" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-7">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-6" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo16.jpg"
+          alt="Garrett Gallery 7"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-8" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-8">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-7" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo17.jpg"
+          alt="Garrett Gallery 8"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-9" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <div class="lightbox" id="lightbox-9">
+      <a href="#lightbox-close" class="close-lightbox"
+        ><i class="fas fa-times"></i
+      ></a>
+      <a href="#lightbox-8" class="lightbox-prev"
+        ><i class="fas fa-chevron-left"></i
+      ></a>
+      <div class="lightbox-content">
+        <img
+          src="assets/images/Staff - Garrett Otto/photo18.jpg"
+          alt="Garrett Gallery 9"
+          class="lightbox-image"
+        />
+      </div>
+      <a href="#lightbox-1" class="lightbox-next"
+        ><i class="fas fa-chevron-right"></i
+      ></a>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/gallery.js"></script>
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img
+            src="assets/images/animated_pickle.gif"
+            alt="Pickle Logo"
+            class="footer-logo-img"
+          />
+          <h3><a href="index.html">Pickles</a></h3>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2025 Pickles. All rights reserved.</p>
+          <p>A group of friends, endless adventures</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About</a>
+        <a href="activities.html">Activities</a>
+        <a href="stories.html">Stories</a>
+        <a href="friends.html">Friends</a>
+      </div>
+    </footer>
+    <script>
+      // Mobile navigation toggle functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileToggle = document.querySelector(".mobile-nav-toggle");
+        const mobileMenu = document.querySelector(".mobile-menu-container");
+        const navOverlay = document.querySelector(".nav-overlay");
+        const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
+
+        // Function to hide the green header with Home and About Us buttons
+        function hideGreenHeader() {
+          if (window.innerWidth <= 768) {
+            // Look for all divs in the document that are NOT part of our main navigation
+            const allDivs = document.querySelectorAll(
+              "div:not(.navbar):not(.navbar-brand):not(.navbar-links):not(.mobile-menu-container):not(.mobile-menu):not(.dropdown-content):not(.mobile-dropdown-content)",
+            );
+
+            allDivs.forEach((div) => {
+              // Skip our navigation elements
+              if (
+                div.closest(".navbar") ||
+                div.closest(".mobile-menu-container")
+              ) {
+                return;
+              }
+
+              // Check if this div might be the green header
+              const style = window.getComputedStyle(div);
+              const bgColor = style.backgroundColor;
+
+              // Check for green background color
+              if (
+                bgColor.includes("rgb(48, 89, 33)") ||
+                bgColor.includes("rgb(76, 175, 80)")
+              ) {
+                // Check if it contains Home and About Us links
+                const links = div.querySelectorAll("a");
+                let hasHomeLink = false;
+                let hasAboutLink = false;
+
+                links.forEach((link) => {
+                  const text = link.textContent.trim().toLowerCase();
+                  const href = link.getAttribute("href");
+
+                  if (
+                    text === "home" ||
+                    (href && href.includes("index.html"))
+                  ) {
+                    hasHomeLink = true;
+                  }
+                  if (
+                    text === "about us" ||
+                    text === "about" ||
+                    (href && href.includes("about"))
+                  ) {
+                    hasAboutLink = true;
+                  }
+                });
+                // If this div has both Home and About links, hide it
+                if (hasHomeLink && hasAboutLink) {
+                  div.style.display = "none";
+                  div.style.visibility = "hidden";
+                  div.style.opacity = "0";
+                  div.style.pointerEvents = "none";
+                  div.style.height = "0";
+                  div.style.overflow = "hidden";
+                  div.style.position = "absolute";
+                  div.style.top = "-9999px";
+                }
+              }
+
+              // Also check if this is a header or navigation element (but not our main navigation)
+              if (
+                div.id &&
+                (div.id.includes("header") || div.id.includes("nav"))
+              ) {
+                // Skip our main navigation elements
+                if (
+                  div.closest(".navbar") ||
+                  div.closest(".mobile-menu-container") ||
+                  div.classList.contains("navbar") ||
+                  div.classList.contains("mobile-menu-container")
+                ) {
+                  return;
+                }
+
+                const links = div.querySelectorAll("a");
+                let hasHomeLink = false;
+                let hasAboutLink = false;
+
+                links.forEach((link) => {
+                  const text = link.textContent.trim().toLowerCase();
+                  const href = link.getAttribute("href");
+
+                  if (
+                    text === "home" ||
+                    (href && href.includes("index.html"))
+                  ) {
+                    hasHomeLink = true;
+                  }
+                  if (
+                    text === "about us" ||
+                    text === "about" ||
+                    (href && href.includes("about"))
+                  ) {
+                    hasAboutLink = true;
+                  }
+                });
+
+                // If this div has both Home and About links, hide it
+                if (hasHomeLink && hasAboutLink) {
+                  div.style.display = "none";
+                  div.style.visibility = "hidden";
+                  div.style.opacity = "0";
+                  div.style.pointerEvents = "none";
+                  div.style.height = "0";
+                  div.style.overflow = "hidden";
+                  div.style.position = "absolute";
+                  div.style.top = "-9999px";
+                }
+              }
+            });
+
+            // Also hide any standalone Home and About Us links at the top (but not in our navigation)
+            const topLinks = document.querySelectorAll(
+              "body > a, body > div > a",
+            );
+            topLinks.forEach((link) => {
+              // Skip links in our navigation
+              if (
+                link.closest(".navbar") ||
+                link.closest(".mobile-menu-container") ||
+                link.closest(".navbar-brand") ||
+                link.closest(".mobile-menu")
+              ) {
+                return;
+              }
+
+              const text = link.textContent.trim().toLowerCase();
+              const href = link.getAttribute("href");
+
+              if (
+                text === "home" ||
+                (href && href.includes("index.html")) ||
+                text === "about us" ||
+                text === "about" ||
+                (href && href.includes("about"))
+              ) {
+                link.style.display = "none";
+                link.style.visibility = "hidden";
+                link.style.opacity = "0";
+                link.style.pointerEvents = "none";
+              }
+            });
           }
         }
-        
-        // Prepare the template parameters
-        const templateParams = {
-          name: document.getElementById('name').value,
-          age: document.getElementById('age').value,
-          email: document.getElementById('email').value,
-          gender: selectedGender,
-          hobbies: document.getElementById('hobbies').value,
-          about: document.getElementById('about').value,
-          socials: document.getElementById('socials').value,
-          favorite_song: document.getElementById('favorite-song').value
-        };
-        
-        // Send the email using EmailJS
-        emailjs.send('picklesWebsite', 'template_u8tqdt6', templateParams) // Service ID and Template ID
-          .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            statusElement.classList.remove('sending');
-            statusElement.textContent = 'Message sent successfully!';
-            statusElement.style.color = 'var(--accent-color)';
-            submitButton.querySelector('.btn-text').textContent = 'Message Sent';
-            submitButton.classList.add('success');
-            
-            // Reset the form fields after a delay for better UX
-            setTimeout(() => {
-              form.reset();
-              
-              // Reset the form after 5 seconds for another potential submission
-              setTimeout(() => {
-                statusElement.textContent = 'Send me a message directly';
-                statusElement.style.color = '';
-                submitButton.querySelector('.btn-text').textContent = 'Send Message';
-                submitButton.classList.remove('success');
-                submitButton.disabled = false;
-              }, 5000);
-            }, 1000);
-          }, function(error) {
-            console.log('FAILED...', error);
-            statusElement.classList.remove('sending');
-            statusElement.textContent = 'Failed to send message. Please try again.';
-            statusElement.style.color = '#e74c3c';
-            submitButton.querySelector('.btn-text').textContent = 'Try Again';
-            submitButton.disabled = false;
-          });
-      });
-    })();
-  </script>
 
-  <!-- Lightbox Gallery -->
-  <div class="lightbox" id="lightbox-1">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-9" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo10.jpg" alt="Garrett Gallery 1" class="lightbox-image">
-    </div>
-    <a href="#lightbox-2" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
+        // Run the function on page load, after a short delay, and on resize
+        hideGreenHeader();
+        setTimeout(hideGreenHeader, 100); // Run again after a short delay
+        setTimeout(hideGreenHeader, 500); // Run again after a longer delay
+        window.addEventListener("resize", hideGreenHeader);
+        window.addEventListener("load", hideGreenHeader);
 
-  <div class="lightbox" id="lightbox-2">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-1" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo11.jpg" alt="Garrett Gallery 2" class="lightbox-image">
-    </div>
-    <a href="#lightbox-3" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
+        // Toggle mobile menu
+        mobileToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+          navOverlay.classList.toggle("active");
 
-  <div class="lightbox" id="lightbox-3">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-2" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo12.jpg" alt="Garrett Gallery 3" class="lightbox-image">
-    </div>
-    <a href="#lightbox-4" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-
-  <div class="lightbox" id="lightbox-4">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-3" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo13.jpg" alt="Garrett Gallery 4" class="lightbox-image">
-    </div>
-    <a href="#lightbox-5" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-
-  <div class="lightbox" id="lightbox-5">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-4" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo14.jpg" alt="Garrett Gallery 5" class="lightbox-image">
-    </div>
-    <a href="#lightbox-6" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-
-  <div class="lightbox" id="lightbox-6">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-5" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo15.jpg" alt="Garrett Gallery 6" class="lightbox-image">
-    </div>
-    <a href="#lightbox-7" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-
-  <div class="lightbox" id="lightbox-7">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-6" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo16.jpg" alt="Garrett Gallery 7" class="lightbox-image">
-    </div>
-    <a href="#lightbox-8" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-
-  <div class="lightbox" id="lightbox-8">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-7" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo17.jpg" alt="Garrett Gallery 8" class="lightbox-image">
-    </div>
-    <a href="#lightbox-9" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-
-  <div class="lightbox" id="lightbox-9">
-    <a href="#lightbox-close" class="close-lightbox"><i class="fas fa-times"></i></a>
-    <a href="#lightbox-8" class="lightbox-prev"><i class="fas fa-chevron-left"></i></a>
-    <div class="lightbox-content">
-      <img src="assets/images/Staff - Garrett Otto/photo18.jpg" alt="Garrett Gallery 9" class="lightbox-image">
-    </div>
-    <a href="#lightbox-1" class="lightbox-next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-
-  <!-- JavaScript Files -->
-  <script src="assets/js/gallery.js"></script>
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="assets/images/animated_pickle.gif" alt="Pickle Logo" class="footer-logo-img">
-        <h3><a href="index.html">Pickles</a></h3>
-      </div>
-      <div class="footer-info">
-        <p>&copy; 2025 Pickles. All rights reserved.</p>
-        <p>A group of friends, endless adventures</p>
-      </div>
-    </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about-us.html">About</a>
-      <a href="activities.html">Activities</a>
-      <a href="stories.html">Stories</a>
-      <a href="friends.html">Friends</a>
-    </div>
-  </footer>
-  <script>
-  // Mobile navigation toggle functionality
-  document.addEventListener('DOMContentLoaded', function() {
-      const mobileToggle = document.querySelector('.mobile-nav-toggle');
-      const mobileMenu = document.querySelector('.mobile-menu-container');
-      const navOverlay = document.querySelector('.nav-overlay');
-      const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-      
-      // Function to hide the green header with Home and About Us buttons
-      function hideGreenHeader() {
-          if (window.innerWidth <= 768) {
-              // Look for all divs in the document that are NOT part of our main navigation
-              const allDivs = document.querySelectorAll('div:not(.navbar):not(.navbar-brand):not(.navbar-links):not(.mobile-menu-container):not(.mobile-menu):not(.dropdown-content):not(.mobile-dropdown-content)');
-              
-              allDivs.forEach(div => {
-                  // Skip our navigation elements
-                  if (div.closest('.navbar') || div.closest('.mobile-menu-container')) {
-                      return;
-                  }
-                  
-                  // Check if this div might be the green header
-                  const style = window.getComputedStyle(div);
-                  const bgColor = style.backgroundColor;
-                  
-                  // Check for green background color
-                  if (bgColor.includes('rgb(48, 89, 33)') || bgColor.includes('rgb(76, 175, 80)')) {
-                      // Check if it contains Home and About Us links
-                      const links = div.querySelectorAll('a');
-                      let hasHomeLink = false;
-                      let hasAboutLink = false;
-                      
-                      links.forEach(link => {
-                          const text = link.textContent.trim().toLowerCase();
-                          const href = link.getAttribute('href');
-                          
-                          if (text === 'home' || (href && href.includes('index.html'))) {
-                              hasHomeLink = true;
-                          }
-                          if (text === 'about us' || text === 'about' || (href && href.includes('about'))) {
-                              hasAboutLink = true;
-                          }
-                      });
-                      // If this div has both Home and About links, hide it
-                      if (hasHomeLink && hasAboutLink) {
-                          div.style.display = 'none';
-                          div.style.visibility = 'hidden';
-                          div.style.opacity = '0';
-                          div.style.pointerEvents = 'none';
-                          div.style.height = '0';
-                          div.style.overflow = 'hidden';
-                          div.style.position = 'absolute';
-                          div.style.top = '-9999px';
-                      }
-                  }
-                  
-                  // Also check if this is a header or navigation element (but not our main navigation)
-                  if (div.id && (div.id.includes('header') || div.id.includes('nav'))) {
-                      // Skip our main navigation elements
-                      if (div.closest('.navbar') || div.closest('.mobile-menu-container') ||
-                          div.classList.contains('navbar') || div.classList.contains('mobile-menu-container')) {
-                          return;
-                      }
-                      
-                      const links = div.querySelectorAll('a');
-                      let hasHomeLink = false;
-                      let hasAboutLink = false;
-                      
-                      links.forEach(link => {
-                          const text = link.textContent.trim().toLowerCase();
-                          const href = link.getAttribute('href');
-                          
-                          if (text === 'home' || (href && href.includes('index.html'))) {
-                              hasHomeLink = true;
-                          }
-                          if (text === 'about us' || text === 'about' || (href && href.includes('about'))) {
-                              hasAboutLink = true;
-                          }
-                      });
-                      
-                      // If this div has both Home and About links, hide it
-                      if (hasHomeLink && hasAboutLink) {
-                          div.style.display = 'none';
-                          div.style.visibility = 'hidden';
-                          div.style.opacity = '0';
-                          div.style.pointerEvents = 'none';
-                          div.style.height = '0';
-                          div.style.overflow = 'hidden';
-                          div.style.position = 'absolute';
-                          div.style.top = '-9999px';
-                      }
-                  }
-              });
-              
-              // Also hide any standalone Home and About Us links at the top (but not in our navigation)
-              const topLinks = document.querySelectorAll('body > a, body > div > a');
-              topLinks.forEach(link => {
-                  // Skip links in our navigation
-                  if (link.closest('.navbar') || link.closest('.mobile-menu-container') || 
-                      link.closest('.navbar-brand') || link.closest('.mobile-menu')) {
-                      return;
-                  }
-                  
-                  const text = link.textContent.trim().toLowerCase();
-                  const href = link.getAttribute('href');
-                  
-                  if ((text === 'home' || (href && href.includes('index.html'))) || 
-                      (text === 'about us' || text === 'about' || (href && href.includes('about')))) {
-                      link.style.display = 'none';
-                      link.style.visibility = 'hidden';
-                      link.style.opacity = '0';
-                      link.style.pointerEvents = 'none';
-                  }
-              });
-          }
-      }
-      
-      // Run the function on page load, after a short delay, and on resize
-      hideGreenHeader();
-      setTimeout(hideGreenHeader, 100); // Run again after a short delay
-      setTimeout(hideGreenHeader, 500); // Run again after a longer delay
-      window.addEventListener('resize', hideGreenHeader);
-      window.addEventListener('load', hideGreenHeader);
-      
-      // Toggle mobile menu
-      mobileToggle.addEventListener('click', function() {
-          mobileMenu.classList.toggle('active');
-          navOverlay.classList.toggle('active');
-          
           // Toggle between hamburger and close icon
-          if (this.querySelector('i').classList.contains('fa-bars')) {
-              this.querySelector('i').classList.remove('fa-bars');
-              this.querySelector('i').classList.add('fa-times');
+          if (this.querySelector("i").classList.contains("fa-bars")) {
+            this.querySelector("i").classList.remove("fa-bars");
+            this.querySelector("i").classList.add("fa-times");
           } else {
-              this.querySelector('i').classList.add('fa-bars');
-              this.querySelector('i').classList.remove('fa-times');
+            this.querySelector("i").classList.add("fa-bars");
+            this.querySelector("i").classList.remove("fa-times");
           }
-          
+
           // Hide green header when menu is opened
           hideGreenHeader();
-      });
-      
-      // Close menu when clicking overlay
-      navOverlay.addEventListener('click', function() {
+        });
+
+        // Close menu when clicking overlay
+        navOverlay.addEventListener("click", function () {
           closeMenu();
-      });
-      
-      // Mobile dropdown functionality
-      mobileDropdowns.forEach(dropdown => {
-          const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
-          const dropdownContent = dropdown.querySelector('.mobile-dropdown-content');
-          
+        });
+
+        // Mobile dropdown functionality
+        mobileDropdowns.forEach((dropdown) => {
+          const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+          const dropdownContent = dropdown.querySelector(
+            ".mobile-dropdown-content",
+          );
+
           if (dropdownToggle && dropdownContent) {
-              dropdownToggle.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  e.stopPropagation(); // Prevent event from bubbling up
-                  
-                  const isOpening = !dropdown.classList.contains('active');
-                  
-                  // Close any other open dropdowns
-                  mobileDropdowns.forEach(otherDropdown => {
-                      if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
-                          otherDropdown.classList.remove('active');
-                      }
+            dropdownToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation(); // Prevent event from bubbling up
+
+              const isOpening = !dropdown.classList.contains("active");
+
+              // Close any other open dropdowns
+              mobileDropdowns.forEach((otherDropdown) => {
+                if (
+                  otherDropdown !== dropdown &&
+                  otherDropdown.classList.contains("active")
+                ) {
+                  otherDropdown.classList.remove("active");
+                }
+              });
+
+              // Toggle the clicked dropdown
+              dropdown.classList.toggle("active", isOpening);
+
+              // If we're opening this dropdown, scroll it into view
+              if (isOpening) {
+                // Small timeout to allow the dropdown to open before scrolling
+                setTimeout(() => {
+                  dropdown.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
                   });
-                  
-                  // Toggle the clicked dropdown
-                  dropdown.classList.toggle('active', isOpening);
-                  
-                  // If we're opening this dropdown, scroll it into view
-                  if (isOpening) {
-                      // Small timeout to allow the dropdown to open before scrolling
-                      setTimeout(() => {
-                          dropdown.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                      }, 10);
-                  }
-              });
-              
-              // Allow clicks inside the dropdown content to propagate (for scrolling)
-              dropdownContent.addEventListener('click', function(e) {
-                  e.stopPropagation();
-              });
-          }
-      });
+                }, 10);
+              }
+            });
 
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(e) {
-          if (!e.target.closest('.mobile-dropdown')) {
-              mobileDropdowns.forEach(dropdown => {
-                  dropdown.classList.remove('active');
-              });
+            // Allow clicks inside the dropdown content to propagate (for scrolling)
+            dropdownContent.addEventListener("click", function (e) {
+              e.stopPropagation();
+            });
           }
-      });
-      
-      // Close menu function
-      function closeMenu() {
-          mobileMenu.classList.remove('active');
-          navOverlay.classList.remove('active');
-          mobileToggle.querySelector('i').classList.add('fa-bars');
-          mobileToggle.querySelector('i').classList.remove('fa-times');
-          
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".mobile-dropdown")) {
+            mobileDropdowns.forEach((dropdown) => {
+              dropdown.classList.remove("active");
+            });
+          }
+        });
+
+        // Close menu function
+        function closeMenu() {
+          mobileMenu.classList.remove("active");
+          navOverlay.classList.remove("active");
+          mobileToggle.querySelector("i").classList.add("fa-bars");
+          mobileToggle.querySelector("i").classList.remove("fa-times");
+
           // Close all dropdowns
-          mobileDropdowns.forEach(dropdown => {
-              dropdown.classList.remove('active');
+          mobileDropdowns.forEach((dropdown) => {
+            dropdown.classList.remove("active");
           });
-      }
-      
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(e) {
-          if (!e.target.closest('.mobile-dropdown')) {
-              mobileDropdowns.forEach(dropdown => {
-                  dropdown.classList.remove('active');
-              });
-          }
-      });
-      
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(e) {
-          if (!e.target.closest('.mobile-dropdown')) {
-              mobileDropdowns.forEach(dropdown => {
-                  dropdown.classList.remove('active');
-              });
-          }
-      });
-      
-      // Close menu when clicking a link (except dropdown toggles)
-      const menuLinks = document.querySelectorAll('.mobile-menu a:not(.mobile-dropdown > a)');
-      menuLinks.forEach(link => {
-          link.addEventListener('click', function() {
-              closeMenu();
-          });
-      });
-      
-      // Handle window resize
-      window.addEventListener('resize', function() {
-          if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
-              closeMenu();
-          }
-      });
-  });
-  </script>
-</body>
-</html>
+        }
 
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".mobile-dropdown")) {
+            mobileDropdowns.forEach((dropdown) => {
+              dropdown.classList.remove("active");
+            });
+          }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".mobile-dropdown")) {
+            mobileDropdowns.forEach((dropdown) => {
+              dropdown.classList.remove("active");
+            });
+          }
+        });
+
+        // Close menu when clicking a link (except dropdown toggles)
+        const menuLinks = document.querySelectorAll(
+          ".mobile-menu a:not(.mobile-dropdown > a)",
+        );
+        menuLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            closeMenu();
+          });
+        });
+
+        // Handle window resize
+        window.addEventListener("resize", function () {
+          if (
+            window.innerWidth > 768 &&
+            mobileMenu.classList.contains("active")
+          ) {
+            closeMenu();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
